@@ -173,18 +173,19 @@ https://workodin.com/assets/media/architecture-lamp.svg
 
   DANS CE SOUS-DOSSIER, ON VA CREER UN SITE DE 3 PAGES EN PHP
 
-  accueil         index.php
-  projets         projets.php
-  contact         contact.php
+    accueil         index.php
+    projets         projets.php
+    contact         contact.php
 
   DECOUPER VOS CODES EN HTML EN TRANCHES 
   ET LES RANGER DES DES FICHIERS SEPARES
 
   CREER LE DOSSIER php
   ET LES SOUS-DOSSIERS 
-  model 
-  view 
-  controller
+  
+    model 
+    view 
+    controller
 
   (NE PAS OUBLIER LE FICHIER .htaccess DANS LE DOSSIER php POUR PROTEGER LE DOSSIER)
 
