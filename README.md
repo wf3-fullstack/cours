@@ -6,9 +6,9 @@ URL DU GIT
 https://github.com/wf3-fullstack/cours
 
 
-## lien live share 14/11
+## lien live share vendredi 15/11
 
-https://prod.liveshare.vsengsaas.visualstudio.com/join?73B7EF339FE361DC6F22B08BC2BCC7E1AF40
+https://prod.liveshare.vsengsaas.visualstudio.com/join?F02CF1A7778CA4885438F2F104B8F793C237
 
 
 ## COURS PHP 01
