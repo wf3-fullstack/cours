@@ -2,6 +2,8 @@
 // ATTENTION: ATTAQUES PAR CHEVAL DE TROIE... 
 
 // $nom = $_POST["nom"];
+// $message = $_REQUEST["message"];
+
 $infosFormulaire = json_encode($_REQUEST);
 // AFFICHER AU NAVIGATEUR LA VALEUR DE LA VARIABLE
 echo $infosFormulaire;

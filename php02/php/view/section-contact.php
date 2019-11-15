@@ -52,6 +52,9 @@
 
             var formData = new FormData(event.target);
 
+            // ON PEUT AJOUTER DES INFOS SUPPLEMENTAIRES
+            formData.append("cle", "valeur");
+            
             // ET ENSUITE, JE VAIS LES ENVOYER PAR AJAX
             // => CA NE RECHARGE PAS LA PAGE ACTUELLE
             fetch("traitement.php", {

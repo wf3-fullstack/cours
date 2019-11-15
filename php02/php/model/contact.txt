@@ -6,3 +6,6 @@
 {"nom":"nom1440","email":"mail1440@mail.me","message":"message1440"}
 {"nom":"nom1445","email":"email1445@mail.me","message":"message1445"}
 {"nom":"georges lucas","email":"georges@disney.com","message":"le nouveau star wars est pourri (yoda est pas la...)"}
+{"nom":"test1703","email":"mail1703@mail.me","message":"test1704"}
+{"nom":"test1703","email":"mail1703@mail.me","message":"test1704"}
+{"nom":"nom1707","email":"mail1707@mail.me","message":"message1707","cle":"valeur"}
