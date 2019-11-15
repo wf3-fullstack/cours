@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h5>TITRE1</h5>
+        <h5>TITRE2</h5>
+        <h5>TITRE3</h5>
+    </main>
+
+    <script>
+var listeH5 = document.querySelectorAll("h5");
+listeH5.forEach(function(h5){
+    h5.addEventListener("click", function(event){
+        console.log(event.target);
+    })
+});    
+    </script>
+</body>
+</html>
