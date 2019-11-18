@@ -18,9 +18,11 @@ $tableau = [
     <h2>GALERIE DE PHOTOS</h2>
 
     <figure class="galerie">
+
 <?php
 
 // https://www.php.net/manual/fr/function.glob.php
+// la fonction glob construit le tableau avec les chemins des fichiers .jpg
 $tableau = glob("assets/img/*.jpg");
 
 foreach($tableau as $indice => $image)
@@ -35,12 +37,12 @@ foreach($tableau as $indice => $image)
     {
         // SCENARIO blue
         $couleur = "blue";
-
     }
 
     echo        // NE PAS OUBLIER echo POUR AFFICHER UN TEXTE PHP
 <<<TOTO
         <img class="$couleur" src="$image" alt="photo">
+
 TOTO;
 
     // AU LIEU DE CONCATENER AVEC .

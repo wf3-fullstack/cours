@@ -363,24 +363,24 @@ foreach($tableau as $element)
 
 ## EXERCICE POUR CET APRES-MIDI
 
-AJOUTER DU CODE PHP SUR LE SITE VITRINE
+    AJOUTER DU CODE PHP SUR LE SITE VITRINE
 
-* AJOUTER UNE CLASSE DIFFERENTE A CHAQUE BALISE body DE CHAQUE PAGE
+    * AJOUTER UNE CLASSE DIFFERENTE A CHAQUE BALISE body DE CHAQUE PAGE
 
-exemple: 
-LA PAGE index.php AURA body class="index"
-LA PAGE services.php AURA body class="services"
-LA PAGE contact.php AURA body class="contact"
+    exemple: 
+    LA PAGE index.php AURA body class="index"
+    LA PAGE services.php AURA body class="services"
+    LA PAGE contact.php AURA body class="contact"
 
-* SUR LA PAGE services, AJOUTER UNE GALERIE DE PHOTOS
+    * SUR LA PAGE services, AJOUTER UNE GALERIE DE PHOTOS
 
-AJOUTER UN TABLEAU PHP ET UNE BOUCLE POUR AFFICHER CES PHOTOS
+    AJOUTER UN TABLEAU PHP ET UNE BOUCLE POUR AFFICHER CES PHOTOS
 
-* BONUS: AJOUTER UNE CLASSE DIFFERENTE UNE IMAGE SUR DEUX (orange ET blue)
+    * BONUS: AJOUTER UNE CLASSE DIFFERENTE UNE IMAGE SUR DEUX (orange ET blue)
 
-* BONUS DU BONUS: BATTLEDEV (PREMIERS EXOS...)
+    * BONUS DU BONUS: BATTLEDEV (PREMIERS EXOS...)
 
-    https://www.isograd.com/FR/solutionconcours.php
+        https://www.isograd.com/FR/solutionconcours.php
 
 
 
