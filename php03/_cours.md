@@ -154,7 +154,7 @@
     // ATTENTION, CA NE MARCHE PAS AVEC LES GUILLEMETS SIMPLES
     $phrase5 = '$nom a $age ans';       // resultat '$nom a $age ans'
 
-    ECRITURE EN HEREDOC
+    // ECRITURE EN HEREDOC
     $titre      = "le titre de ma page";
     $contenu    = "le contenu de ma page";
 
