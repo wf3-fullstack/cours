@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="<?php echo $titre1; ?>">
     <header>
-        <h1>MON SITE VITRINE</h1>
+        <h1>MON SITE VITRINE <?php echo $titre1; ?></h1>
         <nav>
             <a href="index.php">accueil</a>
             <a href="services.php">services</a>
@@ -19,4 +19,3 @@
         </nav>
     </header>
     <main>
-        
