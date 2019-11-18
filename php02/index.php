@@ -1,6 +1,6 @@
 <?php
 // BALISE OUVRANTE PHP
-// $titre1 = "accueil";
+$titre1 = "accueil";
 
 // JE DEMANDE A PHP DE RECOMPOSER LA PAGE AVEC LES TRANCHES
 require_once "php/view/header.php";

@@ -137,6 +137,9 @@
     ASSEMBLER PLUSIEURS TEXTES ENSEMBLE
     => OPERATEUR EN PHP     .
 
+```php
+<?php
+
     $phrase = "bonjour, " . "mon nom est jean";    // resultat "bonjour, mon nom est jean"
     $phrase2 = "bonjour, " . 123;                   // resultat "bonjour 123"
 
@@ -163,6 +166,8 @@
             <p>$contenu</p>
         </article>
     MABALISE;
+```
+
 
 
 ### OPERATEURS SUR LES NOMBRES
@@ -174,6 +179,8 @@
     /   DIVISION
     %   MODULO          (RESTE DE LA DIVISION)
 
+```php
+<?php
     $hauteur    = 2;
     $largeur    = 3;
     $longueur   = 4;
@@ -186,6 +193,7 @@
 
     $prixTTC = $prixHT + $prixHT * $tva / 100;      // résultat = 120
     $prixTTC = $priHT * ( 1 + $tva / 100);
+```
 
 ## VALEURS: BOOLEENS
 
@@ -223,6 +231,8 @@
 ## STRUCTURES DE CONTROLE: CONDITIONS
 
 
+```php
+<?php
     // TRES IMPORTANT DANS LA PROGRAMMATION
     // DONNE LE CHOIX ENTRE 2 POSSIBILITES
     // => REND LES PROGRAMMES INTELLIGENTS
@@ -237,6 +247,7 @@
         echo "texte1";
         echo "texte2";
     }
+```
 
     IMPORTANT A COMPRENDRE: UN SEUL BLOC D'INSTRUCTION EST EXECUTE A CHAQUE FOIS
 
@@ -244,6 +255,8 @@
 
 ### VALEURS: TABLEAUX
 
+```php
+<?php
     // AVEC LES CROCHETS
     $tableau = [ "un", "deux" ];
 
@@ -280,6 +293,7 @@
     // https://www.php.net/manual/fr/function.count.php
     $nbElement = count($tableau);
 
+```
 
 ### BOUCLES for ET while
 
@@ -290,6 +304,9 @@
     UNE BOUCLE SERT A REPETER PLUSIEURS FOIS UN BLOC D'INSTRUCTIONS
 
     IL Y A PLUSIEURS MANIERES D'ECRIRE DES BOUCLES
+
+```php
+<?php
 
     for ($compteur=0; $compteur<10; $compteur++)  // 3 INSTRUCTIONS IMPORTANTES
     {
@@ -311,6 +328,7 @@
 
         $compteur++;        // ATTENTION: SI ON OUBLIE ON PART EN BOUCLE INFINIE
     }
+```
 
 ## BOUCLES AVEC TABLEAUX
 
@@ -322,6 +340,8 @@
 
     => ET SI ON COMBINAIT LES BOUCLES ET LES TABLEAUX ???
 
+```php
+<?php
     $tableau = [ "a", "b", "c", "d" ];
 
     for ($indice=0; $indice < count($tableau); $indice++)
@@ -332,7 +352,7 @@
         echo "<h2>$element</h2>";
 
     }
-
+```
 
     GENERALEMENT, SI VOUS DETECTEZ DANS VOTRE CODE 
     DES LIGNES QUI SE REPETENT
@@ -348,6 +368,8 @@
     EN PHP: SI ON VEUT PARCOURIR UN TABLEAU DU PREMIER ELEMENT AU DERNIER
     => ON A UNE 3E FORME SIMPLIFIEE foreach
 
+```php
+<?php
     $tableau = [ "a", "b", "c", "d" ];
 
     foreach($tableau as $indice => $element)
@@ -361,7 +383,8 @@
     {
         echo "<h2>$element</h2>";
     }
-
+?>
+```
 
 ## EXERCICE POUR CET APRES-MIDI
 
