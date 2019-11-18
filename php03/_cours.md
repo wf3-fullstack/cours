@@ -151,8 +151,8 @@ $phrase4 = "$nom a $age ans";
 $phrase5 = '$nom a $age ans';       // resultat '$nom a $age ans'
 
 ECRITURE EN HEREDOC
-$titre = "le titre de ma page";
-$contenu = "le contenu de ma page";
+$titre      = "le titre de ma page";
+$contenu    = "le contenu de ma page";
 
 // ATTENTION: PAS D'ESPACE A LA FIN DES LIGNES AVEC HEREDOC
 $codeHtml =
@@ -162,6 +162,204 @@ $codeHtml =
         <p>$contenu</p>
     </article>
 MABALISE;
+
+
+### OPERATEURS SUR LES NOMBRES
+
+
++   ADDITION
+-   SOUSTRACTION
+*   MULTIPLICATION
+/   DIVISION
+%   MODULO          (RESTE DE LA DIVISION)
+
+$hauteur    = 2;
+$largeur    = 3;
+$longueur   = 4;
+
+$surface4murs = 2 * (($hauteur * $largeur) + ($hauteur * $longueur));
+$surfaceSol   = $longueur * $largeur;
+
+$prixHT = 100;
+$tva    = 20;
+
+$prixTTC = $prixHT + $prixHT * $tva / 100;      // résultat = 120
+$prixTTC = $priHT * ( 1 + $tva / 100);
+
+## VALEURS: BOOLEENS
+
+VRAI OU FAUX
+
+true        TRUE
+false       FALSE
+
+## OPERATEURS DE COMPARAISON SUR LES TEXTES ET LES NOMBRES
+
+
+    ==      EGALITE
+    ===     EGALITE DE VALEURS ET EGALITE DE TYPE
+    !=      DIFFERENCE
+    >       SUPERIEUR STRICT
+    <       INFERIEUR STRICT
+    >=      SUPERIEUR OU EGAL
+    <=      INFERIEUR OU EGAL
+    !       NEGATION
+
+## OPERATEUR TERNAIRE
+
+ECRITURE COMPACTE SUR UN TEST ENTRE 2 VALEURS
+
+    $texte = $test ? "valeur si test est vrai" : "valeur si test est faux";
+
+
+## PHP7 => OPERATEUR COALESCENT ??
+
+SI LA VARIABLE N'A PAS DE VALEUR ALORS ON DONNE UNE VALEUR PAR DEFAUT
+
+
+        <h1>MON SITE VITRINE <?php echo $titre1 ?? "valeur par défaut"; ?></h1>
+
+## STRUCTURES DE CONTROLE: CONDITIONS
+
+
+// TRES IMPORTANT DANS LA PROGRAMMATION
+// DONNE LE CHOIX ENTRE 2 POSSIBILITES
+// => REND LES PROGRAMMES INTELLIGENTS
+
+if ($test)
+{
+    // CODE EXECUTE SI $test EST VRAI
+}
+else
+{
+    // CODE EXECUTE SI $test EST FAUX
+    echo "texte1";
+    echo "texte2";
+}
+
+IMPORTANT A COMPRENDRE: UN SEUL BLOC D'INSTRUCTION EST EXECUTE A CHAQUE FOIS
+
+### VALEURS: TABLEAUX
+
+// AVEC LES CROCHETS
+$tableau = [ "un", "deux" ];
+
+// ON PEUT COMBINER LES TABLEAUX
+// COMME UN TABLEAU EST UNE VALEUR
+// ON PEUT CREER DES TABLEAUX DE TABLEAUX...
+// => MATRICES
+
+// INDICES DE TABLEAUX
+// => SERT A RETROUVER UNE VALEUR DANS LE TABLEAU
+$premiereValeur = $tableau[0];      // ATTENTION: LE PREMIER INDICE EST 0
+                                    // $premiereValeur = "un";
+
+$fichePersonnage = [ "jean", 28 ];
+$nom = $fichePersonnage[0];
+$age = $fichePersonnage[1];
+
+
+// SI JE VEUX CHANGER LA VALEUR D'UN ELEMENT DANS LE TABLEAU
+// Par exemple, si je veux changer l'age
+$fichePersonnage[1] = 30;
+
+// SI JE VEUX RAJOUTER UN NOUVEL ELEMENT
+// PAR EXEMPLE, je veux rajouter son métier en 3e valeur
+$fichePersonnage[] = "forgeron";        // INDICE 2
+
+// PHP PROPOSE PLEIN DE FONCTIONS POUR MANIPULER LES TABLEAUX
+// https://www.php.net/manual/fr/function.array-push.php
+// etc...
+
+// ATTENTION: DIFFERENT ENTRE JS ET PHP
+// POUR COMPTER LE NOMBRE D'ELEMENTS DANS UN TABLEAU
+// ON VA UTILISER LA FONCTION count
+// https://www.php.net/manual/fr/function.count.php
+$nbElement = count($tableau);
+
+
+### TABLEAUX ET BOUCLES
+
+
+BIEN COMPRENDRE: UNE BOUCLE PEUT ETRE UTILISEE SANS TABLEAU
+
+UNE BOUCLE SERT A REPETER PLUSIEURS FOIS UN BLOC D'INSTRUCTIONS
+
+IL Y A PLUSIEURS MANIERES D'ECRIRE DES BOUCLES
+
+for ($compteur=0; $compteur<10; $compteur++)  // 3 INSTRUCTIONS IMPORTANTES
+{
+    echo "<h2>$compteur</h2>";
+    // instruction1
+    // instruction2
+
+
+    // PHP EXECUTE L'INCREMENTATION AVANT DE REFAIRE LE TEST
+}
+// PHP REFAIT LE TEST POUR SAVOIR SI IL DOIT CONTINUER
+
+
+$compteur=0;
+while ($compteur<10)
+{
+    echo "<h2>$compteur</h2>";
+    // instruction1
+    // instruction2
+
+    $compteur++;        // ATTENTION: SI ON OUBLIE ON PART EN BOUCLE INFINIE
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
