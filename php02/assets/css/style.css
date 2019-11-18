@@ -22,3 +22,27 @@ form {
 form button {
     display: block;
 }
+
+/* GALERIE AVEC FLEXBOX SUR 3 COLONNES */
+.galerie {
+    display:flex;
+    flex-wrap:wrap;
+    width:100%;
+    background-color:#cccccc;
+    margin:0; /* annuler margin figure */
+}
+
+.galerie img {
+    padding: 4px;
+    width: calc(100% / 3 - 8px);  /* pratique pour calculer des ratios pas entiers */
+    object-fit:cover;
+    height:50vmin;
+}
+
+.galerie img.orange {
+    background-color: orange;
+}
+
+.galerie img.blue {
+    background-color: blue;
+}

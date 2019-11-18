@@ -239,6 +239,8 @@ else
 
 IMPORTANT A COMPRENDRE: UN SEUL BLOC D'INSTRUCTION EST EXECUTE A CHAQUE FOIS
 
+LE BLOC else EST OPTIONNEL
+
 ### VALEURS: TABLEAUX
 
 // AVEC LES CROCHETS
@@ -278,7 +280,7 @@ $fichePersonnage[] = "forgeron";        // INDICE 2
 $nbElement = count($tableau);
 
 
-### TABLEAUX ET BOUCLES
+### BOUCLES for ET while
 
 
 BIEN COMPRENDRE: UNE BOUCLE PEUT ETRE UTILISEE SANS TABLEAU
@@ -292,7 +294,6 @@ for ($compteur=0; $compteur<10; $compteur++)  // 3 INSTRUCTIONS IMPORTANTES
     echo "<h2>$compteur</h2>";
     // instruction1
     // instruction2
-
 
     // PHP EXECUTE L'INCREMENTATION AVANT DE REFAIRE LE TEST
 }
@@ -308,6 +309,81 @@ while ($compteur<10)
 
     $compteur++;        // ATTENTION: SI ON OUBLIE ON PART EN BOUCLE INFINIE
 }
+
+## BOUCLES AVEC TABLEAUX
+
+DANS LES BOUCLES, ON A UN COMPTEUR QUI EST UN NOMBRE
+(GENERALEMENT UN NOMBRE QUI VA DE 0 A 100...)
+
+DANS LES TABLEAUX, ON A UN INDICE QUI EST UN NOMBRE
+(GENERALEMENT UN NOMBRE QUI VA DE 0 A 100...)
+
+=> ET SI ON COMBINAIT LES BOUCLES ET LES TABLEAUX ???
+
+$tableau = [ "a", "b", "c", "d" ];
+
+for ($indice=0; $indice < count($tableau); $indice++)
+{
+    // JE PEUX UTILISER $indice POUR ACCEDER AUX ELEMENTS DU TABLEAU
+    $element = $tableau[$indice];
+    // JE PEUX UTILISER $element POUR AFFICHER QUELQUE CHOSE
+    echo "<h2>$element</h2>";
+
+}
+
+
+GENERALEMENT, SI VOUS DETECTEZ DANS VOTRE CODE 
+DES LIGNES QUI SE REPETENT
+MAIS QUI CHANGENT UN PEU AUSSI
+
+=> GENERALEMENT: 
+ON PEUT METTRE CE QUI CHANGE DANS UN TABLEAU
+ET CE QUI NE CHANGE PAS DANS UNE BOUCLE
+
+
+### BOUCLE foreach
+
+EN PHP: SI ON VEUT PARCOURIR UN TABLEAU DU PREMIER ELEMENT AU DERNIER
+=> ON A UNE 3E FORME SIMPLIFIEE foreach
+
+$tableau = [ "a", "b", "c", "d" ];
+
+foreach($tableau as $indice => $element)
+{
+    echo "<h2>($indice) $element</h2>";
+}
+
+
+// SI ON NE FAIT RIEN AVEC L'INDICE
+foreach($tableau as $element)
+{
+    echo "<h2>$element</h2>";
+}
+
+
+## EXERCICE POUR CET APRES-MIDI
+
+AJOUTER DU CODE PHP SUR LE SITE VITRINE
+
+* AJOUTER UNE CLASSE DIFFERENTE A CHAQUE BALISE body DE CHAQUE PAGE
+
+exemple: 
+LA PAGE index.php AURA body class="index"
+LA PAGE services.php AURA body class="services"
+LA PAGE contact.php AURA body class="contact"
+
+* SUR LA PAGE services, AJOUTER UNE GALERIE DE PHOTOS
+
+AJOUTER UN TABLEAU PHP ET UNE BOUCLE POUR AFFICHER CES PHOTOS
+
+* BONUS: AJOUTER UNE CLASSE DIFFERENTE UNE IMAGE SUR DEUX (orange ET blue)
+
+* BONUS DU BONUS: BATTLEDEV (PREMIERS EXOS...)
+
+    https://www.isograd.com/FR/solutionconcours.php
+
+
+
 
 
 
