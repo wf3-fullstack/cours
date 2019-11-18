@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="<?php echo $titre1; ?>">
+<body class="<?php echo $titre1 ?? ""; ?>">
     <header>
         <h1>MON SITE VITRINE <?php echo $titre1 ?? "valeur par défaut"; ?></h1>
         <nav>
