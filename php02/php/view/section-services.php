@@ -11,8 +11,6 @@ $tableau = [
     "assets/img/photo6.jpg",
 ];
 */
-// https://www.php.net/manual/fr/function.glob.php
-$tableau = glob("assets/img/*.jpg");
 
 ?>
 
@@ -21,6 +19,9 @@ $tableau = glob("assets/img/*.jpg");
 
     <figure class="galerie">
 <?php
+
+// https://www.php.net/manual/fr/function.glob.php
+$tableau = glob("assets/img/*.jpg");
 
 foreach($tableau as $indice => $image)
 {
@@ -36,8 +37,8 @@ foreach($tableau as $indice => $image)
         $couleur = "blue";
 
     }
-    
-    echo
+
+    echo        // NE PAS OUBLIER echo POUR AFFICHER UN TEXTE PHP
 <<<TOTO
         <img class="$couleur" src="$image" alt="photo">
 TOTO;
