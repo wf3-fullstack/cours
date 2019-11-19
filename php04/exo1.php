@@ -1,0 +1,31 @@
+<?php
+
+/*
+* exo1: CREER UNE FONCTION QUI RENVOIE LE PLUS PETIT ENTRE 2 NOMBRES
+
+    CREER LE FICHIER exo1.php
+    ET DANS CE FICHIER AJOUTER LE CODE
+    ETAPE1: DECLARATION DE LA FONCTION
+    ETAPE2: APPELER LA FONCTION 2 FOIS AVEC DES VALEURS DIFFERENTES POUR LES PARAMETRES
+
+*/
+
+// ETAPE1: DECLARATION/DEFINITION DE LA FONCTION
+function choisirMin ($nombre1, $nombre2)
+{
+    // COMPLETER LE CODE POUR LA FONCTION
+    if ($nombre1 < $nombre2)
+    {
+        return $nombre1;
+    }
+    return $nombre2;
+}
+
+// ETAPE2: APPELER LA FONCTION AVEC DES VALEURS POUR LES PARAMETRES
+echo "<h2>TEST1</h2>";
+echo choisirMin(10, 2);
+
+echo "<h2>TEST2</h2>";
+echo choisirMin(12, 8);
+
+?>

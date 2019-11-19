@@ -15,14 +15,22 @@ $tableau = [
 ?>
 
 <section>
-    <h2>GALERIE DE PHOTOS</h2>
+    <h2>GALERIE DE PHOTOS (img)</h2>
 
     <figure class="galerie">
-<?php afficherGalerie(); ?>
+        <?php afficherGalerie("img"); ?>
     </figure>
 
 </section>
 
+<section>
+    <h2>GALERIE DE PHOTOS (galerie2)</h2>
+
+    <figure class="galerie">
+        <?php afficherGalerie("galerie2"); ?>
+    </figure>
+
+</section>
 
 <section>
     <h2>SECTION SERVICES</h2>

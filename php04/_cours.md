@@ -148,6 +148,245 @@ afficherGalerie();
     ETAPE2: APPELER MES FONCTIONS
 
 
+## FONCTIONS AVEC PARAMETRES
+
+
+// DANS LA DECLARATION DE LA FONCTION
+// JE PEUX AJOUTER DES PARAMETRES DANS LES PARENTHESES
+// EN FAIT: UN PARAMETRE EST UNE VARIABLE
+function afficherGalerie ($parametre1, $parametre2)
+{
+    // ligne code php 1
+    // ligne code php 2
+    // ...
+}
+
+// SI LA DECLARATION DE LA FONCTION DEMANDE DES PARAMETRES
+// QUAND J'APPELLE LA FONCTION
+// IL FAUDRA FOURNIR DES VALEURS A CES PARAMETRES
+// PHP STOCKE CHAQUE VALEUR DANS CHAQUE PARAMETRE DANS LE MEME ORDRE
+afficherGalerie("valeur1", "valeur2");
+
+
+## EXEMPLES DE FONCTIONS AVEC PARAMETRES
+
+// CALCULER LE PRIX TTC AVEC 2 PARAMETRES: LE PRIX HT ET LE TAUX TVA
+// ON VEUT CREER UNE FONCTION
+// QUI VA CALCULER LE PRIX TTC A PARTIR DE 2 PARAMETRES 
+// LE PRIX HT
+// LE TAUX TVA
+
+// DECLARATION DE LA FONCTION: LE CODE EST EN ATTENTE
+function calculerTTC ($prixHT, $tauxTVA)
+{
+    $prixTTC = $prixHT + ( $prixHT * $tauxTVA / 100 );
+    // ON AFFICHE LE RESULTAT
+    echo "<h2>LE PRIX TTC EST $prixTTC</h2>";
+}
+
+
+// ACTIVER LA FONCTION
+calculerTTC(100, 20);   // 120
+
+## RENVOYER UNE VALEUR COMME RESULTAT DE LA FONCTION
+
+function calculerTTC ($prixHT, $tauxTVA)
+{
+    $prixTTC = $prixHT + ( $prixHT * $tauxTVA / 100 );
+
+    // RENVOIE LA VALEUR COMME RESULTAT DE LA FONCTION
+    return $prixTTC; 
+    // return ARRETE LE CODE
+    // SI ON MET DU CODE ENSUITE
+    // IL NE SERA PAS EXECUTE...
+}
+
+// DANS $resultat JE VAIS STOCKER LA VALEUR FOURNIE PAR return
+$resultat = calculerTTC(100, 20);
+
+echo "<h2>LE PRIX TTC EST $resultat</h2>";
+
+## LES FONCTIONS COMME DES CHAINES DE PRODUCTION
+
+
+function produireCoca ($sucre, $extrait, $plastique)
+{
+    return $bouteilleCoca;
+}
+
+
+PARAMETRES => FONCTION QUI TRANSFORME CES PARAMETRES => return LE PRODUIT FINAL
+
+function construireVoiture ($electronique, $tole, $mecanique)
+{
+    return $voiture;
+}
+
+## EXEMPLE: ADDITIONNER
+
+// CREER UNE FONCTION QUI PRODUIT LA SOMME DE 2 NOMBRES EN PARAMETRES
+function additionner ($nombre1, $nombre2)
+{
+    return $nombre1 + $nombre2;
+}
+
+// APPELER LA FONCTION
+$somme1 = additionner(10, 12);  // $somme1 = 22
+
+echo "<h2>$somme</h2>";
+
+## EXEMPLE: CALCULER LE PLUS PETIT ENTRE 2 NOMBRES
+
+
+// CREER UNE FONCTION QUI RENVOIE LE PLUS PETIT ENTRE 2 PARAMETRES
+
+function trouverMin ($nombre1, $nombre2)
+{
+    if ($nombre1 > $nombre2) 
+    {
+        return $nombre2;
+        // ICI ON S'ARRETE
+    }
+    return $nombre1;
+}
+
+
+## EXEMPLE AVEC UN TABLEAU
+
+// CREER UNE FONCTION trouverMinTableau
+// VA PRENDRE UN TABLEAU DE NOMBRES EN PARAMETRE
+// ET VA RENVOYER LE PLUS PETIT NOMBRE DANS LE TABLEAU
+
+function trouverMinTableau ($tableauNombre)
+{
+    // COMMENT ON TROUVE $min ?
+    // J'INITIALISE AVEC LE PREMIER ELEMENT
+    $min = $tableauNombre[0];
+
+    foreach($tableauNombre as $indice => $nombre)
+    {
+        if ($nombre < $min)
+        {
+            // ON A TROUVE UN NOUVEAU MINIMUM
+            // ON MET A JOUR LA VALEUR DE $min
+            $min = $nombre;
+        }
+    }
+
+    // RENVOYER LE RESULTAT
+    return $min;
+}
+
+
+// APPELER LA FONCTION 
+$resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
+
+
+## EXERCICES SUR LES FONCTIONS
+
+ENONCE: CREER UN FICHIER PAR FONCTION
+
+ET DANS CHAQUE FICHIER DEFINIR LA FONCTION DEMANDEE
+ET ENSUITE APPELER LA FONCTION 2 FOIS AVEC DES PARAMETRES DIFFERENTS
+POUR VERIFIER QU'ON OBTIENT LES BONS RESULTATS
+
+BONUS: ECRIRE LES MEMES FONCTIONS EN JS
+
+
+* exo1: CREER UNE FONCTION QUI RENVOIE LE PLUS PETIT ENTRE 2 NOMBRES
+
+    CREER LE FICHIER exo1.php
+    ET DANS CE FICHIER AJOUTER LE CODE
+    ETAPE1: DECLARATION DE LA FONCTION
+    ETAPE2: APPELER LA FONCTION 2 FOIS AVEC DES VALEURS DIFFERENTES POUR LES PARAMETRES
+
+* exo2: CREER UNE FONCTION QUI RENVOIE LE PLUS PETIT 
+    ENTRE 3 NOMBRES RECUS EN PARAMETRES
+
+* exo3: CREER UNE FONCTION QUI RENVOIE LE PLUS PETIT NOMBRE DANS UN TABLEAU
+
+* exo4: CREER UNE FONCTION QUI RENVOIE LE PRIX TTC 
+    A PARTIR DU PRIX HT ET DU TAUX TVA
+
+* exo5: CREER UNE FONCTION QUI RENVOIE LA SURFACE DES 4 MURS 
+    SI ON DONNE EN PARAMETRES: HAUTEUR, LARGEUR ET LONGUEUR
+
+* exo6: CREER UNE FONCTION QUI RENVOIE LA SOMME DES NOMBRES 
+    DANS UN TABLEAU EN PARAMETRE
+
+* exo7: CREER UNE FONCTION QUI COMPTE LE NOMBRE DE NOMBRES PAIRS 
+    DANS UN TABLEAU RECU EN PARAMETRE
+
+* exo8: CREER UNE FONCTION concatenerTexte 
+    QUI CONCATENE LES LETTRES DANS UN TABLEAU (EN PARAMETRE)
+    ET QUI AJOUTE UNE VIRGULE ENTRE LES LETTRES
+    (ATTENTION: PAS DE VIRGULE AU DEBUT, NI A LA FIN)
+
+    concatenerTexte([ 'a', 'b', 'c', 'd' ]);
+    // RESULTAT "a,b,c,d"
+
+    concatenerTexte([ 'i', 'j', 'k' ]);
+    // RESULTAT "i,j,k"
+
+
+* exo9: CREER UNE FONCTION calculerPrixTotal 
+    QUI PREND EN PARAMETRES 2 TABLEAUX
+    $tabQuantite
+    $tabPrixUnitaire
+    ET QUI RENVOIE LE PRIX TOTAL DU PANIER
+
+
+* exo10: CREER UNE FONCTION creerDeleteSQL  
+    LA FONCTION PREND 2 PARAMETRES: $nomTable ET $id
+    ET RENVOIE LE CODE SQL POUR UN DELETE
+    
+    ET SI ON APPELLE LA FONCTION
+    creerDeleteSQL("contact", 5);
+
+    DEVRA RENVOYER LE TEXTE SUIVANT:
+
+    DELETE FROM contact
+    WHERE id = 5
+
+* exo11: CREER UNE FONCTION creerInsertSQL 
+    LA FONCTION PREND 2 PARAMETRES
+    LE NOM DE LA TABLE SQL: $nomTable
+    UN TABLEAU ASSOCIATIF: $tabAssoColVal
+
+    ET SI ON APPELLE LA FONCTION
+
+        $requeteSQLPreparee = creerInsertSQL("newsletter", [ "nom" => "julie", "email" => "julie@nomail.me" ]);
+
+        echo "<pre>$requeteSQLPreparee</pre>";
+
+    /*
+        ON DEVRAIT OBTENIR
+
+        INSERT INTO newsletter
+        ( nom, email )
+        VALUES
+        ( :nom, :email )
+        
+    */
+
+    // ATTENTION: 
+    // LES VALEURS DU TABLEAU ASSOCIATIF NE SONT PAS UTILISEES
+    // ON MET DES JETONS (TOKENS) A LA PLACE DES VALEURS
+    // SEULS LES CLES DU TABLEAU ASSOCIATIF SERVENT...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
