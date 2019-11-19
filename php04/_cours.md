@@ -342,8 +342,8 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         ENTRE 3 NOMBRES RECUS EN PARAMETRES
 
         NOTE: VOUS POUVEZ AVOIR BESOIN DES OPERATEURS LOGIQUES: 
-            ET      &&      AND 
-            OU      ||      OR
+            ET:      &&      AND 
+            OU:      ||      OR
         
         https://www.php.net/manual/fr/language.operators.logical.php
 
