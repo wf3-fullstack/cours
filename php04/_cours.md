@@ -451,6 +451,11 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         // SEULS LES CLES DU TABLEAU ASSOCIATIF SERVENT...
 
     * exo13: DESSINER UN DAMIER dessinerDamier
+        EN PARAMETRE, ON DONNE LE NOMBRE DE CASES PAR COTE
+
+        NOTE: ON POURRA UTILISER 
+                "\n" POUR LE RETOUR A LA LIGNE 
+                OU BIEN "<br>"  EN HTML
 
         SI ON APPELLE LA FONCTION
 
