@@ -150,6 +150,8 @@ afficherGalerie();
 
 ## FONCTIONS AVEC PARAMETRES
 
+exemple de fonction avec paramètres
+
 ```php
 <?php
 
@@ -173,6 +175,8 @@ afficherGalerie("valeur1", "valeur2");
 ```
 
 ## EXEMPLES DE FONCTIONS AVEC PARAMETRES
+
+exemple de fonctions avec paramètres
 
 ```php
 <?php
