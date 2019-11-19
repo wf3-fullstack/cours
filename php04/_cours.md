@@ -369,10 +369,10 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         (ATTENTION: PAS DE VIRGULE AU DEBUT, NI A LA FIN)
 
         concatenerTexte([ 'a', 'b', 'c', 'd' ]);
-        // RESULTAT "a,b,c,d"
+        // RESULTAT UN TEXTE "a,b,c,d"
 
         concatenerTexte([ 'i', 'j', 'k' ]);
-        // RESULTAT "i,j,k"
+        // RESULTAT UN TEXTE "i,j,k"
 
 
     * exo9: CREER UNE FONCTION calculerPrixTotal 
@@ -459,7 +459,7 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
 
         NOTE: ON POURRA UTILISER 
                 "\n" POUR LE RETOUR A LA LIGNE 
-                OU BIEN "<br>"  EN HTML
+                OU BIEN "<br>" EN HTML
 
         SI ON APPELLE LA FONCTION
 
@@ -494,7 +494,7 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
 
         ON DEVRAIT OBTENIR LE TEXTE SUIVANT
 
-        1x200, 3x10, 1x5
+        1x200, 1x20, 1x10, 1x5
 
 
 
