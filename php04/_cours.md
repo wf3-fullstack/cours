@@ -344,6 +344,8 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         NOTE: VOUS POUVEZ AVOIR BESOIN DES OPERATEURS LOGIQUES: 
             ET      &&      AND 
             OU      ||      OR
+        
+        https://www.php.net/manual/fr/language.operators.logical.php
 
     * exo3: CREER UNE FONCTION QUI RENVOIE LE PLUS PETIT NOMBRE DANS UN TABLEAU
 
