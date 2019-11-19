@@ -18,46 +18,7 @@ $tableau = [
     <h2>GALERIE DE PHOTOS</h2>
 
     <figure class="galerie">
-
-<?php
-
-// https://www.php.net/manual/fr/function.glob.php
-// la fonction glob construit le tableau avec les chemins des fichiers .jpg
-// $tableau = glob("assets/img/*.jpg");
-$tableau = glob("assets/img/*.{jpg,gif,png,jpeg}", GLOB_BRACE);
-foreach($tableau as $indice => $image)
-{
-    // JE VEUX ALTERNER ENTRE blue ET orange
-    if ($indice % 2)
-    {
-        // SCENARIO orange
-        $couleur = "orange";
-    }
-    else
-    {
-        // SCENARIO blue
-        $couleur = "blue";
-    }
-
-    echo        // NE PAS OUBLIER echo POUR AFFICHER UN TEXTE PHP
-<<<TOTO
-        <img class="$couleur" src="$image" alt="photo">
-
-TOTO;
-
-    // AU LIEU DE CONCATENER AVEC .
-    // '<img class="' . $couleur . '" src="' . $image . '" alt="photo">'
-}
-
-?>
-<!--
-        <img src="assets/img/photo1.jpg" alt="photo">
-        <img src="assets/img/photo2.jpg" alt="photo">
-        <img src="assets/img/photo3.jpg" alt="photo">
-        <img src="assets/img/photo4.jpg" alt="photo">
-        <img src="assets/img/photo5.jpg" alt="photo">
-        <img src="assets/img/photo6.jpg" alt="photo">
--->        
+<?php afficherGalerie(); ?>
     </figure>
 
 </section>

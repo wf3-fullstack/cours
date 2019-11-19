@@ -1,3 +1,11 @@
+<?php
+// JE CHARGE MES FONCTIONS
+require_once "php/mes-fonctions.php";
+// SINON PHP SORT UNE ERREUR
+// Fatal error: Uncaught Error: Call to undefined function creerMenu()
+// => ON A APPELEE UNE FONCTION QUI N'A PAS ETE DEFINIE AVANT
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -13,9 +21,7 @@
     <header>
         <h1>MON SITE VITRINE <?php echo $titre1 ?? "valeur par défaut"; ?></h1>
         <nav>
-            <a href="index.php">accueil</a>
-            <a href="services.php">services</a>
-            <a href="contact.php">contact</a>
+<?php creerMenu(); ?>
         </nav>
     </header>
     <main>
