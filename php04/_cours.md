@@ -396,8 +396,8 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
 
     * exo11: CREER UNE FONCTION creerInsertSQL 
         LA FONCTION PREND 2 PARAMETRES
-        LE NOM DE LA TABLE SQL: $nomTable
-        UN TABLEAU ASSOCIATIF: $tabAssoColVal
+        LE NOM DE LA TABLE SQL:     $nomTable
+        UN TABLEAU ASSOCIATIF:      $tabAssoColVal
 
         ET SI ON APPELLE LA FONCTION
 
@@ -424,13 +424,14 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
 
 
     * exo12: CREER UNE FONCTION creerUpdateSQL 
-        LA FONCTION PREND 2 PARAMETRES
-        LE NOM DE LA TABLE SQL: $nomTable
-        UN TABLEAU ASSOCIATIF: $tabAssoColVal
+        LA FONCTION PREND 3 PARAMETRES
+        LE NOM DE LA TABLE SQL:     $nomTable
+        UN TABLEAU ASSOCIATIF:      $tabAssoColVal
 
         EXEMPLE D'UTILISATION:
 
-        $requeteSQLPreparee = creerUpdateSQL("newsletter", 
+        $requeteSQLPreparee = creerUpdateSQL(
+                            "newsletter", 
                                 [ "nom" => "julie", "email" => "julie@nomail.me" ]);
 
         echo "<pre>$requeteSQLPreparee</pre>";
@@ -450,6 +451,7 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         // LES VALEURS DU TABLEAU ASSOCIATIF NE SONT PAS UTILISEES
         // ON MET DES JETONS (TOKENS) A LA PLACE DES VALEURS
         // SEULS LES CLES DU TABLEAU ASSOCIATIF SERVENT...
+
 
     * exo13: DESSINER UN DAMIER dessinerDamier
         EN PARAMETRE, ON DONNE LE NOMBRE DE CASES PAR COTE
@@ -477,6 +479,7 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         X0X0
         0X0X
         X0X0
+        0X0X
 
 
     * exo14: CREER UNE FONCTION distribuerBillet 
