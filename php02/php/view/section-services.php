@@ -23,8 +23,8 @@ $tableau = [
 
 // https://www.php.net/manual/fr/function.glob.php
 // la fonction glob construit le tableau avec les chemins des fichiers .jpg
-$tableau = glob("assets/img/*.jpg");
-
+// $tableau = glob("assets/img/*.jpg");
+$tableau = glob("assets/img/*.{jpg,gif,png,jpeg}", GLOB_BRACE);
 foreach($tableau as $indice => $image)
 {
     // JE VEUX ALTERNER ENTRE blue ET orange

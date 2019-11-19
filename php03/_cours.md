@@ -192,7 +192,7 @@
     $tva    = 20;
 
     $prixTTC = $prixHT + $prixHT * $tva / 100;      // résultat = 120
-    $prixTTC = $priHT * ( 1 + $tva / 100);
+    $prixTTC = $prixHT * ( 1 + $tva / 100);
 ```
 
 ## VALEURS: BOOLEENS

@@ -40,6 +40,7 @@ form button {
 .galerie img {
     padding: 4px;
     width: calc(100% / 3 - 8px);  /* pratique pour calculer des ratios pas entiers */
+    /* https://developer.mozilla.org/fr/docs/Web/CSS/calc */
     object-fit:cover;
     height:50vmin;
 }
