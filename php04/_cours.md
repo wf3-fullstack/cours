@@ -348,6 +348,9 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         
         https://www.php.net/manual/fr/language.operators.logical.php
 
+        // LA MEILLEURE FACON: UTILISER LA FONCTION min DE PHP
+        // https://www.php.net/manual/fr/function.min.php
+
     * exo3: CREER UNE FONCTION QUI RENVOIE LE PLUS PETIT NOMBRE 
                 DANS UN TABLEAU (FOURNI EN PARAMETRE)
 
