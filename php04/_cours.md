@@ -431,7 +431,7 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         EXEMPLE D'UTILISATION:
 
         $requeteSQLPreparee = creerUpdateSQL(
-                            "newsletter", 
+                                "newsletter", 
                                 [ "nom" => "julie", "email" => "julie@nomail.me" ]);
 
         echo "<pre>$requeteSQLPreparee</pre>";
