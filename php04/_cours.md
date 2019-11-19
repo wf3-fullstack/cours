@@ -335,6 +335,7 @@ BONUS: ECRIRE LES MEMES FONCTIONS EN JS
     $tabPrixUnitaire
     ET QUI RENVOIE LE PRIX TOTAL DU PANIER
 
+    NOTE: L'ORDRE DES VALEURS DANS LES 2 TABLEAUX EST CORRECTEMENT FOURNI
 
 * exo10: CREER UNE FONCTION creerDeleteSQL  
     LA FONCTION PREND 2 PARAMETRES: $nomTable ET $id
@@ -355,7 +356,9 @@ BONUS: ECRIRE LES MEMES FONCTIONS EN JS
 
     ET SI ON APPELLE LA FONCTION
 
-        $requeteSQLPreparee = creerInsertSQL("newsletter", [ "nom" => "julie", "email" => "julie@nomail.me" ]);
+        $requeteSQLPreparee = creerInsertSQL(
+                                    "newsletter", 
+                                    [ "nom" => "julie", "email" => "julie@nomail.me" ]);
 
         echo "<pre>$requeteSQLPreparee</pre>";
 
@@ -366,7 +369,7 @@ BONUS: ECRIRE LES MEMES FONCTIONS EN JS
         ( nom, email )
         VALUES
         ( :nom, :email )
-        
+
     */
 
     // ATTENTION: 
@@ -375,11 +378,69 @@ BONUS: ECRIRE LES MEMES FONCTIONS EN JS
     // SEULS LES CLES DU TABLEAU ASSOCIATIF SERVENT...
 
 
+* exo12: CREER UNE FONCTION creerUpdateSQL 
+    LA FONCTION PREND 2 PARAMETRES
+    LE NOM DE LA TABLE SQL: $nomTable
+    UN TABLEAU ASSOCIATIF: $tabAssoColVal
+
+    EXEMPLE D'UTILISATION:
+
+    $requeteSQLPreparee = creerUpdateSQL("newsletter", 
+                            [ "nom" => "julie", "email" => "julie@nomail.me" ]);
+
+    echo "<pre>$requeteSQLPreparee</pre>";
+
+    /*
+    ON DEVRAIT OBTENIR
+
+    UPDATE newsletter
+    SET
+    nom = :nom,
+    email = :email
+    WHERE 
+    id = :id
+
+    */
+    // ATTENTION: 
+    // LES VALEURS DU TABLEAU ASSOCIATIF NE SONT PAS UTILISEES
+    // ON MET DES JETONS (TOKENS) A LA PLACE DES VALEURS
+    // SEULS LES CLES DU TABLEAU ASSOCIATIF SERVENT...
+
+* exo13: DESSINER UN DAMIER dessinerDamier
+
+    SI ON APPELLE LA FONCTION
+
+    dessinerDamier(3);
+
+    ON DEVRAIT OBTENIR LE TEXTE SUIVANT
+
+    X0X
+    0X0
+    X0X
+
+    SI ON APPELLE LA FONCTION
+
+    dessinerDamier(4);
+
+    ON DEVRAIT OBTENIR LE TEXTE SUIVANT
+
+    X0X0
+    0X0X
+    X0X0
 
 
+* exo14: CREER UNE FONCTION distribuerBillet 
+    QUI DISTRIBUE LES BILLETS
+    EN PARAMETRE, ON FOURNIT LE MONTANT DEMANDE
 
+    // ON PRENDRA COMME BILLETS DISPONIBLES
+    // 200, 100, 50, 20, 10, 5
 
+    distribuerBillet(235);
 
+    ON DEVRAIT OBTENIR LE TEXTE SUIVANT
+
+    1x200, 3x10, 1x5
 
 
 
