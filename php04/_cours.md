@@ -393,7 +393,7 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         ET SI ON APPELLE LA FONCTION
         creerDeleteSQL("contact", 5);
 
-        DEVRA RENVOYER LE TEXTE SUIVANT:
+        DEVRA RENVOYER LE TEXTE CONCATENE SUIVANT:
 
         DELETE FROM contact
         WHERE id = 5
@@ -412,7 +412,7 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
             echo "<pre>$requeteSQLPreparee</pre>";
 
         /*
-            ON DEVRAIT OBTENIR
+            ON DEVRAIT OBTENIR LE TEXTE CONCATENE
 
             INSERT INTO newsletter
             ( nom, email )
@@ -441,7 +441,7 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         echo "<pre>$requeteSQLPreparee</pre>";
 
         /*
-        ON DEVRAIT OBTENIR
+        ON DEVRAIT OBTENIR LE TEXTE CONCATENE
 
         UPDATE newsletter
         SET
