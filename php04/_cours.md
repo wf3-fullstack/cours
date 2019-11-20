@@ -377,7 +377,6 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         concatenerTexte([ 'i', 'j', 'k' ]);
         // RESULTAT UN TEXTE "i,j,k"
 
-
     * exo9: CREER UNE FONCTION calculerPrixTotal 
         QUI PREND EN PARAMETRES 2 TABLEAUX
         $tabQuantite

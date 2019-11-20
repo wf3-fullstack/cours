@@ -6,7 +6,6 @@
 // email
 // message
 
-
 $nom        = filtrerInput("nom");
 $email      = filtrerInput("email");
 $message    = filtrerInput("message");

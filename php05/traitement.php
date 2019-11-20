@@ -37,6 +37,9 @@ $tabAsso = [];
 $debut = microtime(true);
 
 // IL ME FAUT UN IDENTIFIANT POUR CHAQUE FORMULAIRE
+// EN HTML
+// <input type="hidden" name="identifiantFormulaire" value="newsletter">
+// <input type="hidden" name="identifiantFormulaire" value="contact">
 $identifiantFormulaire        = filtrerInput("identifiantFormulaire");
 
 if ($identifiantFormulaire != "")

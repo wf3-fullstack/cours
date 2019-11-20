@@ -72,6 +72,8 @@ CODEHTML;
 // note: attention à l'ordre des filtres
 function filtrerInput($nameInput)
 {
+    // ON VA CHERCHER DANS $_REQUEST 
+    // LES VALEURS TRANSMISES PAR LES FORMULAIRES
     $resultat = trim(strip_tags($_REQUEST[$nameInput] ?? ""));
 
     return $resultat;
