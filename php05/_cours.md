@@ -52,6 +52,13 @@
     * formulaire de paiement
     * formulaire de publication (article de blog, annonces, photos, videos, etc...)
 
+
+## BONUS EN JS:
+
+    AMELIORER LE CODE JS 
+    POUR POUVOIR ENVOYER LES FORMULAIRES QUI ONT LA CLASSE ajax
+    EN AJAX SANS RECHARGER LA PAGE
+
 ## CONTINUER LES EXERCICES
 
     ON POURRA CORRIGER LES EXERCICES PROGRESSIVEMENT
