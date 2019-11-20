@@ -1,15 +1,6 @@
 <?php
 
 
-// CHARGER LE CODE DE MES FONCTIONS POUR POUVOIR LES UTILISER
-require_once "php/mes-fonctions.php";
-
-// POUR NE PAS CASSER JS DANS LE NAVIGATEUR
-// COTE NAVIGATEUR AVEC AJAX, JE DOIS RECEVOIR DU JSON
-$tabAsso = [];
-
-// https://www.php.net/manual/fr/function.microtime.php
-$debut = microtime(true);
 
 // ATTENTION: ATTAQUES PAR CHEVAL DE TROIE... 
 
@@ -36,6 +27,16 @@ $debut = microtime(true);
 // https://www.php.net/manual/fr/function.trim.php
 // JE DOIS ENLEVER LES ESPACES AU DEBUT ET A LA FIN
 // note: attention à l'ordre des filtres
+
+// CHARGER LE CODE DE MES FONCTIONS POUR POUVOIR LES UTILISER
+require_once "php/mes-fonctions.php";
+
+// POUR NE PAS CASSER JS DANS LE NAVIGATEUR
+// COTE NAVIGATEUR AVEC AJAX, JE DOIS RECEVOIR DU JSON
+$tabAsso = [];
+
+// https://www.php.net/manual/fr/function.microtime.php
+$debut = microtime(true);
 
 // IL ME FAUT UN IDENTIFIANT POUR CHAQUE FORMULAIRE
 $identifiantFormulaire        = filtrerInput("identifiantFormulaire");
