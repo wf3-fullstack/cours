@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <h2>formulaire de newsletter</h2>
+        <form class="ajax" action="traitement-ajax.php" method="POST">
+            <input type="text" name="nom">
+            <button>inscription</button>
+        </form>
+    </section>
+    <script>
+        var traiterFormulaire = function (event) {
+            // code est en attente
+            // bloquer le changement de page
+            event.preventDefault();
+            console.log("formulaire bloqué");
+
+            // on veut quand meme envoyer les infos vers traitement-ajax.php
+            fetch("traitement-ajax.php")
+            // quand la navigateur recevra la réponse
+            .then(function(response){
+                // je sais que le serveur me renvoie un texte au format JSON
+                // je vais convertir ce texte en objet JS
+                return response.json();
+            })
+            // quand la conversion en objet JS sera faite
+            .then(function(objetJS) {
+                // objetJS contient les infos renvoyées par le serveur
+                // objetJS.propriete1 = "valeur1"
+                console.log(objetJS);
+            });
+        };
+
+        var formulaire = document.querySelector("form.ajax");
+        // on va activer la fonction au moment du "submit"
+        formulaire.addEventListener("submit", traiterFormulaire);
+    </script>
+
+</body>
+</html>
