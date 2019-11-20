@@ -41,13 +41,23 @@
     * formulaire de contact
     * formulaire d'inscription à la newsletter
 
-    * formulaire de création de compte
-    * formulaire de confirmation d'inscription
-    * formulaire de login/connexion
+    ON AURA BESOIN DE LA BASE DE DONNEES SQL POUR DES FORMULAIRES PLUS COMPLEXES
+
+    * formulaire de création de compte              => PAGE inscription.php
+
+    * formulaire de confirmation d'inscription      => PAGE activation.php
+            FORMULAIRE QUI DEMANDE UN EMAIL ET LA CLE D'ACTIVATION ASSOCIEE
+
+    * formulaire de login/connexion                 => PAGE login.php
+
     * formulaire de mot de passe oublié
+
+    * formulaire de changement de mot de passe      => PAGE changement-mot-de-passe.php
+            FORMULAIRE QUI DEMANDE email, clé temporaire et le nouveau mot de passe
+
     * formulaire de commentaire sur une page ou un article
     * formulaire d'évaluation
-    * formulaire de recherche
+    * formulaire de recherche                       => PAGE recherche.php
     * formulaire pour valider une commande
     * formulaire de paiement
     * formulaire de publication (article de blog, annonces, photos, videos, etc...)

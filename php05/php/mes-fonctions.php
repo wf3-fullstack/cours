@@ -1,5 +1,13 @@
 <?php
 
+// A TERME POUR MIEUX SUIVRE L'ORGANISATION MVC
+// IL FAUDRAIT SEPARER LES FONCTIONS DANS PLUSIEURS FICHIERS
+// require_once "php/model/fonctions.php";
+// require_once "php/view/fonctions.php";
+// require_once "php/controller/fonctions.php";
+
+// FONCTIONS VIEW
+
 // DECLARER MES FONCTIONS
 // JE VEUX MAINTENANT RANGER MON CODE DANS UNE FONCTION
 // ETAPE1: DECLARER/DEFINIR LA FONCTION
@@ -51,6 +59,9 @@ function creerMenu()
 CODEHTML;
     }
 }
+
+
+// FONCTIONS CONTROLLER
 
 // PHP : PARANOIA HYPER PARANOIA
 // ATTAQUES PAR CHEVAL DE TROIE

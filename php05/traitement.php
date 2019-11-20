@@ -54,6 +54,7 @@ if ($identifiantFormulaire != "")
 
 // JE VAIS AJOUTER DANS LE TABLEAU ASSOCIATIF LES INFOS MANQUANTES
 $tabAsso["nom"]                 = $nom;
+// DEBUG (AU FINAL ON VA L'ENLEVER...)
 $tabAsso["request"]             = $_REQUEST;
 
 // COOL AVEC PHP: ON PEUT TRANSFORMER UN TABLEAU ASSOCIATIF EN OBJET JSON
@@ -65,6 +66,8 @@ $tabAsso["debut"]           = $debut;
 $tabAsso["fin"]             = $fin;
 $tabAsso["tempsConsomme"]   = $tempsConsomme;
 
+// JE TRANSFORME LE TABLEAU ASSOCIATIF EN TEXTE JSON
+// QUI SERA TRANSMIS AU NAVIGATEUR
 echo json_encode($tabAsso);
 
 ?>
