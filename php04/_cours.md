@@ -492,11 +492,11 @@ $resultat = trouverMinTableau([ 7, 13, 9, 806 ]);
         // ON PRENDRA COMME BILLETS DISPONIBLES
         // 200, 100, 50, 20, 10, 5
 
-        distribuerBillet(235);
+        distribuerBillet(435);
 
         ON DEVRAIT OBTENIR LE TEXTE SUIVANT
 
-        1x200, 1x20, 1x10, 1x5
+        2x200, 1x20, 1x10, 1x5
 
 
 

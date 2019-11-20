@@ -27,7 +27,8 @@ TEXTEAMOI;
 
     // ON STOCKE LE MESSAGE DANS UN FICHIER php/model/contact.txt
     file_put_contents("php/model/contact.txt", $contenuMessage, FILE_APPEND);
-    // J'ENVOIE 
+    // J'ENVOIE UN EMAIL
+    // (PB DE PERFORMANCE SI PAS DE SERVEUR EMAIL => 1 seconde d'attente... avant timeout)
     @mail("webmaster@monsite.fr", "vous avez un nouveau message", $contenuMessage);
 
     $tabAsso["reponseServeur"]      = "merci pour votre message $nom ($email)";
