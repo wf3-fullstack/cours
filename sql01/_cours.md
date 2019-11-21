@@ -295,6 +295,27 @@ CODESQL;
 
 
 
+## DIVERS OUTILS
+
+### DESSINS VECTORIELS
+
+* INKSCAPE
+
+    https://inkscape.org/fr/apprendre/animation/
+
+
+### ANIMATIONS EN JS
+
+    https://animejs.com/documentation/
+
+    https://greensock.com/
+
+    https://phaser.io/examples
+
+
+
+
+
 
 
 
