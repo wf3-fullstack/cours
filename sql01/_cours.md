@@ -107,11 +107,11 @@ ET IL FAUT CHOISIR LE NOMBRE DE COLONNES
 ON VA CREER LA TABLE contact
 
     id      => COLONNE TECHNIQUE QU'ON VA CREER POUR CHAQUE TABLE
-    nom
-    email
-    message
-    dateMessage
-    ip
+    nom             VARCHAR(160)
+    email           VARCHAR(160)
+    message         TEXT
+    dateMessage     DATETIME
+    ip              VARCHAR(160)
 
 ON VA CREER LA TABLE user
 
@@ -235,6 +235,64 @@ A BCXAB C
     ( '$nom', '$email', '$dateInscription');
 
     CODESQL;
+
+
+## EXERCICES AVEC SQL
+
+### FORMULAIRE DE NEWSLETTER
+
+* AVEC PHPMYADMIN
+* CREER UNE DATABASE sql01 (AVEC LE CHARSET utf8mb4_general_ci)
+* CREER UNE TABLE newsletter
+* AJOUTER DANS LA TABLE newsletter LES COLONNES
+
+    id                  INT             PRIMARY     A_I (AUTO_INCREMENT)
+    nom                 VARCHAR(160)
+    email               VARCHAR(160)
+    dateInscription     VARCHAR(160)
+
+* MODIFIER LE CODE PHP DE TRAITEMENT DU FORMULAIRE DE newsletter
+    POUR NE PLUS UTILISER UN FICHIER php/model/newsletter.csv
+    MAIS A LA PLACE, ON VA INSERER UNE LIGNE DANS LA TABLE newsletter
+
+
+### FORMULAIRE DE CONTACT
+
+* AVEC PHPMYADMIN
+* (SI PAS DEJA FAIT... CREER UNE DATABASE sql01)
+* CREER UNE TABLE contact
+* AJOUTER DANS LA TABLE contact LES COLONNES
+
+    id              INT             PRIMARY     A_I (AUTO_INCREMENT)
+    nom             VARCHAR(160)
+    email           VARCHAR(160)
+    message         TEXT
+    dateMessage     DATETIME
+    ip              VARCHAR(160)
+
+* MODIFIER LE CODE PHP DE TRAITEMENT DU FORMULAIRE DE newsletter
+    POUR NE PLUS UTILISER UN FICHIER php/model/contact.txt
+    MAIS A LA PLACE, ON VA INSERER UNE LIGNE DANS LA TABLE contact
+
+
+### EXERCICE BONUS: CREER UNE FONCTION insererLigneSQL
+
+// ON PEUT CREER UNE FONCTION 
+// QUI AJOUTE DANS UNE TABLE $nomTable
+// ET LES VALEURS AVEC LES CLES QUI CORRESPONDENT AU NOM DES COLONNES
+// exemple:
+// insererLigneSQL("newsletter", 
+//                  [   
+//                      "nom"               => "bertrand", 
+//                      "email"             => "bert@nomail.me", 
+//                      "dateInscription"   => "2019-11-21 15:11:00",
+//                  ]);
+
+function insererLigneSQL($nomTable, $tabAssoColonneValeur)
+{
+    // ...
+}
+
 
 
 
