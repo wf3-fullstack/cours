@@ -1,5 +1,13 @@
 <?php
 
+// DECLARATION DE LA FONCTION
+function configurerProjet ()
+{
+    // https://www.php.net/manual/fr/function.date-default-timezone-set.php
+    date_default_timezone_set('Europe/Paris');
+
+}
+
 // A TERME POUR MIEUX SUIVRE L'ORGANISATION MVC
 // IL FAUDRAIT SEPARER LES FONCTIONS DANS PLUSIEURS FICHIERS
 // require_once "php/model/fonctions.php";
