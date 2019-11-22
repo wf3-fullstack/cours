@@ -17,6 +17,15 @@ $tabAsso = [];
 $tabAsso["propriete1"] = "valeur1";
 $tabAsso["propriete2"] = "valeur2";
 
+// DEBUG
+$tabAsso["request"] = $_REQUEST;
+
+if ($_REQUEST["recherche"] ?? "")
+{
+    // https://www.php.net/manual/fr/function.range.php
+    $tabResult = range(1, mt_rand(2, 8));
+    $tabAsso["tabCompletion"] = $tabResult;
+}
 // JE RAJOUTE LE CODE DE TRAITEMENT DES FORMULAIRES
 // contact
 // newsletter

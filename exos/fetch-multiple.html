@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form class="ajax" action="traitement-ajax.php" method="POST">
+        <input type="text" name="recherche" required placeholder="recherche">
+        <div class="result"></div>
+        <button type="submit">envoyer la recherche</button>
+        <input type="hidden" name="identifiantFormulaire" value="recherche">
+    </form>
+    <script>
+        var baliseForm = document.querySelector("form.ajax");
+        baliseForm.addEventListener("submit", function(event){
+            event.preventDefault();
+            console.log("FORMULAIRE EST BLOQUE");
+
+            // JE RECUPERE TOUTES LES INFOS DU FORMULAIRE D'UN SEUL COUP
+            var formData = new FormData(event.target);
+            fetch("traitement-ajax.php", {
+                "method": "POST",
+                "body": formData
+            })
+        })
+    
+        // JE VAIS AJOUTER ENCORE PLUS D'AJAX
+        var baliseInput = document.querySelector("input[name=recherche]");
+        baliseInput.addEventListener("keyup", function(event){
+            // JE RECUPERE LE TEXTE ENTRE
+            var texteSaisi = this.value;
+            console.log(texteSaisi);
+
+            // JE VAIS MOI MEME REMPLIR LES DONNEES DE FORMULAIRE
+            var formData = new FormData();
+            formData.append("recherche", texteSaisi);
+            // ET SURTOUT JE VAIS DISTINGUER CETTE REQUETE AJAX AVEC UN NOUVEL identifiantFormulaire
+            formData.append("identifiantFormulaire", "recherche");
+            fetch("traitement-ajax.php", {
+                "method": "POST",
+                "body": formData
+            })
+            .then(function (response){
+                return response.json();
+            })
+            .then(function(objetJSON){
+                if (objetJSON.tabCompletion) {
+                    var baliseResult = document.querySelector(".result");
+                    objetJSON.tabCompletion.forEach(function(choix) {
+                        baliseResult.innerHTML += '<div>' + choix + '</div>';
+                    });
+                }
+            })
+
+        })
+
+    </script>
+</body>
+</html>
