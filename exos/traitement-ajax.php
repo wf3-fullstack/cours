@@ -22,8 +22,12 @@ $tabAsso["request"] = $_REQUEST;
 
 if ($_REQUEST["recherche"] ?? "")
 {
+    $tabResult = [];
+    foreach(range(1, mt_rand(2, 8)) as $indice)
+    {
+        $tabResult[] = $_REQUEST["recherche"] . "-$indice";
+    }
     // https://www.php.net/manual/fr/function.range.php
-    $tabResult = range(1, mt_rand(2, 8));
     $tabAsso["tabCompletion"] = $tabResult;
 }
 // JE RAJOUTE LE CODE DE TRAITEMENT DES FORMULAIRES
