@@ -49,6 +49,8 @@
             .then(function(objetJSON){
                 if (objetJSON.tabCompletion) {
                     var baliseResult = document.querySelector(".result");
+                    // on efface la liste précédente
+                    baliseResult.innerHTML = "";
                     objetJSON.tabCompletion.forEach(function(choix) {
                         baliseResult.innerHTML += '<div>' + choix + '</div>';
                     });
