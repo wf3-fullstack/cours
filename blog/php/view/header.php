@@ -14,6 +14,7 @@
 <body>
     <header>
         <h1>Martine Cuisine</h1>
+        <img src="assets/img/martine-cuisine-logo.png" alt="logo">
         <nav>
             <a href="index.php">accueil</a>
             <a href="recettes.php">recettes</a>
@@ -21,4 +22,3 @@
         </nav>
     </header>
     <main>
-        
