@@ -26,11 +26,12 @@ if ( ($nom != "") && verifierEmail($email) )
         "email"                 => $email,
         "dateInscription"       => $dateInscription,
     ];
+    $nomTable = "newsletter";
 
     $requetePrepareeSQL =
 <<<CODESQL
 
-INSERT INTO newsletter
+INSERT INTO $nomTable
 ( nom, email, dateInscription )
 VALUES
 ( :nom, :email, :dateInscription )

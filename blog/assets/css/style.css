@@ -180,6 +180,13 @@ footer nav a {
     color: var(--complementary-0);
 }
 
+/* FORMULAIRES */
+form {
+    padding:1rem;
+}
+form button {
+    display:block;
+}
 /* CSS - Cascading Style Sheet */
 /* Palette color codes */
 /* Palette URL: http://paletton.com/#uid=72l190kmMqDdnCNiCueqzmAurhS */

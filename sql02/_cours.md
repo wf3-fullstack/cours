@@ -1,0 +1,271 @@
+## COURS SQL LUNDI 25/11
+
+
+    Structured
+    Query
+    Language
+
+    * COURS EN FRANCAIS
+
+    https://sql.sh/
+
+
+    * PHPMYADMIN POUR CREER UNE BASE DE DONNEES ET DES TABLES SQL
+
+    * REQUETES PREPAREES AVEC DES JETONS (TOKENS)
+        POUR SE PROTEGER CONTRE LES INJECTIONS SQL
+
+    INSERT INTO newsletter
+    ( nom, email, dateInscription )
+    VALUES
+    ( :nom, :email, :dateInscription )
+
+
+    => CREER UNE NOUVELLE LIGNE DANS UNE TABLE SQL
+    => UNE PARTIE DE LA GESTION DES DONNEES
+
+    => CRUD
+    CREATE      => INSERT INTO...
+    READ        => SELECT ...
+    UPDATE      => UPDATE
+    DELETE      => DELETE
+
+    => CYCLE DE VIE DES INFORMATIONS
+    => ATTENTION: ON AURA (AU MOINS) UN CRUD PAR TABLE SQL
+
+    => SI ON ARRIVE A CREER DU CODE PHP REUTILISABLE
+    => ON VA SE SIMPLIFIER LA VIE
+    => PROGRAMMATION FONCTIONNELLE
+    => CREER DES FONCTIONS AVEC PARAMETRES 
+        POUR POUVOIR REUTILISER LA FONCTIONS
+        DANS DES CONTEXTES DIFFERENTS
+
+
+### DELETE
+
+    * COURS SQL.SH
+
+    https://sql.sh/cours/delete
+
+
+    EN SQL
+
+    DELETE FROM `newsletter` 
+    WHERE 
+    `newsletter`.`id` = 2
+
+
+    ON PEUT SIMPLIFIER
+
+    DELETE FROM newsletter 
+    WHERE 
+    id = 2
+
+    ATTENTION A LA CLAUSE WHERE
+    => LA CLAUSE WHERE EST LE SELECTEUR DES LIGNES 
+        QUI VONT ETRE SUPPRIMEES
+
+    SI VOUS ECRIVEZ SEULEMENT
+
+    DELETE FROM newsletter 
+
+    => VOUS EFFACEZ TOUTES LES LIGNES DE LA TABLE newsletter
+
+    NOTE: LA CLAUSE WHERE SERA AUSSI TRES IMPORTANTE DANS LE READ ET LE UPDATE
+
+    DANS LE CAS DU UPDATE ET DU DELETE id NOUS SERT D'IDENTIFIANT UNIQUE
+    POUR SELECTIONNER LA BONNE LIGNE A SUPPRIMER/MODIFIER
+
+    MAIS GARDER EN TETE QUE LES CLAUSES WHERE PERMETTENT DE SELECTIONNER
+    AVEC DE NOMBREUX CRITERES
+
+    (exemple avec moteur de recherche multi-critères darty.com)
+
+### UPDATE
+
+    * COURS SQL.SH
+
+    https://sql.sh/cours/update
+
+
+
+    UPDATE `newsletter` 
+    SET 
+    `email` = 'update1022@mail.me' 
+    WHERE 
+    `newsletter`.`id` = 4;
+
+    VERSION SIMPLIFIEE
+
+    UPDATE newsletter 
+    SET 
+    email = 'update1022@mail.me',
+    nom   = 'updatenom' 
+    WHERE 
+    id = 4;
+
+
+    ATTENTION A LA CLAUSE WHERE
+    SI ON NE MET PAS LA CLAUSE WHERE
+    ON MODIFIE TOUTES LES LIGNES
+
+    NOTE: ON DEVRA REMPLACER CE QUI VIENT DE l'EXTERIEUR PAR DES TOKENS EN PHP
+            POUR FAIRE DES REQUETES PREPAREES
+
+
+### READ
+
+    * COURS SQL.SH
+
+    https://sql.sh/cours/select
+
+
+    LE READ PERMET DE RECUPERER LES INFOS QUI NOUS INTERESSENT
+    => PERMET DE FAIRE LE PLUS DE REQUETES DIFFERENTES
+
+    (
+        SOUVENT, ON A BESOIN DE VALIDER L'UNICITE D'UN EMAIL...
+        ON AURA BESOIN DE FAIRE UN READ AVANT LE CREATE
+    )
+
+    REQUETE READ LA PLUS SIMPLE
+
+    SELECT * FROM `newsletter`
+
+    VERSION PLUS SIMPLIFIEE
+
+    SELECT * 
+    FROM newsletter
+
+    => JE SELECTIONNE TOUTE LES COLONNES ET TOUTES LES LIGNES DE LA TABLE newsletter
+
+
+    * 
+    => SELECTEUR UNIVERSEL POUR LES COLONNES
+    => ON PEUT DECIDER DE NE RECUPERER QUE CERTAINES COLONNES
+    => IL FAUT ALORS PRECISER LES COLONNES QUI NOUS INTERESSENT
+
+
+    SELECT email
+    FROM newsletter
+    WHERE id = 4
+
+    => IMPORTANT A COMPRENDRE: LE RESULTAT D'UNE REQUETE SELECT
+            EST UNE TABLE "TEMPORAIRE" (CONSTRUITE QUE LE TEMPS DE LA REQUETE)
+            QUI A DES COLONNES ET DES LIGNES
+
+    ON PEUT CHOISIR DE CHANGER LE NOM DES COLONNES DANS LA TABLE DE RESULTATS
+    AVEC DES ALIAS
+
+    SELECT email as maColonne1, nom as maColonne2
+    FROM newsletter
+
+    SELECT *, email as maColonne1, nom as maColonne2
+    FROM newsletter
+
+
+    ENSUITE AVEC LA CLAUSE WHERE
+    ON VA SELECTIONNER LES LIGNES QUI SERONT DANS LA TABLE DES RESULTATS
+
+
+### FONCTIONS D'AGGREGATION
+
+
+    ON AURA AUSSI BESOIN DE SAVOIR COMBIEN DE LIGNES SONT DANS CHAQUE TABLE
+
+    SELECT count(*) as total
+    FROM newsletter
+    WHERE
+    nom LIKE '%10%'
+
+    => ON OBTIENT LE RESULTAT SOUS LA FORME D'UN TABLEAU D'UNE COLONNE ET UNE LIGNE
+
+    ## POUR LE CODER, L'ORDRE LE PLUS FACILE
+
+
+    JE VOUS CONSEILLE DE FAIRE DANS CET ORDRE
+    * CREATE    => CODE SQL => INSERT INTO...
+    * READ      => CODE SQL => SELECT...
+    * DELETE    => CODE SQL => DELETE...
+    * UPDATE    => CODE SQL => UPDATE...  => LE PIRE D'ENTRE TOUS
+
+
+## PROJET BLOG: FORMULAIRE DE CONTACT
+
+    ON VA CREER LA TABLE contact
+
+    id              INT             INDEX=PRIMARY A_I (AUTO_INCREMENT)
+    nom             VARCHAR(160)
+    email           VARCHAR(160)
+    message         TEXT
+    dateMessage     DATETIME
+    ip              VARCHAR(160)
+
+    => CREER LE FORMULAIRE HTML DANS LA PAGE contact.php
+    => ASTUCE: REUTILISER LE NOM DES COLONNES SQL DANS LE CODE HTML 
+
+        input name="nom"...
+
+
+
+## EXERCICE EN AUTONOMIE
+
+    * SUR LA PAGE contact.php
+    * CREER LE FORMULAIRE DE CONTACT 
+
+    * SUR LA PAGE admin-recettes.php
+    * CREER LE FORMULAIRE POUR CREATE SUR LA TABLE SQL recettes
+
+    id          INT             INDEX=primary       A_I (AUTO_INCREMENT)
+    titre       VARCHAR(160)
+    ingredients TEXT    
+    description TEXT
+    image       VARCHAR(160)
+    -- OPTIONNEL SI VOUS VOULEZ PLUS CODE --
+    urlVideo            VARCHAR(160)
+    difficulte          TINYINT
+    nbPersonne          TINYINT
+    tempsPreparation    TINYINT
+    typeRecette         VARCHAR(160)
+
+
+    EXEMPLE D'URL DE VIDEO YOUTUBE
+    https://www.youtube.com/watch?v=rC49e8Bh3jE
+
+
+    * SUR LA PAGE inscription.php
+    * CREER LE FORMULAIRE DE CREATION D'UN UTILISATEUR
+    TABLE SQL   users
+
+    id              INT             INDEX=primary       A_I (AUTO_INCREMENT)
+    login           VARCHAR(160)
+    password        VARCHAR(160)
+    email           VARCHAR(160)
+    dateInscription DATETIME
+    -- OPTIONNEL --
+    tokenActivation VARCHAR(160)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

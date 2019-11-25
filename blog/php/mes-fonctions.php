@@ -90,7 +90,10 @@ function filtrerInput($nameInput)
 // JUSTE UNE SIMPLIFICATION DE MON CODE
 function verifierEmail($email)
 {
-    return filter_var($email, FILTER_VALIDATE_EMAIL);
+    $longueurEmail      = mb_strlen($email);
+    // RENVOIE FALSE SI UN DES TESTS ECHOUE (&&)
+    // note: && va arrêter dès qu'un test est FALSE
+    return ($longueurEmail > 0) && ($longueurEmail < 160) && filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
 
@@ -144,6 +147,50 @@ function envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur)
     return $pdoStatement;
 }
 
+// ON VA CREER UNE FONCTION QUI VA PRENDRE EN PARAMETRES
+// $nomTable
+// $tabAssoColonneValeur
+function insererLigneSQL($nomTable, $tabAssoColonneValeur)
+{
+    // ON VA CONSTRUIRE LA REQUETE A PARTIR DES CLES DU $tabAssoColonneValeur
+    // $listeColonne = "nom, email, message, dateMessage, ip";
+    // $listeToken = ":nom, :email, :message, :dateMessage, :ip";
+
+    // ON DOIT PARCOURIR LE TABLEAU $tabAssoColonneValeur
+    // POUR CONSTRUIRE LES 2 LISTE $listeColonne ET $listeToken
+    $listeColonne = "";
+    $listeToken = "";
+    $indice = 0;  // EN PLUS J'AI BESOIN DE L'INDICE
+    foreach ($tabAssoColonneValeur as $colonne => $valeur) {
+        if ($indice > 0) {
+            // JE NE SUIS PAS SUR LE PREMIER
+            $listeColonne   .= ", $colonne";
+            $listeToken     .= ", :$colonne";
+        } else {
+            // JE SUIS SUR LE PREMIER
+            $listeColonne   .= "$colonne";
+            $listeToken     .= ":$colonne";
+        }
+        // INCREMENTER L'INDICE
+        $indice++;
+    }
+
+    $requetePrepareeSQL =
+        <<<CODESQL
+
+INSERT INTO $nomTable
+( $listeColonne )
+VALUES
+( $listeToken )
+CODESQL;
+
+
+    // JE PEUX APPELER LA FONCTION envoyerRequeteSQL
+    $pdoStatement = envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur);
+
+    // DANS LE CAS OU J'AI BESOIN DE RECUPERER PLUS D'INFORMATIONS
+    return $pdoStatement;
+}
 
 
 ?>
