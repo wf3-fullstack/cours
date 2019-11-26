@@ -33,4 +33,10 @@ if (count($tabErreur) == 0)
 
     // IL SUFFIT D'APPELER LA FONCTION
     insererLigneSQL($nomTable, $tabAssoColonneValeur);
+
+    // SI JE FAIS DE AJAX
+    // JE PEUX FAIRE UNE REDIRECTION
+    // https://www.php.net/manual/fr/function.header.php
+    header("Location: recettes.php");
+
 }

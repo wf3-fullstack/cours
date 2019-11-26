@@ -56,9 +56,11 @@ require_once "php/mes-fonctions.php";
 // JE VAIS APPELER MA FONCTION
 $tabResultat = lireTableSQL("recettes", "ORDER BY id DESC");
 // JE PARCOURS LE TABLEAU AVEC UNE BOUCLE
+
 foreach($tabResultat as $indice => $tabAssoRecette)
 {
     // AFFICHER CHAQUE RECETTE
+    // https://www.php.net/manual/fr/function.extract.php
     // ASTUCE extract
     // => CA VA ME CREER DES VARIABLES A PARTIR DU NOM DES COLONNES
     extract($tabAssoRecette);
@@ -69,12 +71,13 @@ foreach($tabResultat as $indice => $tabAssoRecette)
 <<<CODEHTML
 
     <article>
-        <strong>$id</strong>
+        <h3>$id</h3>
         <h3>$titre</h3>
         <p>$description</p>
         <button>modifier</button>
         <button>supprimer</button>
     </article>
+
 CODEHTML;
 
 }

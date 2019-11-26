@@ -129,7 +129,9 @@ function envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur)
     // EN CREANT UN OBJET A PARTIR DE LA CLASSE PDO
     // => JE CREE LA CONNEXION ENTRE PHP ET MySQL
     // DataBaseHandler => Gestionnaire de la Connexion avec la BDD
-    // new => PROGRAMMATION ORIENTEE OBJET
+    // new => PROGRAMMATION ORIENTEE OBJET 
+    // (ON FERA TOUT LE MVC EN POO pas seulement la partie Model...)
+    // ATTENTION: PDO => PHP Data Object
     $dbh        = new PDO($dsn, $user, $password);
 
     // ENSUITE ON PEUT ENVOYER LA REQUETE SQL

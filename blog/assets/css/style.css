@@ -6,6 +6,9 @@ html, body {
     margin:0;
     font-size:16px;
 }
+body * {
+    box-sizing:border-box;
+}
 
 header {
     padding:1rem;
@@ -193,6 +196,16 @@ form button {
     margin:0.25rem;
     padding:0.25rem;
 }
+
+.admin .listeRecette article {
+    border:1px solid var(--complementary-0);
+    margin:0.5rem;
+    width: calc( 100% / 3 - 1rem);
+}
+.admin .listeRecette article:last-child {
+    width: calc( 100% / 3 - 1rem);
+}
+
 /* CSS - Cascading Style Sheet */
 /* Palette color codes */
 /* Palette URL: http://paletton.com/#uid=72l190kmMqDdnCNiCueqzmAurhS */
