@@ -187,6 +187,12 @@ form {
 form button {
     display:block;
 }
+
+.admin form > * {
+    display: block;
+    margin:0.25rem;
+    padding:0.25rem;
+}
 /* CSS - Cascading Style Sheet */
 /* Palette color codes */
 /* Palette URL: http://paletton.com/#uid=72l190kmMqDdnCNiCueqzmAurhS */

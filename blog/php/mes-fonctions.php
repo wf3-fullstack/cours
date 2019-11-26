@@ -6,6 +6,12 @@ function configurerProjet ()
     // https://www.php.net/manual/fr/function.date-default-timezone-set.php
     date_default_timezone_set('Europe/Paris');
 
+    // AFFICHER LES ERREURS PHP
+    // https://www.php.net/manual/fr/function.error-reporting.php
+    // https://www.php.net/manual/fr/function.ini-set.php
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+
 }
 
 // A TERME POUR MIEUX SUIVRE L'ORGANISATION MVC
@@ -190,6 +196,34 @@ CODESQL;
 
     // DANS LE CAS OU J'AI BESOIN DE RECUPERER PLUS D'INFORMATIONS
     return $pdoStatement;
+}
+
+
+// ON VA DECLARER UNE FONCTION POUR LIRE DANS UNE TABLE SQL
+function lireTableSQL($nomTable, $ligneTri)
+{
+    // CODE PHP QUI VA CONSTRUIRE LA LISTE DES RECETTES EN HTML
+    // READ
+    // SELECT * FROM recettes
+    $requetePrepareeSQL =
+        <<<CODESQL
+
+SELECT * FROM $nomTable
+$ligneTri
+
+CODESQL;
+
+    $tabAssoColonneValeur = []; // PAS DE JETON
+    // JE RECUPERE $pdoStatement POUR POUVOIR CONTINUER A RECUPERER LES RESULTATS DE LA REQUETE
+    $pdoStatement = envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur);
+    // JE VAIS RECUPERER TOUTES LES LIGNES DE RESULTATS D'UN COUP AVEC fetchAll
+    // ET EN PHP, JE VAIS OBTENIR UN TABLEAU ORDONNE DE TABLEAUX ASSOCIATIFS
+    // https://www.php.net/manual/fr/pdostatement.fetch.php
+    // => ON NE VEUT QU'UN TABLEAU ASSOCIATIF
+    $tabResultat = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    // RENVOYER LE TABLEAU DES RESULTATS
+    return $tabResultat;
 }
 
 

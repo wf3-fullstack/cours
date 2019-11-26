@@ -1,3 +1,8 @@
+<?php
+// CHARGER MES FONCTIONS POUR LES APPELER ENSUITE
+require_once "php/mes-fonctions.php";
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

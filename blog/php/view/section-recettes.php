@@ -1,6 +1,56 @@
 <section>
     <h2>mes dernières recettes</h2>
     <div class="ligne x3col listeRecette">
+<?php
+
+
+// APPELER LA FONCTION POUR RECUPERER LES RESULTATS
+$tabResultat = lireTableSQL("recettes", "ORDER BY datePublication DESC");
+
+// echo "<pre>";
+// print_r($tabResultat);
+// echo "</pre>";
+
+
+// ON VA FAIRE UNE BOUCLE POUR PARCOURIR LES ELEMENTS DU PREMIER TABLEAU
+foreach($tabResultat as $indice => $tabAssoRecette)
+{
+    // DANS LE TABLEAU ASSOCIATIF $tabAssoRecette
+    // LES CLES SONT LES NOMS DES COLONNES
+    // ET LES VALEURS SONT LE VALEURS POUR CHAQUE RECETTE
+
+    /*
+    $titre              = $tabAssoRecette["titre"];
+    $ingredients        = $tabAssoRecette["ingredients"];
+    $description        = $tabAssoRecette["description"];
+    $image              = $tabAssoRecette["image"];
+    $typeRecette        = $tabAssoRecette["typeRecette"];
+    $datePublication    = $tabAssoRecette["datePublication"];
+    */
+    // extract PARCOURT UN TABLEAU ASSOCIATIF $tabAssoRecette ET PREND CHAQUE CLE
+    // ET POUR CHAQUE CLE, extract CREE UNE VARIABLE AVEC LE MEME NOM QUE LA CLE
+    // https://www.php.net/manual/fr/function.extract.php
+    // ATTENTION: extract CREE DES VARIABLES SANS NOUS LE DIRE
+    extract($tabAssoRecette);
+
+    // ON VA CONSTRUIRE LE CODE HTML AVEC CES INFORMATIONS
+    // ET ON VA AFFICHER LE CODE HTML
+    echo
+<<<CODEHTML
+
+        <article>
+            <img src="$image" alt="photo">
+            <h3>$titre</h3>
+            <p>$description</p>
+        </article>
+
+CODEHTML;
+
+
+}
+
+?>
+<!--
         <article>
             <img src="assets/img/photo1.jpg" alt="photo">
             <h3>recette1</h3>
@@ -31,6 +81,7 @@
             <h3>recette6</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt at molestiae quisquam minima asperiores vitae. Possimus accusantium natus et aliquid amet aliquam harum. Quasi at aspernatur ab impedit cumque minus.</p>
         </article>
+-->        
     </div>
 </section>
 
