@@ -3,15 +3,15 @@
 
 ### SPA SINGLE PAGE APPLICATION
 
-WEB2.0
-WEBAPP
-SPA
+    WEB2.0
+    WEBAPP
+    SPA
 
-exemple: google maps, booking.com, airbnb.com, discord, facebook, etc...
+    exemple: google maps, booking.com, airbnb.com, discord, facebook, etc...
 
-=> BEAUCOUP DE JS ET D'AJAX
-=> PERMET DE RESTER SUR UNE SEULE PAGE
-=> GOOGLE PERMET DE FAIRE CROIRE QU'UNE WEBAPP EST UNE APPLICATION ANDROID
+    => BEAUCOUP DE JS ET D'AJAX
+    => PERMET DE RESTER SUR UNE SEULE PAGE
+    => GOOGLE PERMET DE FAIRE CROIRE QU'UNE WEBAPP EST UNE APPLICATION ANDROID
 
 ### CREATE DES RECETTES
 
@@ -35,26 +35,29 @@ exemple: google maps, booking.com, airbnb.com, discord, facebook, etc...
 
 ## TRI DES RESULTATS EN SQL
 
+    * COURS SQL.SH
 
-SELECT * FROM recettes
-ORDER BY datePublication DESC
+    https://sql.sh/cours/order-by
+
+    SELECT * FROM recettes
+    ORDER BY datePublication DESC
 
 
-ASC     => ORDRE CROISSANT (ASCENDANT)
-DESC    => ORDRE DECROISSANT (DESCENDANT)
+    ASC     => ORDRE CROISSANT (ASCENDANT)
+    DESC    => ORDRE DECROISSANT (DESCENDANT)
 
 
 ## EXERCICES SUR LE SITE DE BLOG
 
-* CREER LA TABLE SQL recettes
+    * CREER LA TABLE SQL recettes
 
-* AJOUTER LE CREATE SUR LES RECETTES
-=> SUR LA PAGE admin-recettes.php
+    * AJOUTER LE CREATE SUR LES RECETTES
+    => SUR LA PAGE admin-recettes.php
 
-* AJOUTER LE READ SUR LES RECETTES
-=> SUR LA PAGE recettes.php
+    * AJOUTER LE READ SUR LES RECETTES
+    => SUR LA PAGE recettes.php
 
-* AJOUTER LE READ SUR LA PAGE admin-recettes.php
+    * AJOUTER LE READ SUR LA PAGE admin-recettes.php
 
 
 
