@@ -31,58 +31,6 @@ if (count($tabErreur) == 0) {
     ];
     $nomTable = "recettes";
 
-    function updateLigneSQL ($nomTable, $id, $tabAssoColonneValeur)
-    {
-        // ME PROTEGER EN CONVERTISSANT $id EN NOMBRE
-        // $id             = intval($id);
-
-        /*
-
-UPDATE recettes
-SET
-titre = :titre, description = :description, ingredients = :ingredients
-WHERE
-id = :id
-
-        */
-        // ON VA CONSTRUIRE LA LISTE COLONNE TOKEN EN PARCOURANT LES CLES DU TABLEAU ASSOCIATIF
-        $listeColonneToken = "";
-        // ON FAIT UNE BOUCLE
-        $compteur = 0;
-        foreach($tabAssoColonneValeur as $nomColonne => $valeur)
-        {
-            if ($compteur > 0)
-            {
-                // ON N'EST PAS SUR LE PREMIER
-                $listeColonneToken .= ", $nomColonne = :$nomColonne";
-                // $compteur = 1
-            }
-            else
-            {
-                // ON EST SUR LE PREMIER
-                $listeColonneToken .= "$nomColonne = :$nomColonne";
-                $compteur++;    // $compteur = 1
-            }
-        }
-
-        $requetePrepareeSQL =
-<<<CODESQL
-
-UPDATE $nomTable
-SET
-$listeColonneToken
-WHERE
-id = :id
-
-CODESQL;
-
-        // JE RAJOUTE LE TOKEN DANS LE TABLEAU ASSOCIATIF POUR $id
-        $tabAssoColonneValeur["id"] = $id;
-
-        $pdoStatement = envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur);
-        return $pdoStatement;
-    }
-
     // IL SUFFIT D'APPELER LA FONCTION
     updateLigneSQL($nomTable, $id, $tabAssoColonneValeur);
 
