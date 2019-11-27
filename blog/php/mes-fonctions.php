@@ -134,6 +134,12 @@ function envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur)
     // ATTENTION: PDO => PHP Data Object
     $dbh        = new PDO($dsn, $user, $password);
 
+    // PARAMETRER PDO POUR LES ERREURS
+    // https://www.php.net/manual/fr/pdo.error-handling.php
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+    // => LES ERREURS SQL SERONT REMONTEES VERS PHP
+    // ET SERONT AFFICHEES COMME DES ERREURS PHP (RECTANGLE ORANGE...)
+
     // ENSUITE ON PEUT ENVOYER LA REQUETE SQL
     // VERSION 1: ELLE NE SERA PAS PROTEGEE CONTRE LES ATTAQUES PAR INJECTION SQL
     // QUICK AND DIRTY

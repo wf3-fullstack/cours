@@ -9,6 +9,12 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<?php
+// ON POURRAIT ALLER CHERCHER 
+// AUTOMATIQUEMENT UN FICHIER JS 
+// SUIVANT UN IDENTIFIANT DE PAGE
+
+?>
 </body>
 
 </html>

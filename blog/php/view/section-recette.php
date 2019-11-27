@@ -14,7 +14,7 @@ FROM recettes
 WHERE id = :id
 
 */
-$tabResultat = lireTableSQL("recettes", "", "WHERE id = $id");
+$tabResultat = lireTableSQL("recettesshdfskj", "", "WHERE id = $id");
 
 foreach($tabResultat as $tabAssoRecette)
 {

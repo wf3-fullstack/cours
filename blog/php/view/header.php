@@ -2,6 +2,8 @@
 // CHARGER MES FONCTIONS POUR LES APPELER ENSUITE
 require_once "php/mes-fonctions.php";
 
+configurerProjet();
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
