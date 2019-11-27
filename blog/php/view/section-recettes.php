@@ -39,8 +39,16 @@ foreach($tabResultat as $indice => $tabAssoRecette)
 <<<CODEHTML
 
         <article>
-            <img src="$image" alt="photo">
-            <h3>$titre</h3>
+            <a href="recette.php?id=$id"><img src="$image" alt="photo"></a>
+            <!-- FORGER UNE REQUETE: ON CONSTRUIT DIRECTEMENT LE LIEN SANS PASSER PAR LE FORMULAIRE  -->
+            <h3><a href="recette.php?id=$id">$titre</a></h3>
+            <!-- SI JE PASSE PAR UN FORMULAIRE GET -->
+            <!--
+            <form method="GET" action="recette.php">
+                <button type="submit">$titre</button>
+                <input type="text" name="id" value="$id">
+            </form>
+            -->    
             <p>$description</p>
         </article>
 

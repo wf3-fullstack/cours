@@ -202,7 +202,7 @@ CODESQL;
 
 
 // ON VA DECLARER UNE FONCTION POUR LIRE DANS UNE TABLE SQL
-function lireTableSQL($nomTable, $ligneTri)
+function lireTableSQL($nomTable, $ligneTri, $clauseWhere="")
 {
     // CODE PHP QUI VA CONSTRUIRE LA LISTE DES RECETTES EN HTML
     // READ
@@ -211,6 +211,7 @@ function lireTableSQL($nomTable, $ligneTri)
         <<<CODESQL
 
 SELECT * FROM $nomTable
+$clauseWhere
 $ligneTri
 
 CODESQL;
@@ -226,6 +227,31 @@ CODESQL;
 
     // RENVOYER LE TABLEAU DES RESULTATS
     return $tabResultat;
+}
+
+
+// ON PEUT DONNER DES VALEURS PAR DEFAUT AUX PARAMETRES
+function supprimerLigneSQL($nomTable, $valeurColonne, $nomColonne = "id")
+{
+    // POUR ME PROTEGER UN PEU PLUS CONTRE LES HACKERS
+    // ON PEUT CONVERTIR EN NOMBRE
+    // https://www.php.net/manual/fr/function.intval.php
+    // $id = intval($id);
+
+    $requetePrepareeSQL =
+        <<<CODESQL
+
+DELETE FROM $nomTable
+WHERE $nomColonne = :$nomColonne
+
+CODESQL;
+
+    $tabAssoColonneValeur = ["$nomColonne" => $valeurColonne];
+
+    $pdoStatement = envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur);
+
+    // AU BESOIN JE RENVOIE $pdoStatement
+    return $pdoStatement;
 }
 
 
