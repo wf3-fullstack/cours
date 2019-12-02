@@ -204,26 +204,26 @@ SI ON LE DIT AVANT AVEC LE MOT global
 ### PHP EST TROP SYMPA: ON PEUT CREER DES VARIABLES GLOBALES D'UNE 2E MANIERE
 
 
-PHP PROPOSE UNE VARIABLE SUPER GLOBALE
-$GLOBALS
+    PHP PROPOSE UNE VARIABLE SUPER GLOBALE
+    $GLOBALS
 
-CETTE VARIABLE CONTIENT UN TABLEAU ASSOCIATIF
+    CETTE VARIABLE CONTIENT UN TABLEAU ASSOCIATIF
 
-https://www.php.net/manual/fr/reserved.variables.globals.php
+    https://www.php.net/manual/fr/reserved.variables.globals.php
 
-$texte = "coucou";
+    $texte = "coucou";
 
-// PAREIL QUE SI ON AVAIT ECRIT
-$GLOBALS["texte"] = "coucou2";
+    // PAREIL QUE SI ON AVAIT ECRIT
+    $GLOBALS["texte"] = "coucou2";
 
 
-echo $texte;        // "coucou2"
+    echo $texte;        // "coucou2"
 
-$texte = "coucou3";
+    $texte = "coucou3";
 
-echo $GLOBALS["texte"]; // coucou3
+    echo $GLOBALS["texte"]; // coucou3
 
-// ATTENTION AUSSI AUX $$
+    // ATTENTION AUSSI AUX $$
 
 
 ### PHP AJOUTE AUSSI LES VARIABLES LOCALES STATIC

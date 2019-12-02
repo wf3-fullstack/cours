@@ -103,6 +103,40 @@ function verifierEmail($email)
 }
 
 
+// ATTENTION: LES VARIABLES GLOBALES SONT UTILISEES AU MOMENT DE L'APPEL DE LA FONCTION
+function filtrerEmail($name)
+{
+    $email      = filtrerInput($name);
+    $longueurEmail      = mb_strlen($email);
+    // ! => NEGATION
+    if (!verifierEmail($email)) {
+        // ATTENTION: ON VEUT UTILISER UNE VARIABLE GLOBALE DANS UNE FONCTION
+        global $tabErreur;
+        // JE RAJOUTE UNE NOUVELLE VALEUR DANS LE TABLEAU
+        $tabErreur[] = "l'email est incorrect'";
+    }
+    return $email;
+}
+
+// ATTENTION: LES VARIABLES GLOBALES SONT UTILISEES AU MOMENT DE L'APPEL DE LA FONCTION
+// ON VA UTILISER LA VARIABLE GLOBALE $tabErreur
+function filtrerTexte($name, $longueurMin = 1, $longueurMax = 160)
+{
+    $texte            = filtrerInput($name);
+    $longueurTexte    = mb_strlen($texte);
+    // ATTENTION: $tabErreur EST UNE VARIABLE GLOBALE
+    global $tabErreur;
+    if ($longueurTexte < $longueurMin) {
+        $tabErreur[] = "$name ne doit pas être vide";
+    }
+    if ($longueurTexte >= $longueurMax) {
+        $tabErreur[] = "$name ne doit pas dépasser $longueurMax caractères";
+    }
+
+    return $texte;
+}
+
+
 // FONCTIONS MODELES
 
 
@@ -308,39 +342,3 @@ CODESQL;
     $pdoStatement = envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur);
     return $pdoStatement;
 }
-
-// ATTENTION: LES VARIABLES GLOBALES SONT UTILISEES AU MOMENT DE L'APPEL DE LA FONCTION
-function filtrerEmail($name)
-{
-    $email      = filtrerInput($name);
-    $longueurEmail      = mb_strlen($email);
-    // ! => NEGATION
-    if (!verifierEmail($email)) {
-        // ATTENTION: ON VEUT UTILISER UNE VARIABLE GLOBALE DANS UNE FONCTION
-        global $tabErreur;
-        // JE RAJOUTE UNE NOUVELLE VALEUR DANS LE TABLEAU
-        $tabErreur[] = "l'email est incorrect'";
-    }
-    return $email;
-}
-
-// ATTENTION: LES VARIABLES GLOBALES SONT UTILISEES AU MOMENT DE L'APPEL DE LA FONCTION
-// ON VA UTILISER LA VARIABLE GLOBALE $tabErreur
-function filtrerTexte($name, $longueurMin = 1, $longueurMax = 160)
-{
-    $texte            = filtrerInput($name);
-    $longueurTexte       = mb_strlen($texte);
-    // ATTENTION: $tabErreur EST UNE VARIABLE GLOBALE
-    global $tabErreur;
-    if ($longueurTexte < $longueurMin) {
-        $tabErreur[] = "$name ne doit pas être vide";
-    }
-    if ($longueurTexte >= $longueurMax) {
-        $tabErreur[] = "$name ne doit pas dépasser $longueurMax caractères";
-    }
-    
-    return $texte;
-}
-
-
-?>

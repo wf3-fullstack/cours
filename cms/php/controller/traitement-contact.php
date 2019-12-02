@@ -18,7 +18,7 @@
 // DES FOIS ON PEUT COMPACTER AVEC SPACESHIP <=>
 
 // DETECTION ERREURS
-// DANS LES FONCTIONS filtrer... 
+// DANS LES FONCTIONS filtrerEmail ET filtrerTexte 
 // ON VA UTILISER LA VARIABLE GLOBALE $tabErreur
 $email      = filtrerEmail("email");
 $nom        = filtrerTexte("nom");
