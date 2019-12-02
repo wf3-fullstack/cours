@@ -42,7 +42,7 @@ function afficherGalerie($dossier)
         }
 
         echo        // NE PAS OUBLIER echo POUR AFFICHER UN TEXTE PHP
-            <<<TOTO
+<<<TOTO
         <img class="$couleur" src="$image" alt="photo">
 
 TOTO;
@@ -67,7 +67,7 @@ function creerMenu()
 
     foreach ($tableauMenu as $cle => $valeur) {
         echo
-            <<<CODEHTML
+<<<CODEHTML
             <a href="$valeur">$cle</a>
 
 CODEHTML;
@@ -224,7 +224,7 @@ function insererLigneSQL($nomTable, $tabAssoColonneValeur)
     }
 
     $requetePrepareeSQL =
-        <<<CODESQL
+<<<CODESQL
 
 INSERT INTO $nomTable
 ( $listeColonne )
@@ -248,7 +248,7 @@ function lireTableSQL($nomTable, $ligneTri, $clauseWhere="")
     // READ
     // SELECT * FROM recettes
     $requetePrepareeSQL =
-        <<<CODESQL
+<<<CODESQL
 
 SELECT * FROM $nomTable
 $clauseWhere
@@ -279,7 +279,7 @@ function supprimerLigneSQL($nomTable, $valeurColonne, $nomColonne = "id")
     // $id = intval($id);
 
     $requetePrepareeSQL =
-        <<<CODESQL
+<<<CODESQL
 
 DELETE FROM $nomTable
 WHERE $nomColonne = :$nomColonne
