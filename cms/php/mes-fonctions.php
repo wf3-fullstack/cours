@@ -122,7 +122,10 @@ function filtrerEmail($name)
 // ON VA UTILISER LA VARIABLE GLOBALE $tabErreur
 function filtrerTexte($name, $longueurMin = 1, $longueurMax = 160)
 {
+    // PREMIERE SECURITE D'ENLEVER LES CARACTERES DANGEREUX (balises, espaces en trop)
     $texte            = filtrerInput($name);
+
+    // 2e SECURITE: VERIFICATION DES LONGUEURS
     $longueurTexte    = mb_strlen($texte);
     // ATTENTION: $tabErreur EST UNE VARIABLE GLOBALE
     global $tabErreur;

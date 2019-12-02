@@ -18,6 +18,9 @@
 // DES FOIS ON PEUT COMPACTER AVEC SPACESHIP <=>
 
 // DETECTION ERREURS
+// ATTENTION A BIEN DIFFERENCIER LES NOMS DES FONCTIONS 
+// POUR UN EMAIL => filtrerEmail
+// POUR UN TEXTE => filtrerTexte
 // DANS LES FONCTIONS filtrerEmail ET filtrerTexte 
 // ON VA UTILISER LA VARIABLE GLOBALE $tabErreur
 $email      = filtrerEmail("email");
@@ -38,6 +41,8 @@ if (count($tabErreur) == 0) {
     // var_dump($ip);
 
     // JE PEUX INSERER UNE LIGNE DANS LA TABLE SQL contact
+    // compact 
+    // https://www.php.net/manual/fr/function.compact.php
     $tabAssoColonneValeur = [
         "email"             => $email,
         "nom"               => $nom,

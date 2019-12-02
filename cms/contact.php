@@ -11,6 +11,11 @@
 <body>
     <header>
         <h1>SITE CMS</h1>
+        <nav>
+            <a href="index.php">accueil</a>
+            <a href="contact.php">contact</a>
+            <a href="admin.php">admin</a>
+        </nav>
     </header>
     <main>
         <section>
