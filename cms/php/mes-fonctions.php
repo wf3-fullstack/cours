@@ -325,19 +325,21 @@ function filtrerEmail($name)
 }
 
 // ATTENTION: LES VARIABLES GLOBALES SONT UTILISEES AU MOMENT DE L'APPEL DE LA FONCTION
+// ON VA UTILISER LA VARIABLE GLOBALE $tabErreur
 function filtrerTexte($name, $longueurMin = 1, $longueurMax = 160)
 {
-    $nom        = filtrerInput($name);
-    $longueurNom        = mb_strlen($nom);
+    $texte            = filtrerInput($name);
+    $longueurTexte       = mb_strlen($texte);
     // ATTENTION: $tabErreur EST UNE VARIABLE GLOBALE
     global $tabErreur;
-    if ($longueurNom < $longueurMin) {
-        $tabErreur[] = "le nom ne doit pas être vide";
+    if ($longueurTexte < $longueurMin) {
+        $tabErreur[] = "$name ne doit pas être vide";
     }
-    if ($longueurNom >= $longueurMax) {
-        $tabErreur[] = "le nom ne doit pas dépasser $longueurMax caractères";
+    if ($longueurTexte >= $longueurMax) {
+        $tabErreur[] = "$name ne doit pas dépasser $longueurMax caractères";
     }
-    return $nom;
+    
+    return $texte;
 }
 
 

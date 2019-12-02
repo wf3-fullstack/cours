@@ -229,20 +229,29 @@ echo $GLOBALS["texte"]; // coucou3
 ### PHP AJOUTE AUSSI LES VARIABLES LOCALES STATIC
 
 
-function afficherMessage ()
-{
-    // VARIABLE LOCALE
-    $compteur = 0;
+    function afficherMessage()
+    {
+        // VARIABLE LOCALE
+        $compteur = 0;
+        
+        // VARIABLE STATIC LOCALE
+        static $compteur2 = 0;      
+        // AJOUTER static DIT A PHP D'EXECUTER CE CODE SEULEMENT AU PREMIER APPEL
+        // ET EN PLUS LA VARIABLE N'EST PAS DETRUITE A LA FIN DE L'APPEL
 
-    echo "<h1>$compteur</h1>";
+        echo "<h1>compteur: $compteur</h1>";
+        echo "<h1>compteur2: $compteur2</h1>";
 
-    $compteur++;
-}
+        $compteur++;
+        $compteur2++;
 
-afficherMessage();      // 0
-afficherMessage();      // 0
-afficherMessage();      // 0
+        return $compteur2;
+    }
 
+
+    afficherMessage();
+    afficherMessage();
+    afficherMessage();
 
 
 
