@@ -56,6 +56,7 @@ require_once "php/mes-fonctions.php";
             </form>
         </section>
 
+        
         <section>
             <h2>READ SUR TABLE SQL contact</h2>
             <div class="contactList">
@@ -92,6 +93,8 @@ CODEHTML;
                 </table>
             </div>
         </section>
+
+
     </main>
     <footer>
         <p>tous droits réservés</p>

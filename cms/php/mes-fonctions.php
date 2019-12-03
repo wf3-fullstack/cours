@@ -153,6 +153,8 @@ function filtrerTexte($name, $longueurMin = 1, $longueurMax = 160, $nomTable="")
         // LE FORMAT DE L'EMAIL EST BON
         // MAIS JE DOIS VERIFIER EN PLUS QUE L'EMAIL 
         // N'EST PAS DEJA PRESENT DANS LA TABLE SQL $nomTable
+        // ATTENTION: JE NE SUIS PAS PROTEGE CONTRE LES INJECTIONS SQL A CAUSE DE $texte
+        // IL FAUDRAIT PASSER UN TABLEAU ASSOCIATIF AU LIEU DU TEXTE POUR LE PARAMETRE $clauseWhere
         $tabResultat = lireTableSQL($nomTable, "", "WHERE $name = '$texte'");
         // ON VEUT QUE LE TABLEAU $tabResultat SOIT VIDE
         if (count($tabResultat) > 0) {
