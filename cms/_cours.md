@@ -1,99 +1,99 @@
 ## Content Management System (CMS)
 
-CMS 
-=> en français: Système de Gestion de Contenu
-=> Outil de publication de contenu
+    CMS 
+    => en français: Système de Gestion de Contenu
+    => Outil de publication de contenu
 
-=> framework + back-office
+    => framework + back-office
 
-frameworks
-* créé par un groupe et additionne à un langage (php + mysql)
-* cadre de travail (frame => cadre, work => travail)
-* architecture logicielle
-* structure de dossiers et sous-dossiers 
-    et aussi convention de nommage de fichiers
-    qui impose une organisation du code
-    => traitement automatique
-* créer une structure pour plus de facilité
-* copier coller
-* => facilite la maintenance évolutive 
-    et facilite la collaboration 
-    (plusieurs fichiers => git => chaque dev peut travailler sur son fichier sans coder sur celui du voisin)
+    frameworks
+    * créé par un groupe et additionne à un langage (php + mysql)
+    * cadre de travail (frame => cadre, work => travail)
+    * architecture logicielle
+    * structure de dossiers et sous-dossiers 
+        et aussi convention de nommage de fichiers
+        qui impose une organisation du code
+        => traitement automatique
+    * créer une structure pour plus de facilité
+    * copier coller
+    * => facilite la maintenance évolutive 
+        et facilite la collaboration 
+        (plusieurs fichiers => git => chaque dev peut travailler sur son fichier sans coder sur celui du voisin)
 
 
-UN FRAMEWORK
-bibliothèque de code qui s'appuie sur un (ou plusieurs) langages
+    UN FRAMEWORK
+    bibliothèque de code qui s'appuie sur un (ou plusieurs) langages
 
-FRAMEWORK MVC
-ORGANISER SON CODE EN 3 PARTIES (MODEL VIEW CONTROLLER)
+    FRAMEWORK MVC
+    ORGANISER SON CODE EN 3 PARTIES (MODEL VIEW CONTROLLER)
 
 
 ## NOTRE FRAMEWORK
 
-cms/
-    assets/
-    php/
-    php/.htaccess       => require all denied
-cms/index.php           => front-office (accessible au public)
-cms/contact.php         => front-office (accessible au public)
-cms/recettes.php
-cms/recette.php?id=123  => un seul template php pour afficher n'importe quelle recette
-cms/...
-cms/admin.php           => back-office (accès réservé au staff)
+    cms/
+        assets/
+        php/
+        php/.htaccess       => require all denied
+    cms/index.php           => front-office (accessible au public)
+    cms/contact.php         => front-office (accessible au public)
+    cms/recettes.php
+    cms/recette.php?id=123  => un seul template php pour afficher n'importe quelle recette
+    cms/...
+    cms/admin.php           => back-office (accès réservé au staff)
 
 
 ## ON COMMENCE PAR index.php ET admin.php
 
-POUR AVOIR LE CODE DU CRUD
-Create      (commencer par coder le Create)
-Read        (il y en a plusieurs/plein...)
-Update      (le pire... le garder pour la fin... copier de Create et Delete avec des problèmes en plus)
-Delete      (on peut en créer un seul pour toutes les tables, il peut y en avoir plusieurs...)
+    POUR AVOIR LE CODE DU CRUD
+    Create      (commencer par coder le Create)
+    Read        (il y en a plusieurs/plein...)
+    Update      (le pire... le garder pour la fin... copier de Create et Delete avec des problèmes en plus)
+    Delete      (on peut en créer un seul pour toutes les tables, il peut y en avoir plusieurs...)
 
-DANS admin.php ON AURA UN CRUD EN ENTIER
-DANS index.php ON AURA SEULEMENT UN Read
+    DANS admin.php ON AURA UN CRUD EN ENTIER
+    DANS index.php ON AURA SEULEMENT UN Read
 
-ORDRE CONSEILLE => C R D U
-Create
-Read
-Delete
-Update
+    ORDRE CONSEILLE => C R D U
+    Create
+    Read
+    Delete
+    Update
 
 ## FORMULAIRE DE CONTACT
 
 ### CREER LA DATABASE SQL ET LA TABLE contact
 
-COMMENCER PAR 
-    CREER UNE NOUVELLE DATABASE (Base de données) 
-    nom     => cms
-    charset => utf8mb4_general_ci
+    COMMENCER PAR 
+        CREER UNE NOUVELLE DATABASE (Base de données) 
+        nom     => cms
+        charset => utf8mb4_general_ci
 
-ENSUITE CREER LA TABLE contact
-   AVEC LES COLONNES
-   id               INT             INDEX=PRIMARY       A_I (AUTO INCREMENT) 
-   email            VARCHAR(160)     
-   nom              VARCHAR(160) 
-   message          TEXT 
-   datePublication  DATETIME   
+    ENSUITE CREER LA TABLE contact
+    AVEC LES COLONNES
+    id               INT             INDEX=PRIMARY       A_I (AUTO INCREMENT) 
+    email            VARCHAR(160)     
+    nom              VARCHAR(160) 
+    message          TEXT 
+    datePublication  DATETIME   
 
-NE PAS OUBLIER: 
-    EXPORTER LA BASE DE DONNEES EN FICHIER SQL 
-    ET DE L'INCLURE DANS LE ZIP AVEC LE CODE PHP
+    NE PAS OUBLIER: 
+        EXPORTER LA BASE DE DONNEES EN FICHIER SQL 
+        ET DE L'INCLURE DANS LE ZIP AVEC LE CODE PHP
 
 
 ### CREER LE CODE HTML POUR LE FORMULAIRE
 
-ON FAIT UN SITE DE PLUSIEURS PAGES:
-contact.php     IL Y A UNE PAGE POUR LE FORMULAIRE DE CONTACT
+    ON FAIT UN SITE DE PLUSIEURS PAGES:
+    contact.php     IL Y A UNE PAGE POUR LE FORMULAIRE DE CONTACT
 
-ENSUITE CREER LE FICHIER 
-cms/traitement.php
-QUI VA RECEVOIR LES INFORMATIONS DE FORMULAIRE
+    ENSUITE CREER LE FICHIER 
+    cms/traitement.php
+    QUI VA RECEVOIR LES INFORMATIONS DE FORMULAIRE
 
-ENSUITE COPIER LE FICHIER mes-fonctions.php
-cms/php/mes-fonctions.php
+    ENSUITE COPIER LE FICHIER mes-fonctions.php
+    cms/php/mes-fonctions.php
 
-ATTENTION: NE PAS OUBLIER DE CHANGER LES INFOS DE CONNEXION A LA DATABASE
+    ATTENTION: NE PAS OUBLIER DE CHANGER LES INFOS DE CONNEXION A LA DATABASE
 
     function envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur)
     {
@@ -112,12 +112,12 @@ ATTENTION: NE PAS OUBLIER DE CHANGER LES INFOS DE CONNEXION A LA DATABASE
         $hostname   = "127.0.0.1";      // "localhost"
 
 
-ET ENSUITE UTILISER filtrerInput POUR RECUPERER $identifiantFormulaire
+    ET ENSUITE UTILISER filtrerInput POUR RECUPERER $identifiantFormulaire
 
 
 ### TRAITEMENT DU FORMULAIRE
 
-CREER LE FICHIER php/controller/traitement-contact.php
+    CREER LE FICHIER php/controller/traitement-contact.php
 
 
 ## VISIBILITE ET PORTEE DES VARIABLES
@@ -154,40 +154,40 @@ CREER LE FICHIER php/controller/traitement-contact.php
 
 ## VARIABLES SUPER GLOBALES, GLOBALES, LOCALES, LOCALES STATIC
 
-https://www.php.net/manual/fr/reserved.variables.php
+    https://www.php.net/manual/fr/reserved.variables.php
 
-PHP PROPOSE DES VARIABLES SUPER GLOBALES
-=> ON PEUT LES UTILISER PARTOUT, CA MARCHE
-=> PAR CONTRE, ON NE PEUT PAS CREER DE NOUVELLES VARIABLES SUPER GLOBALES
+    PHP PROPOSE DES VARIABLES SUPER GLOBALES
+    => ON PEUT LES UTILISER PARTOUT, CA MARCHE
+    => PAR CONTRE, ON NE PEUT PAS CREER DE NOUVELLES VARIABLES SUPER GLOBALES
 
-$_GET
-$_POST
-$_REQUEST
-$_SERVER
-...
+    $_GET
+    $_POST
+    $_REQUEST
+    $_SERVER
+    ...
 
-ON PEUT CREER DES VARIABLES GLOBALES
-* SOIT ON CREE UNE VARIABLE EN DEHORS DES FONCTIONS
-    => DANS CE CAS, ELLE EST GLOBALE
+    ON PEUT CREER DES VARIABLES GLOBALES
+    * SOIT ON CREE UNE VARIABLE EN DEHORS DES FONCTIONS
+        => DANS CE CAS, ELLE EST GLOBALE
 
-    $texte = "coucou";  // VARIABLE GLOBALE
+        $texte = "coucou";  // VARIABLE GLOBALE
 
-    function afficherMessage ($param)
-    {
-        echo $param;    // ERREUR
-        // Notice: Undefined variable: texte in C:\xampp\htdocs\wf3-fullstack\exos\variables-locale.php on line 19
-    }
+        function afficherMessage ($param)
+        {
+            echo $param;    // ERREUR
+            // Notice: Undefined variable: texte in C:\xampp\htdocs\wf3-fullstack\exos\variables-locale.php on line 19
+        }
 
-    afficherMessage($texte);
+        afficherMessage($texte);
 
-DANS UNE FONCTION, LE PARAMETRES SONT CREES ET DETRUITS A CHAQUE APPEL DE FONCTION
-ET SI ON CREE DES VARIABLES A L'INTERIEUR D'UNE FONCTION, 
-ELLES SONT CREEES ET DETRUITES A CHAQUE APPEL DE LA FONCTION
+    DANS UNE FONCTION, LE PARAMETRES SONT CREES ET DETRUITS A CHAQUE APPEL DE FONCTION
+    ET SI ON CREE DES VARIABLES A L'INTERIEUR D'UNE FONCTION, 
+    ELLES SONT CREEES ET DETRUITES A CHAQUE APPEL DE LA FONCTION
 
 ### PHP PERMET DE GRUGER LES PORTEES DE VARIABLES GLOBALES
 
-EN PHP, DANS UNE FONCTION, ON PEUT UTILISER UNE VARIABLE GLOBALE
-SI ON LE DIT AVANT AVEC LE MOT global
+    EN PHP, DANS UNE FONCTION, ON PEUT UTILISER UNE VARIABLE GLOBALE
+    SI ON LE DIT AVANT AVEC LE MOT global
 
 
     $texte = "coucou";  // VARIABLE GLOBALE
