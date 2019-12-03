@@ -255,6 +255,31 @@
 
 
 
+## TABLE SQL user
+
+
+    CREER LA TABLE SQL user
+        EN COLONNES
+        id                  INT             INDEX=PRIMARY       A_I (AUTO_INCREMENT)
+        login               VARCHAR(160)
+        email               VARCHAR(160)
+        password            VARCHAR(160)
+        dateInscription     DATETIME
+        level               INT
+
+
+    ON DONNE UN level QUI EST UN NOMBRE
+    level=0         => BANNI
+    level=10        => MEMBRE
+    level=50        => EDITEUR
+    level=100       => ADMIN    
+    level=1000      => SUPER-ADMIN    
+
+
+    APRES LA PAUSE, CREER UNE PAGE cms/inscription.php
+    POUR AJOUTER UN FORMULAIRE DE CREATE SUR LA TABLE user
+
+
 
 
 

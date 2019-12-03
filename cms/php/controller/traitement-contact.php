@@ -53,6 +53,10 @@ if (count($tabErreur) == 0) {
 
     // JE VAIS APPELER MA FONCTION insererLigneSQL
     insererLigneSQL($nomTable, $tabAssoColonneValeur);
+
+    // SANS AJAX JE RAJOUTE UNE REDIRECTION
+    header("Location: contact.php");
+    
 } else {
     // JE PEUX RENVOYER TOUTES LES ERREURS DANS LE TABLEAU $tabErreur
     // debug

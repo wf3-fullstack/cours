@@ -139,6 +139,13 @@ function filtrerTexte($name, $longueurMin = 1, $longueurMax = 160)
     return $texte;
 }
 
+// CONVERTIR LE TEXTE EN NOMBRE
+function filtrerNombre ($name)
+{
+    $texte            = filtrerInput($name);
+    $nombre           = intval($texte);
+    return $nombre;
+} 
 
 // FONCTIONS MODELES
 
@@ -280,6 +287,16 @@ function supprimerLigneSQL($nomTable, $valeurColonne, $nomColonne = "id")
     // ON PEUT CONVERTIR EN NOMBRE
     // https://www.php.net/manual/fr/function.intval.php
     // $id = intval($id);
+
+    // ATTENTION: ON NE MET PAS DE TOKEN POUR LE NOM DE LA TABLE
+    // => ATTAQUE PAR INJECTION SQL POSSIBLE
+    //      SI $nomTable VIENT DE L'EXTERIEUR
+    // https://www.php.net/manual/fr/function.preg-replace.php
+    // EXPRESSION REGULIERE [^a-zA-Z0-9]
+    // REGULAR EXPRESSION (REGEXP)
+    // ON ENLEVE LES CARACTERES QUI NE SONT PAS DES LETTRES OU DES CHIFFRES 
+    // https://regex101.com/
+    $nomTable = preg_replace("/[^a-zA-Z0-9]/", "", $nomTable);
 
     $requetePrepareeSQL =
 <<<CODESQL
