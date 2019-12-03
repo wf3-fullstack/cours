@@ -1,7 +1,7 @@
 <?php
 
-$email      = filtrerEmail("email");
-$login      = filtrerTexte("login");
+$email      = filtrerEmail("email", "user");            // UNIQUE DANS user
+$login      = filtrerTexte("login", 3, 160, "user");    // UNIQUE DANS user
 $password   = filtrerTexte("password");
 
 if (count($tabErreur) == 0) {

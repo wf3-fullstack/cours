@@ -13,8 +13,20 @@ require_once "php/mes-fonctions.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ADMIN CMS</title>
     <style>
+
+        html, body {
+            font-size:16px;
+        }
         .nodisplay {
             display: none;
+        }
+
+        table {
+            width:100%;
+        }
+        td {
+            border:1px solid #123456;
+            padding:0.2rem;
         }
     </style>
 </head>
@@ -47,6 +59,8 @@ require_once "php/mes-fonctions.php";
         <section>
             <h2>READ SUR TABLE SQL contact</h2>
             <div class="contactList">
+                <table>
+                    <tbody>
                 <?php
                 // IL FAUT ALLER LIRE LES LIGNES DANS LA TABLE SQL contact
                 // JE VAIS UTILISER LA FONCTION lireLigneSQL
@@ -62,18 +76,20 @@ require_once "php/mes-fonctions.php";
                     echo
                         <<<CODEHTML
 
-                    <article data-id="$id" class="art$id">
-                        <h3>$email</h3>
-                        <h4>$nom</h4>
-                        <pre>$message</pre>
-                        <p>$datePublication</p>
-                        <button data-table="contact" data-id="$id" class="delete">supprimer</button>
-                    </article>
+                    <tr data-id="$id" class="art$id">
+                        <td>$email</td>
+                        <td>$nom</td>
+                        <td><pre>$message</pre></td>
+                        <td>$datePublication</td>
+                        <td><button data-table="contact" data-id="$id" class="delete">supprimer</button></td>
+                    </tr>
 
 CODEHTML;
                 }
 
                 ?>
+                    </tbody>
+                </table>
             </div>
         </section>
     </main>

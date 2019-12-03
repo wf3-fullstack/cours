@@ -104,23 +104,37 @@ function verifierEmail($email)
 
 
 // ATTENTION: LES VARIABLES GLOBALES SONT UTILISEES AU MOMENT DE L'APPEL DE LA FONCTION
-function filtrerEmail($name)
+function filtrerEmail($name, $nomTable="")
 {
-    $email      = filtrerInput($name);
+    $email              = filtrerInput($name);
     $longueurEmail      = mb_strlen($email);
+    // ATTENTION: ON A BESOIN DE $tabErreur DANS LES 2 SCENARIOS
+    global $tabErreur;
     // ! => NEGATION
     if (!verifierEmail($email)) {
         // ATTENTION: ON VEUT UTILISER UNE VARIABLE GLOBALE DANS UNE FONCTION
-        global $tabErreur;
         // JE RAJOUTE UNE NOUVELLE VALEUR DANS LE TABLEAU
-        $tabErreur[] = "l'email est incorrect'";
+        $tabErreur[] = "l'email est incorrect";
     }
+    else if ($nomTable != "")
+    {
+        // LE FORMAT DE L'EMAIL EST BON
+        // MAIS JE DOIS VERIFIER EN PLUS QUE L'EMAIL 
+        // N'EST PAS DEJA PRESENT DANS LA TABLE SQL $nomTable
+        $tabResultat = lireTableSQL($nomTable, "", "WHERE $name = '$email'");
+        // ON VEUT QUE LE TABLEAU $tabResultat SOIT VIDE
+        if (count($tabResultat) > 0)
+        {
+            $tabErreur[] = "l'email est déjà utilisé";
+        }
+    }
+
     return $email;
 }
 
 // ATTENTION: LES VARIABLES GLOBALES SONT UTILISEES AU MOMENT DE L'APPEL DE LA FONCTION
 // ON VA UTILISER LA VARIABLE GLOBALE $tabErreur
-function filtrerTexte($name, $longueurMin = 1, $longueurMax = 160)
+function filtrerTexte($name, $longueurMin = 1, $longueurMax = 160, $nomTable="")
 {
     // PREMIERE SECURITE D'ENLEVER LES CARACTERES DANGEREUX (balises, espaces en trop)
     $texte            = filtrerInput($name);
@@ -134,8 +148,17 @@ function filtrerTexte($name, $longueurMin = 1, $longueurMax = 160)
     }
     if ($longueurTexte >= $longueurMax) {
         $tabErreur[] = "$name ne doit pas dépasser $longueurMax caractères";
+    } 
+    if ($nomTable != "") {
+        // LE FORMAT DE L'EMAIL EST BON
+        // MAIS JE DOIS VERIFIER EN PLUS QUE L'EMAIL 
+        // N'EST PAS DEJA PRESENT DANS LA TABLE SQL $nomTable
+        $tabResultat = lireTableSQL($nomTable, "", "WHERE $name = '$texte'");
+        // ON VEUT QUE LE TABLEAU $tabResultat SOIT VIDE
+        if (count($tabResultat) > 0) {
+            $tabErreur[] = "$name est déjà utilisé";
+        }
     }
-
     return $texte;
 }
 
