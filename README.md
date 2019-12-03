@@ -12,7 +12,7 @@ https://github.com/wf3-fullstack/cours
 
     NOUVEAU lien vers le liveshare mardi 03/12
     
-    https://prod.liveshare.vsengsaas.visualstudio.com/join?56B60154BBBAF5681B1F6C0A5AC7C4D5A087
+https://prod.liveshare.vsengsaas.visualstudio.com/join?56B60154BBBAF5681B1F6C0A5AC7C4D5A087
     
 
 
