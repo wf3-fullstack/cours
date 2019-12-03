@@ -13,20 +13,22 @@ require_once "php/mes-fonctions.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ADMIN CMS</title>
     <style>
-
-        html, body {
-            font-size:16px;
+        html,
+        body {
+            font-size: 16px;
         }
+
         .nodisplay {
             display: none;
         }
 
         table {
-            width:100%;
+            width: 100%;
         }
+
         td {
-            border:1px solid #123456;
-            padding:0.2rem;
+            border: 1px solid #123456;
+            padding: 0.2rem;
         }
     </style>
 </head>
@@ -56,26 +58,26 @@ require_once "php/mes-fonctions.php";
             </form>
         </section>
 
-        
+
         <section>
             <h2>READ SUR TABLE SQL contact</h2>
             <div class="contactList">
                 <table>
                     <tbody>
-                <?php
-                // IL FAUT ALLER LIRE LES LIGNES DANS LA TABLE SQL contact
-                // JE VAIS UTILISER LA FONCTION lireLigneSQL
-                // => NE PAS OUBLIER DE CHARGER LE FICHIER mes-fonctions.php AVANT
-                // require_once "php/mes-fonctions.php";
+                        <?php
+                        // IL FAUT ALLER LIRE LES LIGNES DANS LA TABLE SQL contact
+                        // JE VAIS UTILISER LA FONCTION lireLigneSQL
+                        // => NE PAS OUBLIER DE CHARGER LE FICHIER mes-fonctions.php AVANT
+                        // require_once "php/mes-fonctions.php";
 
-                $tabContact = lireTableSQL("contact", "ORDER BY datePublication DESC");
-                // PARCOURIR LES ELEMENTS DU TABLEAU
-                foreach ($tabContact as $indice => $tabAssoContact) {
-                    // ASTUCE: ON UTILISE extract
-                    extract($tabAssoContact);
-                    // => CREE LES VARIABLES AVEC LE NOM DES COLONNES
-                    echo
-                        <<<CODEHTML
+                        $tabContact = lireTableSQL("contact", "ORDER BY datePublication DESC");
+                        // PARCOURIR LES ELEMENTS DU TABLEAU
+                        foreach ($tabContact as $indice => $tabAssoContact) {
+                            // ASTUCE: ON UTILISE extract
+                            extract($tabAssoContact);
+                            // => CREE LES VARIABLES AVEC LE NOM DES COLONNES
+                            echo
+                                <<<CODEHTML
 
                     <tr data-id="$id" class="art$id">
                         <td>$email</td>
@@ -86,13 +88,83 @@ require_once "php/mes-fonctions.php";
                     </tr>
 
 CODEHTML;
-                }
+                        }
 
-                ?>
+                        ?>
                     </tbody>
                 </table>
             </div>
         </section>
+
+        <section>
+            <h2>UPDATE SUR TABLE SQL user</h2>
+            <form action="traitement.php" method="POST">
+                <!-- PARTIE PUBLIQUE VISIBLE DU FORMULAIRE-->
+                <label>
+                    <div>email</div>
+                    <input type="email" name="email" required placeholder="votre email" maxlength="160">
+                </label>
+                <label>
+                    <div>login</div>
+                    <input type="text" name="login" required placeholder="votre login" maxlength="160">
+                </label>
+                <label>
+                    <div>level</div>
+                    <input type="number" name="level" required placeholder="votre level">
+                </label>
+                <div>
+                    <button type="submit">MODIFIER LE COMPTE</button>
+                </div>
+                <!-- PARTIE TECHNIQUE INVISIBLE DE NOTRE FRAMEWORK -->
+                <!-- ATTENTION: POUR LE UPDATE IL FAUT id POUR SELECTIONNER LA BONNE LIGNE -->
+                <input type="number" name="id" value="" required>
+                <input type="hidden" name="identifiantFormulaire" value="user-update">
+                <div class="alert">
+                    <!-- ICI AVEC AJAX, JE POURRAI AFFICHER LE MESSAGE DE CONFIRMATION -->
+                </div>
+            </form>
+        </section>
+
+        <section>
+            <h2>READ SUR TABLE SQL user</h2>
+            <div class="userList">
+                <table>
+                    <tbody>
+                        <?php
+                        // IL FAUT ALLER LIRE LES LIGNES DANS LA TABLE SQL contact
+                        // JE VAIS UTILISER LA FONCTION lireLigneSQL
+                        // => NE PAS OUBLIER DE CHARGER LE FICHIER mes-fonctions.php AVANT
+                        // require_once "php/mes-fonctions.php";
+
+                        $tabUser = lireTableSQL("user", "ORDER BY dateInscription DESC");
+                        // PARCOURIR LES ELEMENTS DU TABLEAU
+                        foreach ($tabUser as $indice => $tabAssoUser) {
+                            // ASTUCE: ON UTILISE extract
+                            extract($tabAssoUser);
+                            // => CREE LES VARIABLES AVEC LE NOM DES COLONNES
+                            echo
+                                <<<CODEHTML
+
+                    <tr data-id="$id" class="art$id">
+                        <td>id: $id</td>
+                        <td>$email</td>
+                        <td>$login</td>
+                        <td>$level</td>
+                        <td><pre>$password</pre></td>
+                        <td>$dateInscription</td>
+                        <td><button class="update">modifier</button></td>
+                        <td><button data-table="user" data-id="$id" class="delete">supprimer</button></td>
+                    </tr>
+
+CODEHTML;
+                        }
+
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
 
 
     </main>
