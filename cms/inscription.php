@@ -20,7 +20,7 @@
     </header>
     <main>
         <section>
-            <h2>FORMULAIRE DE CONTACT</h2>
+            <h2>FORMULAIRE D'INSCRIPTION</h2>
             <!-- CODER LE HTML DU FORMULAIRE EN 10 MINUTES -->
             <form action="traitement.php" method="POST">
                 <!-- PARTIE PUBLIQUE VISIBLE DU FORMULAIRE-->
@@ -29,18 +29,18 @@
                     <input type="email" name="email" required placeholder="votre email" maxlength="160">
                 </label>
                 <label>
-                    <div>nom</div>
-                    <input type="text" name="nom" required placeholder="votre nom" maxlength="160">
+                    <div>login</div>
+                    <input type="text" name="login" required placeholder="votre login" maxlength="160">
                 </label>
                 <label>
-                    <div>message</div>
-                    <textarea name="message" required cols="80" rows="8" placeholder="votre message"></textarea>
+                    <div>password</div>
+                    <input type="password" name="password" required placeholder="votre password" maxlength="160">
                 </label>
                 <div>
-                    <button type="submit">ENVOYER VOTRE MESSAGE</button>
+                    <button type="submit">CREATION DE COMPTE</button>
                 </div>
                 <!-- PARTIE TECHNIQUE INVISIBLE DE NOTRE FRAMEWORK -->
-                <input type="hidden" name="identifiantFormulaire" value="contact">
+                <input type="hidden" name="identifiantFormulaire" value="user">
                 <div class="alert">
                     <!-- ICI AVEC AJAX, JE POURRAI AFFICHER LE MESSAGE DE CONFIRMATION -->
                 </div>

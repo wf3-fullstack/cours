@@ -13,9 +13,9 @@ require_once "php/mes-fonctions.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ADMIN CMS</title>
     <style>
-.nodisplay {
-    display:none;
-}        
+        .nodisplay {
+            display: none;
+        }
     </style>
 </head>
 
@@ -26,6 +26,7 @@ require_once "php/mes-fonctions.php";
             <a href="index.php">accueil</a>
             <a href="contact.php">contact</a>
             <a href="admin.php">admin</a>
+            <a href="inscription.php">inscription</a>
         </nav>
     </header>
     <main>
@@ -59,7 +60,7 @@ require_once "php/mes-fonctions.php";
                     extract($tabAssoContact);
                     // => CREE LES VARIABLES AVEC LE NOM DES COLONNES
                     echo
-<<<CODEHTML
+                        <<<CODEHTML
 
                     <article data-id="$id" class="art$id">
                         <h3>$email</h3>

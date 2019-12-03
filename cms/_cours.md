@@ -268,7 +268,7 @@
         level               INT
 
 
-    ON DONNE UN level QUI EST UN NOMBRE
+    note: ON DONNE UN level QUI EST UN NOMBRE
     level=0         => BANNI
     level=10        => MEMBRE
     level=50        => EDITEUR
@@ -276,9 +276,10 @@
     level=1000      => SUPER-ADMIN    
 
 
-    APRES LA PAUSE, CREER UNE PAGE cms/inscription.php
+    CREER UNE PAGE cms/inscription.php
     POUR AJOUTER UN FORMULAIRE DE CREATE SUR LA TABLE user
 
+    ENSUITE AJOUTER LE CODE PHP QUI EFFECTUE LE TRAITEMENT DE CE FORMULAIRE
 
 
 
