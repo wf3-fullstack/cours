@@ -324,7 +324,7 @@
 ### OPTIMISATION DE LA FONCTION envoyerRequeteSQL
 
 
-traitement-user.php
+    DANS traitement-user.php, ON FAIT 3 REQUETES SQL A LA SUITE
 
     filtrerTexte
         lireTableSQL
@@ -344,6 +344,23 @@ traitement-user.php
     EN UTILISANT UNE VARIABLE static DE FONCTION
     JE PEUX SEULEMENT CREER LA CONNEXION UNE FOIS
 
+    function envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur)
+    {
+        // ON NE VA FAIRE LA CONNEXION QUE AU PREMIER APPEL A envoyerRequeteSQL
+        static $dbh = null;     // CETTE LIGNE EST EXECUTEE SEULEMENT AU PREMIER APPEL
+
+        if ($dbh == null)
+        {
+            // ...
+            
+            $dbh        = new PDO($dsn, $user, $password);
+            // => $dbh N'EST PLUS null
+
+            // ...
+        }
+
+        // ...
+    }
 
 ## CREATE SUR TABLE SQL contenu
 
@@ -377,10 +394,51 @@ traitement-user.php
 ## DELETE ADMIN SUR LA TABLE contenu
 
     SI ON CODE BIEN LE BOUTON supprimer CA MARCHE TOUT SEUL...
-    
+
 ## READ PUBLIC SUR LA PAGE index.php
 
     AJOUTER L'AFFICHAGE DES CONTENUS DANS UNE SECTION
+
+## UPDATE ADMIN SUR LA PAGE admin.php
+
+    DANS UNE NOUVELLE SECTION DE LA PAGE admin.php
+    AJOUTER LE FORMULAIRE UPDATE POUR LA TABLE contenu
+
+
+## GESTION DE UPLOAD DANS FORMULAIRE
+
+IMPORTANT: DANS LE HTML, IL FAUT AJOUTER UN ATTRIBUT SPECIAL POUR LA BALISE form
+
+https://www.w3schools.com/php/php_file_upload.asp
+
+
+    <form action="traitement.php" method="post" enctype="multipart/form-data">
+        
+        <!-- permet de choisir un fichier -->
+        <input type="file" name="photo" required placeholder="votre photo" maxlength="160">
+
+    </form>
+
+
+    PHP RECOIT LE FICHIER ET LE MET EN QUARANTAINE
+    ET DANS LE TABLEAU $_FILES
+    ON A LES INFORMATIONS SUR LE FICHIER UPLOADE
+
+    Array
+    (
+        [photo] => Array
+            (
+                [name] => pexels-photo-1109197.jpeg
+                [type] => image/jpeg
+                [tmp_name] => C:\xampp\tmp\php67CC.tmp
+                [error] => 0
+                [size] => 103243
+            )
+
+    )
+
+
+
 
 
 

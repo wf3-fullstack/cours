@@ -35,12 +35,12 @@ require_once "php/mes-fonctions.php";
         .sectionUserUpdate {
             display: none;
             transition: all 5s linear;
-            opacity:0;
+            opacity: 0;
         }
 
         /* LA BALISE DOIT AVOIR LES 2 CLASSES (AND) */
         .sectionUserUpdate.show {
-            opacity:1;
+            opacity: 1;
             display: flex;
             justify-content: center;
             flex-direction: column;
@@ -58,6 +58,17 @@ require_once "php/mes-fonctions.php";
         }
 
         .sectionUserUpdate form {}
+
+        table {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        table img {
+            width: 100%;
+            object-fit: cover;
+            max-width: 200px;
+        }
     </style>
 </head>
 
@@ -72,6 +83,83 @@ require_once "php/mes-fonctions.php";
         </nav>
     </header>
     <main>
+
+        <section>
+            <h2>FORMULAIRE CREATE SUR TABLE SQL contenu</h2>
+            <!-- 
+                LE NAVIGATEUR VA AJOUTER DES DELIMITEURS 
+                POUR MIEUX SEPARER LE CONTENU DU FICHIER 
+                DES AUTRES INFORMATIONS DU FORMULAIRE 
+            -->
+            <form action="traitement.php" method="POST" enctype="multipart/form-data">
+                <!-- PARTIE PUBLIQUE VISIBLE DU FORMULAIRE-->
+                <label>
+                    <div>titre</div>
+                    <input type="text" name="titre" required placeholder="votre titre" maxlength="160">
+                </label>
+                <label>
+                    <div>photo</div>
+                    <!-- permet de choisir un fichier -->
+                    <input type="file" name="photo" required placeholder="votre photo" maxlength="160">
+                </label>
+                <label>
+                    <div>description</div>
+                    <textarea name="description" required cols="80" rows="8" placeholder="votre description"></textarea>
+                </label>
+                <label>
+                    <div>categorie</div>
+                    <input type="text" name="categorie" required placeholder="votre categorie" maxlength="160">
+                </label>
+                <div>
+                    <button type="submit">PUBLIER VOTRE CONTENU</button>
+                </div>
+                <!-- PARTIE TECHNIQUE INVISIBLE DE NOTRE FRAMEWORK -->
+                <input type="hidden" name="identifiantFormulaire" value="contenu">
+                <div class="alert">
+                    <!-- ICI AVEC AJAX, JE POURRAI AFFICHER LE MESSAGE DE CONFIRMATION -->
+                </div>
+            </form>
+        </section>
+
+
+        <section>
+            <h2>READ SUR TABLE SQL contenu</h2>
+            <div class="contenuList">
+                <table>
+                    <tbody>
+                        <?php
+                        // IL FAUT ALLER LIRE LES LIGNES DANS LA TABLE SQL contact
+                        // JE VAIS UTILISER LA FONCTION lireLigneSQL
+                        // => NE PAS OUBLIER DE CHARGER LE FICHIER mes-fonctions.php AVANT
+                        // require_once "php/mes-fonctions.php";
+
+                        $tabContact = lireTableSQL("contenu", "ORDER BY datePublication DESC");
+                        // PARCOURIR LES ELEMENTS DU TABLEAU
+                        foreach ($tabContact as $indice => $tabAssoContact) {
+                            // ASTUCE: ON UTILISE extract
+                            extract($tabAssoContact);
+                            // => CREE LES VARIABLES AVEC LE NOM DES COLONNES
+                            echo
+                                <<<CODEHTML
+
+                    <tr data-id="$id" class="art$id">
+                        <td>$titre</td>
+                        <td><img src="$photo"></td>
+                        <td><pre>$description</pre></td>
+                        <td>$datePublication</td>
+                        <td><button data-table="contenu" data-id="$id" class="delete">supprimer</button></td>
+                    </tr>
+
+CODEHTML;
+                        }
+
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
         <section class="nodisplay">
             <h2>FORMULAIRE DE DELETE SUR TABLE SQL</h2>
             <form class="formDelete" action="traitement.php" method="POST">
