@@ -65,9 +65,9 @@ require_once "php/mes-fonctions.php";
         }
 
         table img {
-            width: 100%;
+            width:10vmin;
+            height:10vmin;
             object-fit: cover;
-            max-width: 200px;
         }
     </style>
 </head>
@@ -149,6 +149,7 @@ require_once "php/mes-fonctions.php";
                         <td><img src="$photo"></td>
                         <td><pre>$description</pre></td>
                         <td>$datePublication</td>
+                        <td><button class="update" data-id="$id">modifier</button></td>
                         <td><button data-table="contenu" data-id="$id" class="delete">supprimer</button></td>
                     </tr>
 

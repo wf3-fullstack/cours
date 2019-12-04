@@ -438,6 +438,16 @@ https://www.w3schools.com/php/php_file_upload.asp
     )
 
 
+## UPLOAD DRAG DROP JS
+
+
+    https://www.smashingmagazine.com/2018/01/drag-drop-file-uploader-vanilla-js/
+
+
+    TUTORIEL POUR UPLOAD EN DRAG ET DROP
+
+
+
 
 
 
