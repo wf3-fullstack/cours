@@ -30,6 +30,34 @@ require_once "php/mes-fonctions.php";
             border: 1px solid #123456;
             padding: 0.2rem;
         }
+
+        /* LIGHTBOX SUR sectionUserUpdate */
+        .sectionUserUpdate {
+            display: none;
+            transition: all 5s linear;
+            opacity:0;
+        }
+
+        /* LA BALISE DOIT AVOIR LES 2 CLASSES (AND) */
+        .sectionUserUpdate.show {
+            opacity:1;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            height: 100%;
+        }
+
+        .sectionUserUpdate h2 {
+            color: #cccccc;
+        }
+
+        .sectionUserUpdate form {}
     </style>
 </head>
 
@@ -96,9 +124,9 @@ CODEHTML;
             </div>
         </section>
 
-        <section>
+        <section class="sectionUserUpdate">
             <h2>UPDATE SUR TABLE SQL user</h2>
-            <form action="traitement.php" method="POST">
+            <form class="formUserUpdate" action="traitement.php" method="POST">
                 <!-- PARTIE PUBLIQUE VISIBLE DU FORMULAIRE-->
                 <label>
                     <div>email</div>
@@ -113,11 +141,12 @@ CODEHTML;
                     <input type="number" name="level" required placeholder="votre level">
                 </label>
                 <div>
+                    <button class="cancel">annuler</button>
                     <button type="submit">MODIFIER LE COMPTE</button>
                 </div>
                 <!-- PARTIE TECHNIQUE INVISIBLE DE NOTRE FRAMEWORK -->
                 <!-- ATTENTION: POUR LE UPDATE IL FAUT id POUR SELECTIONNER LA BONNE LIGNE -->
-                <input type="number" name="id" value="" required>
+                <input type="hidden" name="id" value="" required>
                 <input type="hidden" name="identifiantFormulaire" value="user-update">
                 <div class="alert">
                     <!-- ICI AVEC AJAX, JE POURRAI AFFICHER LE MESSAGE DE CONFIRMATION -->
@@ -152,7 +181,7 @@ CODEHTML;
                         <td>$level</td>
                         <td><pre>$password</pre></td>
                         <td>$dateInscription</td>
-                        <td><button class="update">modifier</button></td>
+                        <td><button class="update" data-id="$id" data-level="$level" data-login="$login" data-email="$email">modifier</button></td>
                         <td><button data-table="user" data-id="$id" class="delete">supprimer</button></td>
                     </tr>
 
@@ -195,6 +224,42 @@ CODEHTML;
                 formDelete.submit();
             });
         });
+
+        // AJOUTER LE CODE JS POUR GERER LE CLICK SUR LE BOUTON UPDATE
+        var tabButtonUserUpdate = document.querySelectorAll(".userList button.update");
+        tabButtonUserUpdate.forEach(function(button) {
+            button.addEventListener("click", function(event) {
+                console.log(event.target);
+                // récupérer dans les attributs les infos qui m'intéressent
+                var id = event.target.getAttribute("data-id");
+                var email = event.target.getAttribute("data-email");
+                var login = event.target.getAttribute("data-login");
+                var level = event.target.getAttribute("data-level");
+                // copier les infos dans le formulaire
+                var inputId = document.querySelector(".formUserUpdate input[name=id]");
+                var inputEmail = document.querySelector(".formUserUpdate input[name=email]");
+                var inputLogin = document.querySelector(".formUserUpdate input[name=login]");
+                var inputLevel = document.querySelector(".formUserUpdate input[name=level]");
+
+                inputId.value = id;
+                inputEmail.value = email;
+                inputLogin.value = login;
+                inputLevel.value = level;
+
+                // ET EN PLUS ON VA AJOUTER LA CLASSE show SUR LA SECTION
+                var sectionUserUpdate = document.querySelector(".sectionUserUpdate");
+                sectionUserUpdate.classList.add("show"); // attention pas . car pas sélecteur
+            });
+        });
+
+        // on va cacher la popup si on clique sur annuler
+        var buttonCancel = document.querySelector("button.cancel");
+        buttonCancel.addEventListener("click", function(event) {
+            event.preventDefault();
+            // ET EN PLUS ON VA ENLEVER LA CLASSE show SUR LA SECTION
+            var sectionUserUpdate = document.querySelector(".sectionUserUpdate");
+            sectionUserUpdate.classList.remove("show"); // attention pas . car pas sélecteur
+        })
     </script>
 </body>
 

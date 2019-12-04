@@ -180,34 +180,43 @@ function filtrerNombre ($name)
 // DEFINITION DE LA FONCTION (à déplacer dans php/mes-fonctions.php...)
 function envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur)
 {
-    // ENTRE FONCTIONNEL (mysqli) ET OBJET (PDO)
-    // => ON VA CHOISIR PDO QUI EST LA MANIERE STANDARD DESORMAIS
-    // PHP Data Object
-    // https://www.php.net/manual/fr/book.pdo.php
-    // https://www.php.net/manual/fr/pdo.construct.php
-    // Data Source Name
-    // VOTRE HEBERGEUR VA VOUS FOURNIR LES INFOS DE CONNEXION
-    // POUR COMMUNIQUER ENTRE PHP ET SQL
-    // IL FAUT SE CONNECTER AVEC UN LOGIN ET UN MOT DE PASSE
-    $user       = "root";
-    $password   = "";
-    $database   = "cms";           // ATTENTION: NE PAS OUBLIER DE CHANGER LA DATABASE
-    $hostname   = "127.0.0.1";      // "localhost"
+    // ON NE VA FAIRE LA CONNEXION QUE AU PREMIER APPEL A envoyerRequeteSQL
+    static $dbh = null;     // CETTE LIGNE EST EXECUTEE SEULEMENT AU PREMIER APPEL
 
-    $dsn        = "mysql:dbname=$database;host=$hostname;charset=utf8";
-    // EN CREANT UN OBJET A PARTIR DE LA CLASSE PDO
-    // => JE CREE LA CONNEXION ENTRE PHP ET MySQL
-    // DataBaseHandler => Gestionnaire de la Connexion avec la BDD
-    // new => PROGRAMMATION ORIENTEE OBJET 
-    // (ON FERA TOUT LE MVC EN POO pas seulement la partie Model...)
-    // ATTENTION: PDO => PHP Data Object
-    $dbh        = new PDO($dsn, $user, $password);
+    if ($dbh == null)
+    {
+        // C'EST LA PREMIERE FOIS
+        // => JE DOIS FAIRE LA CONNEXION
+        // ENTRE FONCTIONNEL (mysqli) ET OBJET (PDO)
+        // => ON VA CHOISIR PDO QUI EST LA MANIERE STANDARD DESORMAIS
+        // PHP Data Object
+        // https://www.php.net/manual/fr/book.pdo.php
+        // https://www.php.net/manual/fr/pdo.construct.php
+        // Data Source Name
+        // VOTRE HEBERGEUR VA VOUS FOURNIR LES INFOS DE CONNEXION
+        // POUR COMMUNIQUER ENTRE PHP ET SQL
+        // IL FAUT SE CONNECTER AVEC UN LOGIN ET UN MOT DE PASSE
+        $user       = "root";
+        $password   = "";
+        $database   = "cms";           // ATTENTION: NE PAS OUBLIER DE CHANGER LA DATABASE
+        $hostname   = "127.0.0.1";      // "localhost"
 
-    // PARAMETRER PDO POUR LES ERREURS
-    // https://www.php.net/manual/fr/pdo.error-handling.php
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-    // => LES ERREURS SQL SERONT REMONTEES VERS PHP
-    // ET SERONT AFFICHEES COMME DES ERREURS PHP (RECTANGLE ORANGE...)
+        $dsn        = "mysql:dbname=$database;host=$hostname;charset=utf8";
+        // EN CREANT UN OBJET A PARTIR DE LA CLASSE PDO
+        // => JE CREE LA CONNEXION ENTRE PHP ET MySQL
+        // DataBaseHandler => Gestionnaire de la Connexion avec la BDD
+        // new => PROGRAMMATION ORIENTEE OBJET 
+        // (ON FERA TOUT LE MVC EN POO pas seulement la partie Model...)
+        // ATTENTION: PDO => PHP Data Object
+        $dbh        = new PDO($dsn, $user, $password);
+        // => $dbh N'EST PLUS null
+
+        // PARAMETRER PDO POUR LES ERREURS
+        // https://www.php.net/manual/fr/pdo.error-handling.php
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+        // => LES ERREURS SQL SERONT REMONTEES VERS PHP
+        // ET SERONT AFFICHEES COMME DES ERREURS PHP (RECTANGLE ORANGE...)
+    }
 
     // ENSUITE ON PEUT ENVOYER LA REQUETE SQL
     // VERSION 1: ELLE NE SERA PAS PROTEGEE CONTRE LES ATTAQUES PAR INJECTION SQL

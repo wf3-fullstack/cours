@@ -321,6 +321,76 @@
     ADAPTER LE BOUTON SUPPRIMER POUR AVOIR UN DELETE SUR LA TABLE user
 
 
+### OPTIMISATION DE LA FONCTION envoyerRequeteSQL
+
+
+traitement-user.php
+
+    filtrerTexte
+        lireTableSQL
+            envoyerRequeteSQL
+                $dbh        = new PDO($dsn, $user, $password);
+    filtrerEmail
+        lireTableSQL
+            envoyerRequeteSQL
+                $dbh        = new PDO($dsn, $user, $password);
+    insererLigneSQL
+        lireTableSQL
+            envoyerRequeteSQL
+                $dbh        = new PDO($dsn, $user, $password);
+
+
+    ASTUCE: 
+    EN UTILISANT UNE VARIABLE static DE FONCTION
+    JE PEUX SEULEMENT CREER LA CONNEXION UNE FOIS
+
+
+## CREATE SUR TABLE SQL contenu
+
+    CREER LA TABLE SQL contenu
+    AVEC LES COLONNES
+        id              INT             INDEX=PRIMARY       A_I (AUTO_INCREMENT)
+        titre           VARCHAR(160)
+        photo           VARCHAR(160)
+        description     TEXT
+        datePublication DATETIME
+        categorie       VARCHAR(160)
+
+    SUR LA PAGE admin.php
+        AJOUTER UNE SECTION AVEC LE FORMULAIRE CREATE SUR LA TABLE contenu
+
+        POUR LE MOMENT, ON UTILISERA UNE BALISE input type="text" POUR LA COLONNE photo
+        (...ON RENTRERA A LA MAIN LE CHEMIN VERS UNE PHOTO assets/upload/photo1.jpg)
+
+        POUR LE MOMENT, POUR LA COLONNE categorie ON PEUT LAISSER UN input type="text"
+        (MAIS VOUS POUVEZ CODER UNE BALISE select SI VOUS PREFEREZ...)
+
+    AJOUTER LE CODE PHP POUR LE TRAITEMENT DE CE FORMULAIRE
+
+    ET AUSSI AJOUTER DES PHOTOS DANS assets/upload/
+
+## READ ADMIN SUR LA TABLE contenu
+
+    ET ENSUITE DANS LA PAGE admin.php
+    AJOUTER UNE SECTION POUR AFFICHER LES LIGNES DE LA TABLE contenu
+
+## DELETE ADMIN SUR LA TABLE contenu
+
+    SI ON CODE BIEN LE BOUTON supprimer CA MARCHE TOUT SEUL...
+    
+## READ PUBLIC SUR LA PAGE index.php
+
+    AJOUTER L'AFFICHAGE DES CONTENUS DANS UNE SECTION
+
+
+
+
+
+
+
+
+
+
 
 
 
