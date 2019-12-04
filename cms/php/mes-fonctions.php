@@ -75,6 +75,19 @@ CODEHTML;
 }
 
 
+function afficherMenuDynamique ($categorie)
+{
+    $tabContenu = lireTableSQL("contenu", "ORDER BY datePublication DESC", "WHERE categorie='$categorie'");
+    foreach ($tabContenu as $indice => $tabAssoContenu) {
+        extract($tabAssoContenu);
+
+        echo
+<<<CODEHTML
+            <a href="$description">$titre</a>
+CODEHTML;
+    }
+}
+
 // FONCTIONS CONTROLLER
 
 // PHP : PARANOIA HYPER PARANOIA
@@ -170,7 +183,89 @@ function filtrerNombre ($name)
     $texte            = filtrerInput($name);
     $nombre           = intval($texte);
     return $nombre;
-} 
+}
+
+
+// https://stackoverflow.com/questions/1017599/how-do-i-remove-accents-from-characters-in-a-php-string
+// fonction qui convertit les caractères accuentués en version sans accents
+function str_without_accents($str, $charset = 'utf-8')
+{
+    $str = htmlentities($str, ENT_NOQUOTES, $charset);
+
+    $str = preg_replace('#&([A-za-z])(?:acute|cedil|caron|circ|grave|orn|ring|slash|th|tilde|uml);#', '\1', $str);
+    $str = preg_replace('#&([A-za-z]{2})(?:lig);#', '\1', $str); // pour les ligatures e.g. '&oelig;'
+    $str = preg_replace('#&[^;]+;#', '', $str); // supprime les autres caractères
+
+    return $str;   // or add this : mb_strtoupper($str); for uppercase :)
+}
+
+function filtrerUpload($nameInput)
+{
+    $cheminFichierUpload = "";
+
+    // DOSSIER CIBLE
+    $dossierUpload = "assets/upload";
+
+    // debug
+    // print_r($_FILES);
+    // $_FILES EST UN TABLEAU ASSOCIATIF DE TABLEAU ASSOCIATIF
+    // QUI SERT UNIQUEMENT AUX FICHIERS UPLOADES PAR UN FORMULAIRE
+    // LES CLES DE CE TABLEAU ASSOCIATIF SONT LES ATTRIBUTS name DU HTML
+    // <input type="file" name="photo">
+
+    // https://www.php.net/manual/fr/function.isset.php
+    if (isset($_FILES[$nameInput])) {
+        extract($_FILES[$nameInput]);
+        // CREE LES VARIABLES AVEC LES CLES
+        // $error       // SI != 0 IL Y A EU UNE ERREUR...
+        // $tmp_name    // NOM EN QUARANTAINE
+        // $name        // NOM D'ORIGINE DU FICHIER
+        // $type        // PAS FIABLE CAR BASE SUR L'EXTENSION ET PAS LE CONTENU
+        // $size        // EN OCTETS
+
+        // ON VA SE PROTEGER UN PEU PLUS
+        global $tabErreur;
+        if ($error != 0) {
+            $tabErreur[] = "erreur pendant l'upload";
+        }
+
+        $listExtensionOK = ["jpg", "jpeg", "png", "gif", "svg"];
+        // https://www.php.net/manual/fr/function.pathinfo.php
+        // https://www.php.net/manual/fr/function.strtolower.php
+        $extensionFichier = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+        // https://www.php.net/manual/fr/function.in-array.php
+        if (!in_array($extensionFichier, $listExtensionOK)) {
+            $tabErreur[] = "extension non autorisée";
+        }
+
+        // SIMPLIFICATION DU NOM DU FICHIER
+        $filenameFichier = strtolower(pathinfo($name, PATHINFO_FILENAME));
+        $filenameFichier = strtolower(str_without_accents($filenameFichier));
+        $filenameFichier = preg_replace("/[^a-zA-Z0-9]/", "-", $filenameFichier);
+        $name = "$filenameFichier.$extensionFichier";
+
+        // SOUVENT SUR VOS ORDINATEURS
+        // IL FAUT PARAMETRER LE FICHIER php.ini
+        // upload_max_filesize=200M
+        // post_max_size=100M
+        // ET ENSUITE REDEMARRER LE SERVEUR WEB
+        if ($size > 1024 * 1024 * 10)   // 10Mo = 1024 octets * 1024 octets * 10
+        {
+            $tabErreur[] = "fichier trop volumineux";
+        }
+
+        // OK ON ACCEPTE DE PRENDRE LE FICHIER
+        if (count($tabErreur) == 0) {
+            // OK JE PRENDS LE FICHIER ET JE LE RANGE DANS LE DOSSIER assets/upload
+            // https://www.php.net/manual/fr/function.move-uploaded-file.php
+            $cheminFichierUpload = "$dossierUpload/$name";
+            // ON DEPLACE LE FICHIER DANS LE BON DOSSIER
+            move_uploaded_file($tmp_name, $cheminFichierUpload);
+        }
+    }
+    // JE RENVOIE LE CHEMIN DU FICHIER POUR LE STOCKAGE DANS SQL
+    return $cheminFichierUpload;
+}
 
 // FONCTIONS MODELES
 
@@ -235,8 +330,31 @@ function envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur)
     // https://www.php.net/manual/fr/pdostatement.execute.php
     $pdoStatement->execute($tabAssoColonneValeur);
 
+    // SI ON A FAIT UN INSERT ALORS ON PEUT RECUPERER lastInsertId
+    // https://www.php.net/manual/fr/pdo.lastinsertid.php
+    // J'EMBARQUE lastInsertID EN CLANDESTIN DANS $pdoStatement
+    $pdoStatement->lastInsertID = $dbh->lastInsertId();
+
     // POUR FAIRE DE LA LECTURE J'AURAI BESOIN DE CONTINUER A UTILISER $pdoStatement
     return $pdoStatement;
+}
+
+// CALCULE LE NOMBRE DE LIGNES DANS LA TABLE SQL $nomTable
+function countSQL ($nomTable)
+{
+    // https://sql.sh/fonctions/agregation/count
+    $requetePrepareeSQL = 
+<<<CODESQL
+
+SELECT count(*) FROM $nomTable
+
+CODESQL;
+
+    $pdoStatement = envoyerRequeteSQL($requetePrepareeSQL, []);
+    // https://www.php.net/manual/fr/pdostatement.fetchcolumn.php
+    $resultat = $pdoStatement->fetchColumn();
+
+    return $resultat;
 }
 
 // ON VA CREER UNE FONCTION QUI VA PRENDRE EN PARAMETRES

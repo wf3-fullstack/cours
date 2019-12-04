@@ -124,6 +124,7 @@ require_once "php/mes-fonctions.php";
 
         <section>
             <h2>READ SUR TABLE SQL contenu</h2>
+            <h3>IL Y A <?php echo countSQL("contenu") ?> LIGNES DANS LA TABLE</h3>
             <div class="contenuList">
                 <table>
                     <tbody>
@@ -143,6 +144,7 @@ require_once "php/mes-fonctions.php";
                                 <<<CODEHTML
 
                     <tr data-id="$id" class="art$id">
+                        <td>$categorie</td>
                         <td>$titre</td>
                         <td><img src="$photo"></td>
                         <td><pre>$description</pre></td>
