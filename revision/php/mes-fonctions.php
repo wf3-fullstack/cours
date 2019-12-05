@@ -345,6 +345,9 @@ function envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur)
     // https://www.php.net/manual/fr/pdostatement.execute.php
     $pdoStatement->execute($tabAssoColonneValeur);
 
+    // A ACTIVER POUR DEBUG
+    // $pdoStatement->debugDumpParams();
+
     // SI ON A FAIT UN INSERT ALORS ON PEUT RECUPERER lastInsertId
     // https://www.php.net/manual/fr/pdo.lastinsertid.php
     // J'EMBARQUE lastInsertID EN CLANDESTIN DANS $pdoStatement
