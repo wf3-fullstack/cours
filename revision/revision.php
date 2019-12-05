@@ -14,12 +14,21 @@ require_once "php/mes-fonctions.php";
     <style>
         table td {
             border: 1px solid #cccccc;
+            position: relative;
         }
 
         table td img {
             width: 160px;
             height: 160px;
             object-fit: cover;
+            transition: 0.5s all linear;
+            z-index: 99;
+            position:relative;
+        }
+
+        table td img:hover {
+            transform: scale(2);
+            z-index: 999;
         }
     </style>
 </head>
