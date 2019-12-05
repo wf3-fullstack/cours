@@ -1,0 +1,68 @@
+## ENONCE REVISION
+
+
+    NE PAS OUBLIER DE FOURNIR 
+        LES FICHIERS PHP 
+        ET L'EXPORT SQL DE LA DATABASE (AVEC PHPMYADMIN...)
+
+        DEMARRER LE SERVEUR WEB
+        ALLER DANS LE NAVIGATEUR SUR PHPMYADMIN
+        ET SELECTIONNER LA BASE DE DONNEES
+        ET ENSUITE ALLER SUR L'ONGLET EXPORTER
+            VERIFIER QUE LE FORMAT EST BIEN SQL
+            ET CLIQUER SUR "EXECUTER"
+            => ON OBTIENT UN FICHIER .SQL
+                VERIFIER LE CONTENU DU FICHIER SQL
+                    IL DOIT Y AVOIR DES LIGNES 
+                        CREATE TABLE...
+            => COPIER CE FICHIER SQL DANS LE DOSSIER AVEC LE CODE PHP
+
+    => TOUT METTRE DANS UNE ARCHIVE AVEC VOTRE NOM prenom-nom.zip
+
+
+
+
+### DEFINIR UNE DATABASE ET UNE TABLE SQL
+
+    CREER UNE DATABASE  revision 
+        AVEC LE CHARSET utf8mb4_general_ci
+
+    CREER UNE TABLE SQL sport
+        AVEC COMME COLONNES
+
+    id              INT             INDEX=PRIMARY       A_I (AUTO_INCREMENT)
+    nom             VARCHAR(160)
+    categorie       VARCHAR(160)
+    description     TEXT
+    photo           VARCHAR(160)
+    nbJoueur        INT
+    difficulte      INT
+    dateCreation    DATE    
+
+### CREATE
+
+    CREER UN FICHIER revision.php
+        ET ON AURA AUSSI BESOIN DE traitement.php
+
+    DANS LA PAGE revision.php
+    AJOUTER UNE SECTION AVEC UN FORMULAIRE DE CREATE SUR LA TABLE SQL sport
+
+        (GERER UPLOAD DE photo DANS assets/upload/)
+
+### READ
+
+    DANS LA PAGE revision.php
+    AJOUTER UNE SECTION AVEC L'AFFICHAGE DES SPORTS (READ)
+        ET POUR CHAQUE SPORT AJOUTER UN BOUTON supprimer
+    
+        ON VA AFFICHER LA PHOTO AVEC UNE BALISE img
+
+### DELETE
+
+    DANS LA PAGE revision.php
+    AJOUTER UNE SECTION AVEC UN FORMULAIRE DE DELETE SUR LA TABLE SQL sport
+
+### UPDATE
+
+    DANS LA PAGE revision.php
+    AJOUTER UNE SECTION AVEC UN FORMULAIRE DE UPDATE SUR LA TABLE SQL sport
