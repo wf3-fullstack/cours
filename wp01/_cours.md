@@ -305,7 +305,18 @@ ATTENTION LIMITATION: UN SEULE THEME EST ACTIF SUR UN SITE WORDPRESS...
 ## THEME DIVI
 
 
+* TEMPS CHARGEMENT
 https://colorlib.com/wp/fast-loading-wordpress-themes/
+
+* LAYOUTS PREDEFINIS
+https://www.elegantthemes.com/layouts/
+
+
+## SITES EN FRANCAIS
+
+* PLEIN DE SITES EN FRANCAIS...
+https://wpformation.com/gutenberg-a-la-decouverte-de-blocs-additionnels/
+
 
 
 
