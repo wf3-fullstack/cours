@@ -143,6 +143,76 @@
     } // end if
 
 
+## AJOUTER DU CSS ET DU JS
+
+    https://developer.wordpress.org/reference/functions/get_theme_file_uri/
+
+    A UTILISER POUR CHARGER LE CSS, JS, IMAGES, etc...
+
+    EXEMPLES:
+
+    <link rel="stylesheet" href="<?php echo get_theme_file_uri("/style.css") ?>">
+    ...
+    <img src="<?php echo get_theme_file_uri("/assets/img/photo1.jpg") ?>" alt="">
+    ...
+    <script src="<?php echo get_theme_file_uri("/assets/js/main.js") ?>"></script>
+
+
+## CREER PLUSIEURS TEMPLATES DE PAGE
+
+
+    https://developer.wordpress.org/themes/template-files-section/page-template-files/#file-organization-of-page-templates
+
+
+    * CREER UN SOUS-DOSSIER page-templates/
+    * ON AURA wp-content/themes/supersupertheme/page-templates/
+    * DANS CE DOSSIER ON VA AJOUTER LE CODE PHP POUR NOS AUTRES TEMPLATES DE PAGE
+
+
+## DECOUPER SON CODE EN TRANCHES 
+
+    * CREER UN SOUS-DOSSIER template-parts
+    * ON AURA wp-content/themes/supersupertheme/template-parts/
+
+    * ATTENTION: 
+    * header.php ET footer.php DOIVENT RESTER DANS LE DOSSIER DU THEME
+    * (ET PAS DANS LE DOSSIER template-parts/)
+
+    ON VA RECOMPOSER LES MORCEAUX AVEC LES FONCTIONS DE WORDPRESS
+
+    https://developer.wordpress.org/reference/functions/get_header/
+    https://developer.wordpress.org/reference/functions/get_template_part/
+    https://developer.wordpress.org/reference/functions/get_footer/
+
+
+    get_header();
+    get_template_part("template-parts/section-index");
+    get_footer();
+
+
+## EXERCICE POUR CET APRES-MIDI
+
+    SOUVENEZ VOUS DE FRED...
+    ET RETROUVER UNE MAQUETTE HTML ET CSS (ET JS)
+    => TRANSFORMER CETTE MAQUETTE EN THEME WORDPRESS
+
+    * POSSIBILITES
+
+    * CHOIX 1
+    * CREER UN NOUVEAU THEME DE ZERO
+    (PERMET DE GARDER LE CODE DE supersupertheme...)
+
+    * CHOIX 2
+    * CONTINUER A CODER DANS supersupertheme/
+    (MON CODE DE REFERENCE EST AUSSI DISPONIBLE...)
+
+
+
+
+
+
+
+
 ## COMMENT MIGRER SON SITE WORDPRESS
 
     PAR EXEMPLE DE localhost VERS SON HEBERGEMENT
