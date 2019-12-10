@@ -1,0 +1,18 @@
+
+# BEGIN WordPress
+# Les directives (lignes) entre 'BEGIN WordPress' et 'END WordPress' sont
+# généré dynamiquement, et ne doivent uniquement être modifiées via les filtres WordPress.
+# Toute modification des directives entre ces marqueurs sera outrepassée.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /wf3-fullstack/exos/rewrite-rules/
+RewriteRule ^index\.php$ - [L]
+# SI LE NAVIGATEUR DEMANDE UN FICHIER QUI N'EXISTE PAS
+RewriteCond %{REQUEST_FILENAME} !-f
+# SI LE NAVIGATEUR DEMANDE UN DOSSIER QUI N'EXISTE PAS
+RewriteCond %{REQUEST_FILENAME} !-d
+# ALORS ON DELEGUE LE TRAVAIL A /wf3-fullstack/wordpress2/page.php
+RewriteRule . /wf3-fullstack/exos/rewrite-rules/page.php [L]
+</IfModule>
+
+# END WordPress
