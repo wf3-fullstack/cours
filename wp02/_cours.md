@@ -50,6 +50,98 @@
     wp-content/themes/      => LE DOSSIER QUI CONTIENT LE CODE DES THEMES DE NOTRE SITE
 
 
+## CREER SON THEME DE ZERO DANS WORDPRESS
+
+    COMBO TRES PUISSANT
+    => LAISSER LE CLIENT UTILISER LE BACK-OFFICE
+    => LAISSER LE DEVELOPPEUR CODER LE HTML, CSS ET JS QU'IL VEUT
+
+    CHAQUE THEME EST DANS SON DOSSIER wp-content/themes/
+
+    CREER UN NOUVEAU DOSSIER wp-content/themes/supersupertheme/
+
+    VOTRE INSTINCT DE DEVELOPPEUR VOUS DONNE COMME INDICE
+    => IL FAUDRAIT CREER UN FICHIER style.css
+    => DIRECTEMENT DANS LE DOSSIER 
+            wp-content/themes/supersupertheme/style.css
+
+    => WORDPRESS DEMANDE ENSUITE UN FICHIER index.php
+    => DIRECTEMENT DANS LE DOSSIER 
+            wp-content/themes/supersupertheme/index.php
+
+    => ON UTILISE MAINTENANT WORDPRESS EN MODE FRAMEWORK
+    => IL FAUT CREER DES FICHIERS DANS DES DOSSIERS PRECIS ET AVEC UN NOM OBLIGATOIRE
+
+
+    => ON PEUT ACTIVER LE THEME
+    => SI ON RETOURNE SUR LA PARTIE PUBLIQUE
+    => ON A UNE BELLE PAGE TOUTE VIDE
+        => IMPORTANT A COMPRENDRE: WORDPRESS DELEGUE COMPLETEMENT LE CODE PUBLIC AU THEME
+
+## DOCUMENTATION OFFICIELLE DE WORDPRESS
+
+    * SITE HISTORIQUE ET DOCUMENTATION OFFICIELLE
+    https://codex.wordpress.org/
+
+    * SITE PLUS RECENT DOCUMENTATION SUR LES FONCTIONS DE L'API WORDPRESS
+    https://developer.wordpress.org/
+
+    * CREER UN THEME
+    https://codex.wordpress.org/Theme_Development
+
+
+
+## AJOUTER DU CODE HTML DANS index.php
+
+    SI ON AJOUTE DU CODE HTML DANS index.php
+    => ALORS WORDPRESS L'UTILISE POUR AFFICHER LES PAGES PUBLIQUES
+    => TEMPLATE (MODELE DE PAGE...)
+    => ON CREE DANS LE THEME DES TEMPLATES 
+        ET WORDPRESS UTILISE CES TEMPLATES POUR AFFICHER LES PAGES DU SITE
+
+    => IL FAUT INSERER DANS NOS TEMPLATES DU CODE PHP 
+        POUR QUE WORDPRESS PUISSE AUSSI AJOUTER SON CODE DANS NOS TEMPLATES
+
+
+### wp_head ET wp_footer
+
+    ON UTILISE 2 FONCTIONS DE WORDPRESS 
+    POUR PERMETTRE D'AJOUTER LE CODE POUR LE BANDEAU NOIR
+
+    https://codex.wordpress.org/Function_Reference/wp_footer
+
+    https://developer.wordpress.org/reference/functions/wp_footer/
+
+    https://codex.wordpress.org/Function_Reference/wp_footer
+
+    https://developer.wordpress.org/reference/functions/wp_footer/
+
+
+## RETROUVER LE MENU POUR NAVIGUER ENTRE LES PAGES
+
+    LES MENUS SONT GERES A 2 ENDROITS DIFFERENTS
+    * DECLARATION DES ZONES DE MENU POUR NOTRE THEME
+        => CREER UN FICHIER functions.php
+
+    * AFFICHAGE DU MENU DANS LE CODE HTML DES TEMPLATES
+
+
+## AJOUTER L'AFFICHAGE DU CONTENU DE CHAQUE PAGE
+
+    THE LOOP => LA BOUCLE
+
+    https://codex.wordpress.org/The_Loop
+
+
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post(); 
+            //
+            // Post Content here
+            //
+        } // end while
+    } // end if
+
 
 ## COMMENT MIGRER SON SITE WORDPRESS
 
