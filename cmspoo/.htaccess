@@ -1,0 +1,27 @@
+
+# REWRITE RULES
+# RE-ECRITURE D'URL
+# https://httpd.apache.org/docs/2.4/fr/rewrite/intro.html
+
+# BEGIN WordPress
+# Les directives (lignes) entre 'BEGIN WordPress' et 'END WordPress' sont
+# généré dynamiquement, et ne doivent uniquement être modifiées via les filtres WordPress.
+# Toute modification des directives entre ces marqueurs sera outrepassée.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# DOSSIER A CHANGER A CHAQUE PROJET
+# MON SITE EST ACCESSIBLE AVEC CETTE URL
+# http://localhost/wf3-fullstack/cmspoo/
+RewriteBase /wf3-fullstack/cmspoo/
+# SI L'URL DEMANDEE EST index.php OK ON DONNE index.php
+RewriteRule ^index\.php$ - [L]
+# SI L'URL DEMANDEE N'EST PAS UN FICHIER QUI EXISTE
+RewriteCond %{REQUEST_FILENAME} !-f
+## SI L'URL DEMANDEE N'EST PAS UN DOSSIER QUI EXISTE
+RewriteCond %{REQUEST_FILENAME} !-d
+# ALORS ON DELEGUE LA REPONSE A index.php
+# EN FAIT ON CENTRALISE TOUTES LES REQUETES SUR index.php
+RewriteRule . /wf3-fullstack/cmspoo/index.php [L]
+</IfModule>
+
+# END WordPress
