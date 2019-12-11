@@ -273,6 +273,179 @@
     => CHAQUE DEV DOIT POUVOIR CODER SUR SES FICHIERS SANS CREER DE CONFLITS AVEC LES AUTRES DEV
 
 
+## METHODES MAGIQUES
+
+
+https://www.php.net/manual/fr/language.oop5.magic.php
+
+DANS LES METHODES QU'ON PEUT CREER DANS UNE CLASSE
+CERTAINES METHODES SONT "MAGIQUES"
+
+
+    class View
+    {
+        // METHODES "MAGIQUES"
+        // CONSTRUCTEUR (NOM OBLIGATOIRE __construct)
+        function __construct ()
+        {
+            echo "<h2>__construct</h2>";
+        }
+
+        // DESTRUCTEUR (NOM OBLIGATOIRE __destruct)
+        function __destruct ()
+        {
+            echo "<h2>__destruct</h2>";
+        }
+
+        // METHODES "CLASSIQUES"
+        function afficherPage ()
+        {
+            echo "<h1>TITRE1</h1>";
+        }
+    }
+
+// POUR ACTIVER LE CODE DE LA METHODE
+// JE DOIS CREER UN OBJET
+// ET ENSUITE AVEC L'OBJET J'APPELLE LA METHODE
+
+$objetView = new View;      // DECLENCHE LA METHODE __construct
+// C'EST LE DEVELOPPEUR QUI ECRIT LA LIGNE DE CODE POUR ACTIVER LA METHODE
+$objetView->afficherPage(); 
+
+// PHP DETRUIT LA VARIABLE ET APPELLE LA METHODE __destruct
+
+## METHODE MAGIQUE __toString
+
+PERMET D'UTILISER UN OBJET COMME UN TEXTE
+=> TRES PRATIQUE CAR ON PASSE NOTRE TEMPS A CONCATENER DES TEXTES
+=> ON PEUT UTILISER UN OBJET QUI PROPOSE CETTE METHODE __toString
+    DANS LES CONCATENATIONS...
+
+
+class Balise
+{
+    // METHODE MAGIQUE
+    function __toString ()
+    {
+        return "<h2>TEXTE</h2>";
+    }
+}
+
+$objetBalise = new Balise;
+
+echo 
+<<<CODEHTML
+<header>
+</header>
+<main> 
+    $objetBalise
+</main>
+<footer>
+</footer>
+
+CODEHTML;
+
+
+## PROPRIETES D'OBJET 
+
+DANS UNE CLASSE, ON PEUT RANGER DES METHODES (fonctions)
+ET ON PEUT AUSSI RANGER DES VARIABLES (=> propriétés/attributs)
+
+
+    class Page
+    {
+        // PROPRIETES DE CLASSE
+        
+        // PROPRIETES D'OBJET
+        // => INDIVIDUEL A CHAQUE OBJET
+        // => UNE VARIABLE RANGEE DANS UNE CLASSE
+        // public/protected/private
+        public $titre = "";     // ON DONNE UNE VALEUR PAR DEFAUT
+
+        // METHODES
+        function afficherTitre ()
+        {
+            // $this EST UTILISABLE SEULEMENT DANS UNE METHODE
+
+            // ON PEUT UTILISER LES PROPRIETES DE L'OBJET
+            // $this EST LA VARIABLE "SPECIALE DE PHP" 
+            // QUI CONTIENT L'OBJET QUI A SERVI A APPELER LA METHODE
+            echo $this->titre;
+        }
+    }
+
+    $objetPage = new Page;
+    // ON ACCEDE A LA PROPRIETE A TRAVERS SON OBJET
+    // ATTENTION: PAS DE $ SUR LA PROPRIETE MAIS SEULEMENT DEVANT OBJET
+    $objetPage->titre = "Accueil";
+
+    $objetPage2 = new Page;
+    $objetPage2->titre = "Contact";
+
+    echo $objetPage->titre;     // Accueil
+
+
+    $objetPage->afficherTitre();    // $this = $objetPage
+    $objetPage2->afficherTitre();    // $this = $objetPage2
+
+    class Boulanger
+    {
+        // PROPRIETE D'OBJET (INDIVIDUELLE)
+        public $nom = "";
+        public $age = 0;
+
+    }
+
+
+    $lucien = new Boulanger;
+    $lucien->nom = "Chabat";        // ECRITURE
+
+    $emilie = new Boulanger;
+    $emilie->nom = "Garcia";
+
+    echo $lucien->nom;      // LECTURE "Chabat"
+    echo $emilie->nom;      // LECTURE "Garcia"
+
+    // si emilie change de nom
+    $emilie->nom = "JAVIER";
+
+
+
+## PROPRIETES DE CLASSES
+
+
+class Boulanger
+{
+    // METHODES DE CLASSE (COLLECTIVE A TOUS LES OBJETS DE LA CLASSE)
+    // ATTENTION static CHANGE COMPLEMENT LE SENS
+    static function manifester ()
+    {
+        echo "PAS DE RETRAITE A 70 ANS";
+    }
+
+    // METHODES D'OBJET (INDIVIDUELLE A CHAQUE OBJET)
+    function afficherCarteVisite ()
+    {
+
+    }
+
+}
+
+// SI JE VEUX ACTIVER UNE METHODE DE CLASSE
+// JE PASSE PAR LA CLASSE ET J'UTILISE :: POUR ACCEDER A LA METHODE static DE CLASSE
+// https://www.php.net/manual/fr/language.oop5.paamayim-nekudotayim.php
+// => OPERATEUR DE RESOLUTION DE PORTEE
+Boulanger::manifester();
+
+$objet = new Boulanger;
+$objet->afficherCarteVisite();
+
+
+
+
+
+
+
 
 
 
