@@ -276,10 +276,10 @@
 ## METHODES MAGIQUES
 
 
-https://www.php.net/manual/fr/language.oop5.magic.php
+    https://www.php.net/manual/fr/language.oop5.magic.php
 
-DANS LES METHODES QU'ON PEUT CREER DANS UNE CLASSE
-CERTAINES METHODES SONT "MAGIQUES"
+    DANS LES METHODES QU'ON PEUT CREER DANS UNE CLASSE
+    CERTAINES METHODES SONT "MAGIQUES"
 
 
     class View
@@ -304,52 +304,52 @@ CERTAINES METHODES SONT "MAGIQUES"
         }
     }
 
-// POUR ACTIVER LE CODE DE LA METHODE
-// JE DOIS CREER UN OBJET
-// ET ENSUITE AVEC L'OBJET J'APPELLE LA METHODE
+    // POUR ACTIVER LE CODE DE LA METHODE
+    // JE DOIS CREER UN OBJET
+    // ET ENSUITE AVEC L'OBJET J'APPELLE LA METHODE
 
-$objetView = new View;      // DECLENCHE LA METHODE __construct
-// C'EST LE DEVELOPPEUR QUI ECRIT LA LIGNE DE CODE POUR ACTIVER LA METHODE
-$objetView->afficherPage(); 
+    $objetView = new View;      // DECLENCHE LA METHODE __construct
+    // C'EST LE DEVELOPPEUR QUI ECRIT LA LIGNE DE CODE POUR ACTIVER LA METHODE
+    $objetView->afficherPage(); 
 
-// PHP DETRUIT LA VARIABLE ET APPELLE LA METHODE __destruct
+    // PHP DETRUIT LA VARIABLE ET APPELLE LA METHODE __destruct
 
 ## METHODE MAGIQUE __toString
 
-PERMET D'UTILISER UN OBJET COMME UN TEXTE
-=> TRES PRATIQUE CAR ON PASSE NOTRE TEMPS A CONCATENER DES TEXTES
-=> ON PEUT UTILISER UN OBJET QUI PROPOSE CETTE METHODE __toString
-    DANS LES CONCATENATIONS...
+    PERMET D'UTILISER UN OBJET COMME UN TEXTE
+    => TRES PRATIQUE CAR ON PASSE NOTRE TEMPS A CONCATENER DES TEXTES
+    => ON PEUT UTILISER UN OBJET QUI PROPOSE CETTE METHODE __toString
+        DANS LES CONCATENATIONS...
 
 
-class Balise
-{
-    // METHODE MAGIQUE
-    function __toString ()
+    class Balise
     {
-        return "<h2>TEXTE</h2>";
+        // METHODE MAGIQUE
+        function __toString ()
+        {
+            return "<h2>TEXTE</h2>";
+        }
     }
-}
 
-$objetBalise = new Balise;
+    $objetBalise = new Balise;
 
-echo 
-<<<CODEHTML
-<header>
-</header>
-<main> 
-    $objetBalise
-</main>
-<footer>
-</footer>
+    echo 
+    <<<CODEHTML
+    <header>
+    </header>
+    <main> 
+        $objetBalise
+    </main>
+    <footer>
+    </footer>
 
-CODEHTML;
+    CODEHTML;
 
 
 ## PROPRIETES D'OBJET 
 
-DANS UNE CLASSE, ON PEUT RANGER DES METHODES (fonctions)
-ET ON PEUT AUSSI RANGER DES VARIABLES (=> propriétés/attributs)
+    DANS UNE CLASSE, ON PEUT RANGER DES METHODES (fonctions)
+    ET ON PEUT AUSSI RANGER DES VARIABLES (=> propriétés/attributs)
 
 
     class Page
@@ -414,31 +414,31 @@ ET ON PEUT AUSSI RANGER DES VARIABLES (=> propriétés/attributs)
 ## PROPRIETES DE CLASSES
 
 
-class Boulanger
-{
-    // METHODES DE CLASSE (COLLECTIVE A TOUS LES OBJETS DE LA CLASSE)
-    // ATTENTION static CHANGE COMPLEMENT LE SENS
-    static function manifester ()
+    class Boulanger
     {
-        echo "PAS DE RETRAITE A 70 ANS";
+        // METHODES DE CLASSE (COLLECTIVE A TOUS LES OBJETS DE LA CLASSE)
+        // ATTENTION static CHANGE COMPLEMENT LE SENS
+        static function manifester ()
+        {
+            echo "PAS DE RETRAITE A 70 ANS";
+        }
+
+        // METHODES D'OBJET (INDIVIDUELLE A CHAQUE OBJET)
+        function afficherCarteVisite ()
+        {
+
+        }
+
     }
 
-    // METHODES D'OBJET (INDIVIDUELLE A CHAQUE OBJET)
-    function afficherCarteVisite ()
-    {
+    // SI JE VEUX ACTIVER UNE METHODE DE CLASSE
+    // JE PASSE PAR LA CLASSE ET J'UTILISE :: POUR ACCEDER A LA METHODE static DE CLASSE
+    // https://www.php.net/manual/fr/language.oop5.paamayim-nekudotayim.php
+    // => OPERATEUR DE RESOLUTION DE PORTEE
+    Boulanger::manifester();
 
-    }
-
-}
-
-// SI JE VEUX ACTIVER UNE METHODE DE CLASSE
-// JE PASSE PAR LA CLASSE ET J'UTILISE :: POUR ACCEDER A LA METHODE static DE CLASSE
-// https://www.php.net/manual/fr/language.oop5.paamayim-nekudotayim.php
-// => OPERATEUR DE RESOLUTION DE PORTEE
-Boulanger::manifester();
-
-$objet = new Boulanger;
-$objet->afficherCarteVisite();
+    $objet = new Boulanger;
+    $objet->afficherCarteVisite();
 
 
 
