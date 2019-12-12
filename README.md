@@ -8,6 +8,13 @@ URL DU GIT
 https://github.com/wf3-fullstack/cours
 
 
+## ZOOM DU JOUR
+
+Participer à la réunion Zoom
+https://passw.zoom.us/j/2096127380
+
+ID de réunion : 209 612 7380
+
 ## lien live share jeudi 12/12
 
     NOUVEAU lien vers le liveshare jeudi 12/12
