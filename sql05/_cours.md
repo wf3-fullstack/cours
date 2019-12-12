@@ -5,6 +5,7 @@
 
     https://sql.sh/cours/jointures
 
+    https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/916084-les-jointures-entre-tables
 
     DANS CERTAINES SITUATIONS, IL EST INTERESSANT DE POUVOIR 
     MIXER LES DONNEES DE PLUSIEURS TABLES SQL 
@@ -63,6 +64,21 @@
 
     https://sql.sh/cours/jointures
 
+
+
+## PHP PDO ET JOINTURES 
+
+
+    PARFOIS, ON AURA BESOIN DE LA COLONNE id DE LA PREMEIERE TABLE SQL DANS LA JOINTURE
+    MAIS AVEC PHP ET LES TABLEAUX ASSOCIATIFS, LE COLONNE id DEVIENT UNE CLE QUI DOIT ETRE UNIQUE
+    => LA 2E COLONNE id VA ECRASER LA PREMIERE COLONNE id DANS LE TABLEAU ASSOCIATIF EN PHP
+    => ASTUCE: AJOUTER UNE COLONNE SUPPLEMENTAIRE DANS LA REQUETE SQL 
+                POUR DUPLIQUER LA PREMIERE COLONNE id SOUS UN AUTRE NOM
+
+    SELECT *, table1.id as table1_id
+    FROM table1
+    LEFT JOIN table2
+    ON table1.colonne1 = table2.colonne2
 
 
 ## RELATION ET CARDINALITE ENTRE TABLES SQL
@@ -228,10 +244,191 @@
 
 
 
+## EXERCICE PRATIQUE POUR CET APRES MIDI
+
+
+    CREER UNE DATABASE cmspoo AVEC LE CHARSET utf8mb4_general_ci
+
+    ET ENSUITE CREER LES TABLES SQL
+
+    user
+        id              INT             INDEX=PRIMARY       A_I     (CLE PRIMAIRE)
+        email           VARCHAR(160)
+        login           VARCHAR(160)
+        password        VARCHAR(160)
+        dateCreation    DATETIME
+        level           INT
+
+    film
+        id              INT             INDEX=PRIMARY       A_I     (CLE PRIMAIRE)
+        titre           VARCHAR(160)
+        synopsis        TEXT    
+        genre_id        INT                                         (CLE ETRANGERE VERS genre)
+        user_id         INT                                         (CLE ETRANGERE VERS user)
+        critique        TEXT
+        dateSortie      DATE
+
+    relation
+        id              INT             INDEX=PRIMARY       A_I     (CLE PRIMAIRE)
+        table1_id       INT                                         (ON PERD LA CLE ETRANGERE)
+        table1          VARCHAR(160)
+        table2_id       INT
+        table2          VARCHAR(160)                                (ON PERD LA CLE ETRANGERE)
+        quantite        INT
+        qualite         VARCHAR(160)
+
+    acteur_film
+        id              INT             INDEX=PRIMARY       A_I     (CLE PRIMAIRE)
+        acteur_id       INT                                         (CLE ETRANGERE VERS user)
+        film_id         INT                                         (CLE ETRANGERE VERS film)
+        personnage      VARCHAR(160)
+
+
+    acteur_photo
+        id              INT             INDEX=PRIMARY       A_I     (CLE PRIMAIRE)
+        acteur_id       INT                                         (CLE ETRANGERE VERS acteur)
+        photo_id        INT                                         (CLE ETRANGERE VERS photo)
+
+
+    acteur
+        id              INT             INDEX=PRIMARY       A_I     (CLE PRIMAIRE)
+        nom             VARCHAR(160)
+        prenom          VARCHAR(160)
+        biographie      TEXT
+
+    film_photo
+        id              INT             INDEX=PRIMARY       A_I     (CLE PRIMAIRE)
+        film_id         INT                                         (CLE ETRANGERE VERS film)
+        photo_id        INT                                         (CLE ETRANGERE VERS photo)
+
+    photo
+        id              INT             INDEX=PRIMARY       A_I     (CLE PRIMAIRE)
+        url             VARCHAR(160)
+        description     TEXT
+
+    genre
+        id              INT             INDEX=PRIMARY       A_I     (CLE PRIMAIRE)
+        label           VARCHAR(160)
+        description     TEXT
+
+    commentaire
+        id              INT             INDEX=PRIMARY       A_I     (CLE PRIMAIRE)
+        user_id         INT                                         (CLE ETRANGERE VERS user)
+        message         TEXT
+        datePublication DATETIME
+        film_id         INT
 
 
 
 
+    RELATION ENTRE user ET film
+    POUR UN user COMBIEN DE film ?
+    => ZERO OU UN OU PLUSIEURS          => MANY
+    POUR UN film COMBIEN DE user ?
+    => UN                               => ONE
+
+    ONE TO MANY
+    user ET film
 
 
+    film
+        id      titre
+        1       harry potter
+        2       le seigneur des anneaux
+        3       la cité de la peur
+
+    acteur
+        id      nom
+        1       robert de niro
+        2       alain chabat
+        3       louis de funès
+
+
+    photo
+        id      url
+        1       robert.jpg
+        2       chabat.jpg
+        3       chabat2.jpg
+        4       funes.jpg
+
+    acteur_film
+        id      acteur_id       film_id
+        1       1               1    
+        2       1               3
+        3       2               3
+        4       2               2
+        5       2               1
+
+    acteur_photo
+        id      acteur_id       photo_id        
+        1       1               1
+        2       2               2
+        3       2               3
+        4       3               4
+
+
+    * VERSION PLUS COMPACTE (MAIS HORS SECURITE SQL DE CLES ETRANGERES...)
+
+    relation
+        id      table1  table1_id       table2  table2_id
+        1       acteur  1               film    1
+        2       acteur  1               film    3
+        ...
+        6       acteur  1               photo   1
+        7       acteur  2               photo   2
+        ...
+
+
+    cle_valeur
+        id      relation_id     cle     valeur
+        1       1               role    john
+        2       1               duree   10min
+        3       1               prix    meilleur acteur
+
+
+## AUTRE PROJET A MODELISER
+
+    SI ON VEUT CREER UN SITE DE PETITES ANNONCES
+
+    IL Y A DES UTILISATEURS (ADMIN/MEMBRES)
+
+    TABLE SQL user
+        id
+        email   
+        login
+        ...
+
+    TABLE SQL annonce
+        id
+        titre
+        description
+        datePublication
+        user_id                 CLE ETRANGERE VERS user
+        categorie_id            CLE ETRANGERE VERS categorie
+
+    photo
+        id
+        titre
+        url
+        user_id                 CLE ETRANGERE VERS user
+        annonce_id              CLE ETRANGERE VERS annonce
+
+    categorie
+        id
+        label
+        description
+        categorie_id            (PARENT CLE_ETRANGERE VERS categorie)
+
+    commande
+        id
+        reference
+        dateCommande
+
+    annonce_commande (panier)
+        id
+        annonce_id
+        commande_id
+
+
+    
 
