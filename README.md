@@ -11,9 +11,10 @@ https://github.com/wf3-fullstack/cours
 ## ZOOM DU JOUR
 
 Participer à la réunion Zoom
-https://passw.zoom.us/j/2096127380
+https://passw.zoom.us/j/768352025?pwd=ZG1iWkpFYS9vTW5sS3Y4dklaZXI4QT09
 
-ID de réunion : 209 612 7380
+ID de réunion : 768 352 025
+Mot de passe : 968255
 
 ## lien live share jeudi 12/12
 
