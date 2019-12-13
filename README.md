@@ -8,19 +8,11 @@ URL DU GIT
 https://github.com/wf3-fullstack/cours
 
 
-## ZOOM DU JOUR
+## lien live share vendredi 13/12
 
-Participer à la réunion Zoom
-https://passw.zoom.us/j/768352025?pwd=ZG1iWkpFYS9vTW5sS3Y4dklaZXI4QT09
+    NOUVEAU AGAIN lien vers le liveshare vendredi 13/12
 
-ID de réunion : 768 352 025
-Mot de passe : 968255
-
-## lien live share jeudi 12/12
-
-    NOUVEAU lien vers le liveshare jeudi 12/12
-
-https://prod.liveshare.vsengsaas.visualstudio.com/join?3F6315A07A5DA3F0F081D8ECFBE1B0D77A40
+https://prod.liveshare.vsengsaas.visualstudio.com/join?72B75FDF4485B2E0095E503FDA648C845CCA
 
 ## LES CODES SONT DISPONIBLES DANS CHAQUE DOSSIER 
 
