@@ -60,9 +60,12 @@ function creerMenu()
     // ICI JE VAIS RANGER MON CODE
     // ON VA UTILISER UN TABLEAU ASSOCIATIF ET UNE BOUCLE
     $tableauMenu = [
-        "accueil"   => "index.php",
-        "services"  => "services.php",
-        "contact"   => "contact.php",       // PHP EST COOL, ON PEUT LAISSER LA VIRGULE A LA FIN
+        "accueil"           => "index.php",
+        "contact"           => "contact.php",       // PHP EST COOL, ON PEUT LAISSER LA VIRGULE A LA FIN
+        "inscription"       => "inscription.php",
+        "login"             => "login.php",
+        "admin"             => "admin.php",
+        "logout"            => "logout.php",
     ];
 
     foreach ($tableauMenu as $cle => $valeur) {

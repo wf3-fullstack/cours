@@ -10,8 +10,7 @@ $level = lireSession("level");
 $login = lireSession("login");
 $id    = lireSession("id");
 
-if ($level < 10)
-{
+if ($level < 10) {
     // KO
     // ON VA BLOQUER L'UTILISATEUR
     die("désolé $login ton level est $level. C'est pas assez");
@@ -79,8 +78,8 @@ if ($level < 10)
         }
 
         table img {
-            width:10vmin;
-            height:10vmin;
+            width: 10vmin;
+            height: 10vmin;
             object-fit: cover;
         }
     </style>
@@ -89,12 +88,9 @@ if ($level < 10)
 <body>
     <header>
         <h1>ADMIN CMS</h1>
-        <h2><?php echo "BIENVENUE $login TU AS LE LEVEL $level C'EST NICKEL"?></h2>
+        <h2><?php echo "BIENVENUE $login TU AS LE LEVEL $level C'EST NICKEL" ?></h2>
         <nav>
-            <a href="index.php">accueil</a>
-            <a href="contact.php">contact</a>
-            <a href="admin.php">admin</a>
-            <a href="inscription.php">inscription</a>
+            <?php creerMenu() ?>
         </nav>
     </header>
     <main>

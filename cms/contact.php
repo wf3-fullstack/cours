@@ -1,3 +1,7 @@
+<?php
+require_once "php/mes-fonctions.php";
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -12,10 +16,7 @@
     <header>
         <h1>SITE CMS</h1>
         <nav>
-            <a href="index.php">accueil</a>
-            <a href="contact.php">contact</a>
-            <a href="admin.php">admin</a>
-            <a href="inscription.php">inscription</a>
+            <?php creerMenu() ?>
         </nav>
     </header>
     <main>

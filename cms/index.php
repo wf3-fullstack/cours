@@ -22,7 +22,7 @@ require_once "php/mes-fonctions.php";
     <header>
         <h1>SITE CMS</h1>
         <nav>
-            <?php afficherMenuDynamique("menu") ?>
+            <?php creerMenu() ?>
         </nav>
     </header>
     <main>
