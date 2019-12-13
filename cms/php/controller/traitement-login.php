@@ -43,6 +43,14 @@ if (count($tabErreur) == 0)
             // ON A LE BON EMAIL AVEC LE BON MOT DE PASSE
             // COOL => LE VISITEUR S'EST IDENTIFIE CORRECTEMENT
             echo "BIENVENUE $login ($email)";
+            echo
+<<<CODEHTML
+
+    <script>
+            alert("BIENVENUE $login ($email)");
+    </script>
+    
+CODEHTML;
             // IL FAUT MEMORISER DANS UNE SESSION LES INFOS UTILISATEUR
             // level => DONNE LE NIVEAU D'ACCES D'UN UTILISATEUR (IMPORTANT)
             // login => POUR POUVOIR AFFICHER "BONJOUR toto"
@@ -53,6 +61,8 @@ if (count($tabErreur) == 0)
             ecrireSession("id",    $id);
             // https://www.php.net/manual/fr/function.time.php  
             ecrireSession("dateLogin", time());
+
+            // header("Location: admin.php");
         }
         else
         {

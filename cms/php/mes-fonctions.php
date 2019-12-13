@@ -281,7 +281,8 @@ function ecrireSession($cle, $valeur)
     if (!isset($_SESSION)) {
         // IL FAUT CREER CE DOSSIER AVANT
         // session_save_path("php/model/session");
-        session_start();    // CREE LA VARIABLE $_SESSION
+        session_start();
+        // CREE LA VARIABLE $_SESSION ET CREE LE FICHIER DE SESSION
     }
     $_SESSION[$cle] = $valeur;
 }
@@ -291,7 +292,8 @@ function lireSession($cle)
     if (!isset($_SESSION)) {
         // IL FAUT CREER CE DOSSIER AVANT
         // session_save_path("php/model/session");
-        session_start();    // CREE LA VARIABLE $_SESSION
+        session_start();
+        // CREE LA VARIABLE $_SESSION ET CREE LE FICHIER DE SESSION
     }
     $valeur = $_SESSION[$cle] ?? "";
 
