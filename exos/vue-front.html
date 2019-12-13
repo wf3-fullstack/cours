@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ message }}
+        <button @click="supprimer()">supprimer</button>
+        <button class="actionDelete">supprimer2</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    var app = new Vue({
+        el: '#app',
+        methods:{
+            supprimer:function() {
+                console.log("SUPPRIMER");
+                // REQUETE AJAX EN VANILLA JS
+                fetch('vue-back.php')
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(objetJSON){
+                    console.log(objetJSON);
+                    // JE COPIE LE TEXTE DANS LA VARIABLE GEREE PAR VUEJS
+                    app.message = objetJSON.message;
+                });
+            }
+        },
+        data: {
+            message: 'Hello Vue !'
+        }
+    })
+
+
+    var boutonDelete = document.querySelector("button.actionDelete");
+    boutonDelete.addEventListener("click", function(){
+        // REQUETE AJAX EN VANILLA JS
+        fetch('vue-back.php')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (objetJSON) {
+                console.log(objetJSON);
+                // JE COPIE LE TEXTE DANS LA VARIABLE GEREE PAR VUEJS
+                app.message = objetJSON.message;
+            });
+    });
+
+        </script>
+</body>
+</html>
