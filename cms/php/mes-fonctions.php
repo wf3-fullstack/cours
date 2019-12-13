@@ -267,6 +267,35 @@ function filtrerUpload($nameInput)
     return $cheminFichierUpload;
 }
 
+
+// POUR LES SESSIONS, JE VAIS CREER 2 FONCTIONS
+// ecrireSession ($cle, $valeur)
+// lireSession ($cle)
+// ON CHERCHE DANS LE TABLEAU ASSOCIATIF $_SESSION
+// LA VALEUR ASSOCIEE AVEC $cle
+function ecrireSession($cle, $valeur)
+{
+    if (!isset($_SESSION)) {
+        // IL FAUT CREER CE DOSSIER AVANT
+        // session_save_path("php/model/session");
+        session_start();    // CREE LA VARIABLE $_SESSION
+    }
+    $_SESSION[$cle] = $valeur;
+}
+
+function lireSession($cle)
+{
+    if (!isset($_SESSION)) {
+        // IL FAUT CREER CE DOSSIER AVANT
+        // session_save_path("php/model/session");
+        session_start();    // CREE LA VARIABLE $_SESSION
+    }
+    $valeur = $_SESSION[$cle] ?? "";
+
+    return $valeur;
+}
+
+
 // FONCTIONS MODELES
 
 
@@ -404,7 +433,7 @@ CODESQL;
 
 
 // ON VA DECLARER UNE FONCTION POUR LIRE DANS UNE TABLE SQL
-function lireTableSQL($nomTable, $ligneTri, $clauseWhere="")
+function lireTableSQL($nomTable, $ligneTri, $clauseWhere="", $tabAssoColonneValeur = [])
 {
     // CODE PHP QUI VA CONSTRUIRE LA LISTE DES RECETTES EN HTML
     // READ
@@ -418,7 +447,7 @@ $ligneTri
 
 CODESQL;
 
-    $tabAssoColonneValeur = []; // PAS DE JETON
+     // PAS DE JETON
     // JE RECUPERE $pdoStatement POUR POUVOIR CONTINUER A RECUPERER LES RESULTATS DE LA REQUETE
     $pdoStatement = envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur);
     // JE VAIS RECUPERER TOUTES LES LIGNES DE RESULTATS D'UN COUP AVEC fetchAll

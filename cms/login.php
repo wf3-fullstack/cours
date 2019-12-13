@@ -21,7 +21,7 @@
     </header>
     <main>
         <section>
-            <h2>FORMULAIRE D'INSCRIPTION</h2>
+            <h2>FORMULAIRE DE LOGIN</h2>
             <!-- CODER LE HTML DU FORMULAIRE EN 10 MINUTES -->
             <form action="traitement.php" method="POST">
                 <!-- PARTIE PUBLIQUE VISIBLE DU FORMULAIRE-->
@@ -30,18 +30,14 @@
                     <input type="email" name="email" required placeholder="votre email" maxlength="160">
                 </label>
                 <label>
-                    <div>login</div>
-                    <input type="text" name="login" required placeholder="votre login" maxlength="160">
-                </label>
-                <label>
                     <div>password</div>
                     <input type="password" name="password" required placeholder="votre password" maxlength="160">
                 </label>
                 <div>
-                    <button type="submit">CREATION DE COMPTE</button>
+                    <button type="submit">CONNEXION</button>
                 </div>
                 <!-- PARTIE TECHNIQUE INVISIBLE DE NOTRE FRAMEWORK -->
-                <input type="hidden" name="identifiantFormulaire" value="user">
+                <input type="hidden" name="identifiantFormulaire" value="login">
                 <div class="alert">
                     <!-- ICI AVEC AJAX, JE POURRAI AFFICHER LE MESSAGE DE CONFIRMATION -->
                 </div>

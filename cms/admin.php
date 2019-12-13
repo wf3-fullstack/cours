@@ -3,6 +3,20 @@
 // CHARGER MES FONCTIONS AU DEBUT
 require_once "php/mes-fonctions.php";
 
+// MAINTENANT QUE J'AI LES SESSIONS
+// JE PEUX RETROUVER SI LE VISITEUR A UN level SUFFISANT >= 10
+// JE VAIS UTILISER MA FONCTION lireSession
+$level = lireSession("level");
+$login = lireSession("login");
+$id    = lireSession("id");
+
+if ($level < 10)
+{
+    // KO
+    // ON VA BLOQUER L'UTILISATEUR
+    die("désolé $login ton level est $level. C'est pas assez");
+    //exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -75,6 +89,7 @@ require_once "php/mes-fonctions.php";
 <body>
     <header>
         <h1>ADMIN CMS</h1>
+        <h2><?php echo "BIENVENUE $login TU AS LE LEVEL $level C'EST NICKEL"?></h2>
         <nav>
             <a href="index.php">accueil</a>
             <a href="contact.php">contact</a>
