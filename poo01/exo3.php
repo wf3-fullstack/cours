@@ -17,6 +17,7 @@ ini_set("display_errors", 1);
 
 // Fatal error: Uncaught Error: Class 'Page' not found
 class Page 
+    implements InterfacePage
 {
     // JE CREE UNE PROPRIETE D'OBJET
     // ELLE EXISTE TANT QUE L'OBJET EXISTE
@@ -50,7 +51,18 @@ class Page
 }
 
 
+
+
 // CODE NON MODIFIABLE
+
+// CONTRAT ENTRE 2 DEVELOPPEURS
+interface InterfacePage
+{
+    function setContenu ($param);
+    function afficher();
+
+}
+
 $objetPage = new Page;                              // ON PEUT JOUER AVEC __construct
 $objetPage->setContenu("LE CONTENU DE MA PAGE");    // $this = $obejtPage
 $objetPage->afficher();                             // $this = $objetPage
