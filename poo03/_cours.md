@@ -311,7 +311,8 @@
         function afficherInfo()
         {
             echo "(PetitEnfant::afficherInfo)";
-            // SI DANS LA CLASSE ENFANT J'AI BESOIN D'APPELER LA METHODE PARENTE
+            // SI DANS LA CLASSE ENFANT J'AI BESOIN D'APPELER 
+            // DIRECTEMENT LA METHODE PARENTE DE LA CLASSE MaClasseParent
             MaClasseParent::afficherInfo();
         }
         
