@@ -35,13 +35,13 @@ class Info
     public $content = "";
 
     // JE VAIS AJOUTER UNE METHODE CONSTRUCTEUR POUR RECUPERER LE PARAMETRE
-    function __construct ($texte)
+    function __construct($texte)
     {
         $this->content = $texte;        // MEMORISER LA VALEUR POUR L'UTILISER PLUS TARD
     }
 
     // Object of class Info could not be converted to string
-    function __toString ()
+    function __toString()
     {
         return $this->content;
     }
@@ -54,7 +54,7 @@ class Header
     public $h1 = null;      // POUR LES VARIABLES
 
     // ON RAJOUTE UNE METHODE __construct
-    function __construct ($h1)
+    function __construct($h1)
     {
         $this->h1 = $h1;    // $h1 EST UN OBJET
         // ON POURRA UTILISER LA PROPRIETE DANS UNE AUTRE METHODE PLUS TARD
@@ -63,10 +63,10 @@ class Header
     // Recoverable fatal error: Object of class Header could not be converted to string
     // => METHODE MAGIQUE __toString
     // https://www.php.net/manual/fr/language.oop5.magic.php#object.tostring
-    function __toString ()
+    function __toString()
     {
-        $texte = 
-<<<CODEHTML
+        $texte =
+            <<<CODEHTML
         <header>
             <h1>{$this->h1}</h1>
         </header>
@@ -75,11 +75,10 @@ CODEHTML;
 
         return $texte;
     }
-
 }
 
 // Fatal error: Uncaught Error: Class 'Main' not found
-class Main 
+class Main
 {
     // PROPRIETE D'OBJET
     public $section = null;      // POUR LES VARIABLES
@@ -95,7 +94,7 @@ class Main
     function __toString()
     {
         $texte =
-<<<CODEHTML
+            <<<CODEHTML
         <main>
             <section>
             {$this->section}
@@ -106,7 +105,6 @@ CODEHTML;
 
         return $texte;
     }
-
 }
 
 // Fatal error: Uncaught Error: Class 'Footer' not found
@@ -126,7 +124,7 @@ class Footer
     function __toString()
     {
         $texte =
-<<<CODEHTML
+            <<<CODEHTML
         <footer>
             {$this->copyright}
         </footer>
@@ -147,7 +145,7 @@ $main   = new Main($section);                       // => __construct
 $footer = new Footer($copyright);                   // => __construct
 
 echo
-<<<CODEHTML
+    <<<CODEHTML
 
 $header
 $main

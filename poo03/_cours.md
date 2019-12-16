@@ -558,6 +558,215 @@
 
     // ON SE RETROUVE AVEC PLEIN DE PROBLEMES POSSIBLES...
 
+## POSSIBILITES POUR LES PROCHAINES ETAPES
+
+
+### COMMENCER SYMFONY CET APRES MIDI
+
+    ET ENSUITE, CONTINUER SYMFONY 
+    ET AUSSI FAIRE DU FRAMEWORK SANS SYMFONY
+    (PREPARER EXAMEN...)
+
+
+
+### SYMFONY
+
+https://symfony.com/
+
+FRAMEWORK PHP+SQL
+=> BACK END
+
+PUBLIE EN 2005
+LICENCE MIT
+=> LOCIGIEL LIBRE ET OPEN-SOURCE
+
+CREE PAR UN FRANCAIS: Fabien POTENCIER
+=> ENTREPRISE QUI CHAPEAUTE LE DEVELOPPEMENT DE SYMFONY
+https://sensiolabs.com/fr/
+
+CERTIFICATIONS OFFICIELLES SUR SYMFONY
+https://university.sensiolabs.com/fr/trainings
+
+
+https://openclassrooms.com/fr/courses/3619856-developpez-votre-site-web-avec-le-framework-symfony
+(ATTENTION COURS SUR SYMFONY 3...)
+
+ACCES PREMIUM SOLO AVEC POLE EMPLOI
+https://openclassrooms.com/fr/partners/pole-emploi/offers
+
+COURS UDEMY (PAYANT)
+https://www.udemy.com/course/symfony-par-la-pratique/
+
+COURS GRATUIT (ET PAYANT AUSSI...)
+https://www.grafikart.fr/formations/symfony-4-pratique
+
+
+https://trends.builtwith.com/framework/Laravel
+https://trends.builtwith.com/framework/symfony-PHP-Framework
+https://trends.builtwith.com/framework/Zend-Framework-Debugger
+
+AU NIVEAU INTERNATIONAL
+LARAVEL     => LE PLUS POPULAIRE CAR LE PLUS SIMPLE
+            => https://laravel.com/
+            => PLUTOT TOUT SEUL OU PETITES EQUIPES
+
+SYMFONY     => PLUS ORIENTE GROS PROJETS EN EQUIPE
+            => https://symfony.com/what-is-symfony
+            => ET FRANCAIS
+
+ZEND FRAMEWORK       
+            => ON UTILISE LE MOTEUR PHP DE ZEND 
+            => LE PLUS COMPLIQUE
+            => https://framework.zend.com/
+
+
+ARCHITECTURE A 2 NIVEAUX
+* BIBLIOTHEQUE DE CODE
+* FRAMEWORK
+
+LE FRAMEWORK SYMFONY S'APPUIE SUR DES BIBLIOTHEQUES SYMFONY 
+MAIS AUSSI D'AUTRES BIBLIOTHEQUES
+
+LE FRAMEWORK LARAVEL S'APPUIE SUR DES BIBLIOTHEQUES LARAVEL
+MAIS AUSSI SUR D'AUTRES BIBLIOTHEQUES (DONT SYMFONY...)
+
+https://www.openhub.net/p/symfony
+
+
+## DOCUMENTATION DE SYMFONY
+
+
+https://symfony.com/doc/current/index.html
+
+## VERSIONS DE SYMFONY
+
+SEMVER (SEMANTIC VERSIONING)
+VERSION MAJEURE . VERSION MINEURE . VERSION DEBUG
+
+3.4.1
+3 => VERSION MAJEURE    => CA PEUT CASSER DU CODE EXISTANT
+4 => VERSION MINEURE
+1 => VERSION DEBUG
+
+SI ON RESTE SUR LA MEME MAJEURE, LE CODE ACTUEL NE CASSE PAS
+
+PAR CONTRE, ENTRE UNE VERSION MAJEURE ET LA SUIVANTE
+=> PEUT-ETRE QUE LE CODE ACTUEL NE FONCTIONNERA PAS...
+
+SYMFONY 2
+=> CA CASSE (LA STRUCTURE A ETE SIMPLIFIEE)
+SYMFONY 3
+=> CA CASSE (LA STRUCTURE A ETE BIEN SIMPLIFIEE)
+SYMFONY 4
+=> VOUS AVEZ DE LA CHANCE (NORMALEMENT CA CASSE PAS...)
+SYMFONY 5
+
+https://symfony.com/releases
+
+BONNE NOUVELLE: LA VERSION LONG TERM SUPPORT (LTS 2 ANS)
+VIENT DE SORTIR => C'EST LA VERSION 4.4
+
+ET EN MEME TEMPS LA VERSION 5 EST AUSSI DISPONIBLE
+=> ON A DE LA CHANCE, LE CODE SYMFONY 4 ET SYMFONY 5 SONT COMPATIBLES...
+
+## INSTALLATION DE SYMFONY
+
+
+https://symfony.com/doc/current/setup.html
+
+ATTENTION: VERSION PHP MINIMUM 7.2.5
+
+CREER UN FICHIER info.php
+AVEC LE CODE 
+
+    <?php phpinfo() ?>
+
+
+### INSTALLER COMPOSER
+
+https://getcomposer.org/download/
+
+OUVRIR UN TERMINAL
+ET TESTER LA COMMANDE
+
+    composer -v
+
+(SUR WINDOWS)
+SI composer N'EST PAS INSTALLE 
+ALORS IL FAUT TELECHARGER LE FICHIER D'INSTALLATION
+https://getcomposer.org/Composer-Setup.exe
+
+
+INSTALLER composer-Setup.exe
+(BIEN CHOISIR LA VERSION DE PHP QUI EST AU MINIMUM 7.2.5+)
+
+ET ENSUITE, REFERMER LE TERMINAL 
+ET EN OUVRIR UN NOUVEAU
+ET TESTER LA COMMANDE
+
+    composer -v
+
+ET ON DEVRAIT VOIR UN AFFICHAGE COMME SUIT...
+
+   ______
+  / ____/___  ____ ___  ____  ____  ________  _____
+ / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
+\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
+                    /_/
+Composer version 1.9.1 2019-11-01 17:20:17
+
+
+
+### INSTALLER LE PROGRAMME symfony
+
+TELECHARGER LE PROGRAMME symfony cli
+
+https://get.symfony.com/cli/setup.exe
+
+
+ET ESSAYER LA COMMANDE
+
+    symfony -v
+
+ET ON DEVRAIT VOIR LE MESSAGE:
+
+    Symfony CLI version v4.11.3 (c) 2017-2019 Symfony SAS
+
+
+ET ON VERIFIE ENSUITE
+
+    symfony check:requirements
+
+ON DEVRAIT VOIR CE MESSAGE S'AFFICHER...
+
+    [OK]
+    Your system is ready to run Symfony projects
+
+
+OUVRIR UN TERMINAL ET VERIFIER QU'ON EST DANS LE BON DOSSIER (wf3-fullstack/)
+
+ET ENSUITE ON PEUT LANCER LA COMMANDE POUR INSTALLER symfony
+
+    symfony new symfony01 --full
+
+SI TOUT SE PASSE BIEN...
+
+    [OK] Your project is now ready in C:\xampp\htdocs\wf3-fullstack\symfony01
+
+ENSUITE DANS LE NAVIAGTEUR, ALLER DANS LE DOSSIER symfony01/public/
+
+SUR MON ORDINATEUR
+
+    http://localhost/wf3-fullstack/symfony01/public/
+
+
+AU BESOIN REDEMARRER LE SERVEUR WEB AVEC LA BONNE VERSION DE PHP 
+(CELLE QUI A ETE ASSOCIEE A composer...)
+(EXEMPLE 7.3.5)
+
+
+
 
 
 
