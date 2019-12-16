@@ -571,200 +571,321 @@
 
 ### SYMFONY
 
-https://symfony.com/
+    https://symfony.com/
 
-FRAMEWORK PHP+SQL
-=> BACK END
+    FRAMEWORK PHP+SQL
+    => BACK END
 
-PUBLIE EN 2005
-LICENCE MIT
-=> LOCIGIEL LIBRE ET OPEN-SOURCE
+    PUBLIE EN 2005
+    LICENCE MIT
+    => LOCIGIEL LIBRE ET OPEN-SOURCE
 
-CREE PAR UN FRANCAIS: Fabien POTENCIER
-=> ENTREPRISE QUI CHAPEAUTE LE DEVELOPPEMENT DE SYMFONY
-https://sensiolabs.com/fr/
+    CREE PAR UN FRANCAIS: Fabien POTENCIER
+    => ENTREPRISE QUI CHAPEAUTE LE DEVELOPPEMENT DE SYMFONY
+    https://sensiolabs.com/fr/
 
-CERTIFICATIONS OFFICIELLES SUR SYMFONY
-https://university.sensiolabs.com/fr/trainings
-
-
-https://openclassrooms.com/fr/courses/3619856-developpez-votre-site-web-avec-le-framework-symfony
-(ATTENTION COURS SUR SYMFONY 3...)
-
-ACCES PREMIUM SOLO AVEC POLE EMPLOI
-https://openclassrooms.com/fr/partners/pole-emploi/offers
-
-COURS UDEMY (PAYANT)
-https://www.udemy.com/course/symfony-par-la-pratique/
-
-COURS GRATUIT (ET PAYANT AUSSI...)
-https://www.grafikart.fr/formations/symfony-4-pratique
+    CERTIFICATIONS OFFICIELLES SUR SYMFONY
+    https://university.sensiolabs.com/fr/trainings
 
 
-https://trends.builtwith.com/framework/Laravel
-https://trends.builtwith.com/framework/symfony-PHP-Framework
-https://trends.builtwith.com/framework/Zend-Framework-Debugger
+    https://openclassrooms.com/fr/courses/3619856-developpez-votre-site-web-avec-le-framework-symfony
+    (ATTENTION COURS SUR SYMFONY 3...)
 
-AU NIVEAU INTERNATIONAL
-LARAVEL     => LE PLUS POPULAIRE CAR LE PLUS SIMPLE
-            => https://laravel.com/
-            => PLUTOT TOUT SEUL OU PETITES EQUIPES
+    ACCES PREMIUM SOLO AVEC POLE EMPLOI
+    https://openclassrooms.com/fr/partners/pole-emploi/offers
 
-SYMFONY     => PLUS ORIENTE GROS PROJETS EN EQUIPE
-            => https://symfony.com/what-is-symfony
-            => ET FRANCAIS
+    COURS UDEMY (PAYANT)
+    https://www.udemy.com/course/symfony-par-la-pratique/
 
-ZEND FRAMEWORK       
-            => ON UTILISE LE MOTEUR PHP DE ZEND 
-            => LE PLUS COMPLIQUE
-            => https://framework.zend.com/
+    COURS GRATUIT (ET PAYANT AUSSI...)
+    https://www.grafikart.fr/formations/symfony-4-pratique
 
 
-ARCHITECTURE A 2 NIVEAUX
-* BIBLIOTHEQUE DE CODE
-* FRAMEWORK
+    https://trends.builtwith.com/framework/Laravel
+    https://trends.builtwith.com/framework/symfony-PHP-Framework
+    https://trends.builtwith.com/framework/Zend-Framework-Debugger
 
-LE FRAMEWORK SYMFONY S'APPUIE SUR DES BIBLIOTHEQUES SYMFONY 
-MAIS AUSSI D'AUTRES BIBLIOTHEQUES
+    AU NIVEAU INTERNATIONAL
+    LARAVEL     => LE PLUS POPULAIRE CAR LE PLUS SIMPLE
+                => https://laravel.com/
+                => PLUTOT TOUT SEUL OU PETITES EQUIPES
 
-LE FRAMEWORK LARAVEL S'APPUIE SUR DES BIBLIOTHEQUES LARAVEL
-MAIS AUSSI SUR D'AUTRES BIBLIOTHEQUES (DONT SYMFONY...)
+    SYMFONY     => PLUS ORIENTE GROS PROJETS EN EQUIPE
+                => https://symfony.com/what-is-symfony
+                => ET FRANCAIS
 
-https://www.openhub.net/p/symfony
+    ZEND FRAMEWORK       
+                => ON UTILISE LE MOTEUR PHP DE ZEND 
+                => LE PLUS COMPLIQUE
+                => https://framework.zend.com/
+
+
+    ARCHITECTURE A 2 NIVEAUX
+    * BIBLIOTHEQUE DE CODE
+    * FRAMEWORK
+
+    LE FRAMEWORK SYMFONY S'APPUIE SUR DES BIBLIOTHEQUES SYMFONY 
+    MAIS AUSSI D'AUTRES BIBLIOTHEQUES
+
+    LE FRAMEWORK LARAVEL S'APPUIE SUR DES BIBLIOTHEQUES LARAVEL
+    MAIS AUSSI SUR D'AUTRES BIBLIOTHEQUES (DONT SYMFONY...)
+
+    https://www.openhub.net/p/symfony
+
+
+    * MIGRATION DE DAILYMOTION VERS SYMFONY
+    https://www.yumpu.com/fr/document/read/35951612/symfony-et-dailymotion-une-migration-racussie
 
 
 ## DOCUMENTATION DE SYMFONY
 
 
-https://symfony.com/doc/current/index.html
+    https://symfony.com/doc/current/index.html
 
 ## VERSIONS DE SYMFONY
 
-SEMVER (SEMANTIC VERSIONING)
-VERSION MAJEURE . VERSION MINEURE . VERSION DEBUG
+    SEMVER (SEMANTIC VERSIONING)
+    VERSION MAJEURE . VERSION MINEURE . VERSION DEBUG
 
-3.4.1
-3 => VERSION MAJEURE    => CA PEUT CASSER DU CODE EXISTANT
-4 => VERSION MINEURE
-1 => VERSION DEBUG
+    3.4.1
+    3 => VERSION MAJEURE    => CA PEUT CASSER DU CODE EXISTANT
+    4 => VERSION MINEURE
+    1 => VERSION DEBUG
 
-SI ON RESTE SUR LA MEME MAJEURE, LE CODE ACTUEL NE CASSE PAS
+    SI ON RESTE SUR LA MEME MAJEURE, LE CODE ACTUEL NE CASSE PAS
 
-PAR CONTRE, ENTRE UNE VERSION MAJEURE ET LA SUIVANTE
-=> PEUT-ETRE QUE LE CODE ACTUEL NE FONCTIONNERA PAS...
+    PAR CONTRE, ENTRE UNE VERSION MAJEURE ET LA SUIVANTE
+    => PEUT-ETRE QUE LE CODE ACTUEL NE FONCTIONNERA PAS...
 
-SYMFONY 2
-=> CA CASSE (LA STRUCTURE A ETE SIMPLIFIEE)
-SYMFONY 3
-=> CA CASSE (LA STRUCTURE A ETE BIEN SIMPLIFIEE)
-SYMFONY 4
-=> VOUS AVEZ DE LA CHANCE (NORMALEMENT CA CASSE PAS...)
-SYMFONY 5
+    SYMFONY 2
+    => CA CASSE (LA STRUCTURE A ETE SIMPLIFIEE)
+    SYMFONY 3
+    => CA CASSE (LA STRUCTURE A ETE BIEN SIMPLIFIEE)
+    SYMFONY 4
+    => VOUS AVEZ DE LA CHANCE (NORMALEMENT CA CASSE PAS...)
+    SYMFONY 5
 
-https://symfony.com/releases
+    https://symfony.com/releases
 
-BONNE NOUVELLE: LA VERSION LONG TERM SUPPORT (LTS 2 ANS)
-VIENT DE SORTIR => C'EST LA VERSION 4.4
+    BONNE NOUVELLE: LA VERSION LONG TERM SUPPORT (LTS 2 ANS)
+    VIENT DE SORTIR => C'EST LA VERSION 4.4
 
-ET EN MEME TEMPS LA VERSION 5 EST AUSSI DISPONIBLE
-=> ON A DE LA CHANCE, LE CODE SYMFONY 4 ET SYMFONY 5 SONT COMPATIBLES...
+    ET EN MEME TEMPS LA VERSION 5 EST AUSSI DISPONIBLE
+    => ON A DE LA CHANCE, LE CODE SYMFONY 4 ET SYMFONY 5 SONT COMPATIBLES...
 
 ## INSTALLATION DE SYMFONY
 
 
-https://symfony.com/doc/current/setup.html
+    https://symfony.com/doc/current/setup.html
 
-ATTENTION: VERSION PHP MINIMUM 7.2.5
+    ATTENTION: VERSION PHP MINIMUM 7.2.5
 
-CREER UN FICHIER info.php
-AVEC LE CODE 
+    CREER UN FICHIER info.php
+    AVEC LE CODE 
 
-    <?php phpinfo() ?>
+        <?php phpinfo() ?>
 
 
 ### INSTALLER COMPOSER
 
-https://getcomposer.org/download/
+    https://getcomposer.org/download/
 
-OUVRIR UN TERMINAL
-ET TESTER LA COMMANDE
+    OUVRIR UN TERMINAL
+    ET TESTER LA COMMANDE
 
-    composer -v
+        composer -v
 
-(SUR WINDOWS)
-SI composer N'EST PAS INSTALLE 
-ALORS IL FAUT TELECHARGER LE FICHIER D'INSTALLATION
-https://getcomposer.org/Composer-Setup.exe
+    (SUR WINDOWS)
+    SI composer N'EST PAS INSTALLE 
+    ALORS IL FAUT TELECHARGER LE FICHIER D'INSTALLATION
+    https://getcomposer.org/Composer-Setup.exe
 
 
-INSTALLER composer-Setup.exe
-(BIEN CHOISIR LA VERSION DE PHP QUI EST AU MINIMUM 7.2.5+)
+    INSTALLER composer-Setup.exe
+    (BIEN CHOISIR LA VERSION DE PHP QUI EST AU MINIMUM 7.2.5+)
 
-ET ENSUITE, REFERMER LE TERMINAL 
-ET EN OUVRIR UN NOUVEAU
-ET TESTER LA COMMANDE
+    ET ENSUITE, REFERMER LE TERMINAL 
+    ET EN OUVRIR UN NOUVEAU
+    ET TESTER LA COMMANDE
 
-    composer -v
+        composer -v
 
-ET ON DEVRAIT VOIR UN AFFICHAGE COMME SUIT...
+    ET ON DEVRAIT VOIR UN AFFICHAGE COMME SUIT...
 
-   ______
-  / ____/___  ____ ___  ____  ____  ________  _____
- / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
-/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
-\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
-                    /_/
-Composer version 1.9.1 2019-11-01 17:20:17
+    ______
+    / ____/___  ____ ___  ____  ____  ________  _____
+    / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+    / /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
+    \____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
+                        /_/
+    Composer version 1.9.1 2019-11-01 17:20:17
 
 
 
 ### INSTALLER LE PROGRAMME symfony
 
-TELECHARGER LE PROGRAMME symfony cli
+    TELECHARGER LE PROGRAMME symfony cli
 
-https://get.symfony.com/cli/setup.exe
-
-
-ET ESSAYER LA COMMANDE
-
-    symfony -v
-
-ET ON DEVRAIT VOIR LE MESSAGE:
-
-    Symfony CLI version v4.11.3 (c) 2017-2019 Symfony SAS
+    https://get.symfony.com/cli/setup.exe
 
 
-ET ON VERIFIE ENSUITE
+    ET ESSAYER LA COMMANDE
 
-    symfony check:requirements
+        symfony -v
 
-ON DEVRAIT VOIR CE MESSAGE S'AFFICHER...
+    ET ON DEVRAIT VOIR LE MESSAGE:
 
-    [OK]
-    Your system is ready to run Symfony projects
-
-
-OUVRIR UN TERMINAL ET VERIFIER QU'ON EST DANS LE BON DOSSIER (wf3-fullstack/)
-
-ET ENSUITE ON PEUT LANCER LA COMMANDE POUR INSTALLER symfony
-
-    symfony new symfony01 --full
-
-SI TOUT SE PASSE BIEN...
-
-    [OK] Your project is now ready in C:\xampp\htdocs\wf3-fullstack\symfony01
-
-ENSUITE DANS LE NAVIAGTEUR, ALLER DANS LE DOSSIER symfony01/public/
-
-SUR MON ORDINATEUR
-
-    http://localhost/wf3-fullstack/symfony01/public/
+        Symfony CLI version v4.11.3 (c) 2017-2019 Symfony SAS
 
 
-AU BESOIN REDEMARRER LE SERVEUR WEB AVEC LA BONNE VERSION DE PHP 
-(CELLE QUI A ETE ASSOCIEE A composer...)
-(EXEMPLE 7.3.5)
+    ET ON VERIFIE ENSUITE
 
+        symfony check:requirements
+
+    ON DEVRAIT VOIR CE MESSAGE S'AFFICHER...
+
+        [OK]
+        Your system is ready to run Symfony projects
+
+
+    OUVRIR UN TERMINAL ET VERIFIER QU'ON EST DANS LE BON DOSSIER (wf3-fullstack/)
+
+    ET ENSUITE ON PEUT LANCER LA COMMANDE POUR INSTALLER symfony
+
+        symfony new symfony01 --full
+
+    SI TOUT SE PASSE BIEN...
+
+        [OK] Your project is now ready in C:\xampp\htdocs\wf3-fullstack\symfony01
+
+    ENSUITE DANS LE NAVIGATEUR, ALLER DANS LE DOSSIER symfony01/public/
+
+    SUR MON ORDINATEUR
+
+        http://localhost/wf3-fullstack/symfony01/public/
+
+
+    AU BESOIN REDEMARRER LE SERVEUR WEB AVEC LA BONNE VERSION DE PHP 
+    (CELLE QUI A ETE ASSOCIEE A composer...)
+    (EXEMPLE 7.3.5)
+
+
+## CODE DE public/index.php
+
+    // https://www.php.net/manual/fr/language.operators.bitwise.php
+
+
+    $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
+    // => JE CREE UN OBJET $kernel DEPUIS LA CLASSE Kernel
+
+    $request = Request::createFromGlobals();
+    // => JE FAIS APPEL A UNE METHODE static DE CLASSE Request
+
+    $response = $kernel->handle($request);
+    // JE FAIS APPEL A LA METHODE handle SUR L'OBJET $kernel
+    // ET LA METHODE handle RETOURNE COMME VALEUR UN OBJET $response
+
+    $response->send();
+    // JE FAIS APPEL A LA METHODE send SUR L'OBJET $response
+
+    $kernel->terminate($request, $response);
+    // JE FAIS APPEL A LA METHODE terminate SUR L'OBJET $kernel
+
+## FIN D'INSTALLATION AVEC APACHE
+
+    https://symfony.com/doc/current/setup/web_server_configuration.html#adding-rewrite-rules
+
+    ON DOIT AJOUTER UN FICHIER .htaccess POUR AVOIR LES REWRITE RULES AVEC APACHE
+
+
+    POUR CELA, ON VA OUVRIR UN TERMINAL DANS LE DOSSIER symfony01/
+    (LE DOSSIER QUI CONTIENT LE FICHIER composer.json...)
+
+    ET ENSUITE LANCER LA COMMANDE DANS LE TERMINAL
+
+        composer require symfony/apache-pack
+
+    SI ON N'A PAS LE FICHIER public/.htaccess
+    ALORS IL FAUT ENLEVER LE PACKAGE ET ENSUITE LE RE-INSTALLER
+
+        composer remove symfony/apache-pack
+        composer require symfony/apache-pack
+
+
+## CREER DES PAGES AVEC SYMFONY
+
+
+    https://symfony.com/doc/current/page_creation.html
+
+    https://openclassrooms.com/fr/courses/3619856-developpez-votre-site-web-avec-le-framework-symfony/3620885-le-routeur-de-symfony
+
+    UNE ROUTE ASSOCIE UNE URL DEMANDEE PAR LE NAVIGATEUR
+    AVEC UNE METHODE D'UNE CLASSE Controller
+
+
+    <?php
+
+    namespace App\Controller;
+    // JE RANGE MA CLASSE DANS LE NAMESPACE APp\Controller
+
+    // JE VAIS UTILISER LA CLASSE Response
+    // QUI EST DANS LE NAMESPACE SUIVANT
+    use Symfony\Component\HttpFoundation\Response;
+
+    // ATTENTION: ON VA UTILISER LA CLASSE Route DANS L'ANNOTATION
+    use Symfony\Component\Routing\Annotation\Route;
+
+    class FirstPageController
+    {
+        // METHODE
+
+        /**
+        * @Route("/page01")
+        */
+        function afficherPage ()
+        {
+            $codeHTML =
+    <<<CODEHTML
+
+            <body>
+            <h1>ON DIT QUE C'EST LE CODE HTML DE MA PAGE</h1>
+            </body>
+
+    CODEHTML;
+
+            $objetResponse = new Response($codeHTML);
+
+            return $objetResponse;
+        }
+
+    }
+
+
+### GENERATION DE CODE Controller
+
+
+    https://symfony.com/doc/current/controller.html#generating-controllers
+
+
+    OUVRIR UN TERMINAL DANS LE DOSSIER symfony01/
+
+    ET ENSUITE ENTRER LA LIGNE DE COMMANDE
+
+        php bin/console make:controller
+
+    ENSUITE IL FAUT DONNER LE NOM DE LA CLASSE Controller A CREER
+
+
+    ET LA CONSOLE ME CREE DES FICHIERS DE CODE...
+    DONT LA PARTIE VIEW EST MAINTENANT A PART DANS TWIG
+
+    https://twig.symfony.com/
+
+
+    ASTUCE: AJOUTER LES EXTENSIONS A VISUAL STUDIO CODE
+
+    PHP Namespace Resolver
+    Twig
 
 
 
