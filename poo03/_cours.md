@@ -185,6 +185,7 @@
 
 ## HERITAGE ENTRE CLASSES
 
+    https://www.php.net/manual/fr/language.oop5.inheritance.php
 
     // CLASSE PARENTE
     class Metier
@@ -268,6 +269,12 @@
 
 ## SURCHARGE DE METHODES    
 
+    https://www.php.net/manual/fr/language.oop5.paamayim-nekudotayim.php
+    => OPERATEUR DE RESOLUTION DE PORTEE
+    => parent
+
+    https://www.php.net/manual/fr/language.oop5.overloading.php
+    => OVERLOAD
 
     DANS DES CLASSES PARENT ET ENFANT
     ON PEUT AVOIR DES METHODES AVEC LA MEME SIGNATURE (NOM ET PARAMETRES)
@@ -415,9 +422,12 @@
 
 ### CLASSES ABSTRAITES
 
+    https://www.php.net/manual/fr/language.oop5.abstract.php
+
     UNE CLASSE ABSTRAITE EST UNE CLASSE PAS FINIE...
 
-    // Fatal error: Class MaClassePasFinie contains 1 abstract method and must therefore be declared abstract
+    // Fatal error: Class MaClassePasFinie contains 1 abstract method 
+    //                  and must therefore be declared abstract
     // ATTENTION: IL FAUT AUSSI AJOUTER abstract DEVANT LA CLASSE
     abstract class MaClassePasFinie
     {
@@ -445,6 +455,8 @@
 
 
 ### INTERFACES 
+
+    https://www.php.net/manual/fr/language.oop5.interfaces.php
 
     // ATTENTION: ON CHANGE CE N'EST PLUS class MAIS interface
     interface MonInterface
@@ -494,6 +506,8 @@
 
 ### TRAITS
 
+    https://www.php.net/manual/fr/language.oop5.traits.php
+
     SI ON VEUT FAIRE DES BOUTS DE CLASSE
     ET LES RECOLLER ENSEMBLE
 
@@ -527,7 +541,7 @@
     // $objet = new MonTraitB;  // ERREUR
 
     // POUR UTILISER LE CODES DANS LES TRAITS
-    // JE VAIS CREER UNE CLASSE QUI SE UTILISE LES TRAITS
+    // JE VAIS CREER UNE CLASSE QUI UTILISE LES TRAITS (COMPOSITION)
 
     class MaClasse
     {
