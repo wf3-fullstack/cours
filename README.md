@@ -10,9 +10,9 @@ https://github.com/wf3-fullstack/cours
 
 ## lien live share lundi 16/12
 
-NOUVEAU lien vers le liveshare lundi 16/12
+POUR CET APRES MIDI... NOUVEAU lien vers le liveshare lundi 16/12
 
-https://prod.liveshare.vsengsaas.visualstudio.com/join?E2094E7E246341933ED6930C06D4DE4D9C0B
+https://prod.liveshare.vsengsaas.visualstudio.com/join?F6A1EF5EB3A977A2161D0D9CD3FA1400EB7D
 
 ## LES CODES SONT DISPONIBLES DANS CHAQUE DOSSIER 
 
