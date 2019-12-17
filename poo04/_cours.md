@@ -31,6 +31,9 @@
             => COMMENT JE PASSE DE PHP ORIENTE OBJET
                 VERS SQL RELATIONNEL
 
+```php
+<?php
+
     class MaClasse
     {
         // PROPRIETES
@@ -43,6 +46,7 @@
         }
     }
 
+```
 
     AVEC PHP, ON VA CREER UN FICHIER PAR CLASSE
 
@@ -66,6 +70,8 @@
 
     * DANS L'ORDRE DE CODAGE
 
+```php
+<?php
     // ------------- php/class/Developpeur.php 
     // SI ON RANGE NOTRE CLASSE DANS UN FICHIER Developpeur.php
     // ETAPE 1: DEFINIR LA CLASSE
@@ -120,6 +126,7 @@
 
     // NOTE: PHP EST CAPABLE DE GENERER DU CODE PHP ET DE LE CHARGER POUR L'EXECUTER...
 
+```
 
 ## NAMESPACE
 
@@ -129,6 +136,8 @@
     //      AVEC DES CODES D'ENTREPRISES DIFFERENTES
 
 
+```php
+<?php
     namespace MonNameSpace
     {
         class MaClasse
@@ -172,7 +181,7 @@
     $objet = new MonNameSpace\MaClasse;
     $objet2 = new MonNameSpace2\MaClasse;
 
-
+```
 
 ## PHP ET PHP Standards Recommendations
 
@@ -187,8 +196,8 @@
     https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md
 
 
-
-    <?php
+```php
+<?php
     /**
     * An example of a project-specific implementation.
     *
@@ -230,6 +239,8 @@
         }
     });
 
+
+```
 
 ## use POUR RACCOURCIR LE CODE AVEC new
 
@@ -315,6 +326,10 @@
 
 ## TEMPLATES AVEC TWIG
 
+
+### HERITAGE (REMPLISSAGE)
+
+
     SITE OFFICIEL
     https://twig.symfony.com/
 
@@ -340,6 +355,8 @@
             {% block body %}{% endblock %}
             {% block javascripts %}{% endblock %}
 
+```twig
+
     <!DOCTYPE html>
     <html>
         <head>
@@ -355,6 +372,22 @@
         </body>
     </html>
 
+```
+
+### DECOUPAGE (include)
+
+    ON PEUT AUSSI UTILISER LA FONCTION include 
+    POUR RECOMPOSER DES TEMPLATES DECOUPES
+
+```twig
+
+    {% include 'commun/header.html.twig' %}
+    {% include 'main/section.html.twig' %}
+    {% include 'commun/footer.html.twig' %}
+
+    {# https://twig.symfony.com/doc/3.x/tags/include.html #}
+
+```
 
 ## URL AVEC TWIG
 
@@ -366,13 +399,18 @@
 
     DANS LE FICHIER src/Controller/...Controller.php
 
+```php
+<?php
         /**
         * @Route("/", name="index")
         */
         public function index()
 
+```
 
-    ET DANS LES FICHIERS TWIG, ON UTILISE LA FONCTION url
+    ET DANS LES FICHIERS TWIG, ON UTILISE LA FONCTION 
+        url
+        path
 
         <nav>
             <a href="{{ url('index') }}">accueil</a>
@@ -383,11 +421,18 @@
 
 ## CSS, JS, etc...
 
-    ON PASSE PAR DES FONCTIONS 
+    ON PASSE PAR DES FONCTIONS DE TWIG
+        absolute_url
+        asset
+
     https://symfony.com/doc/current/templates.html#linking-to-css-javascript-and-image-assets
+
+
+```twig
 
     <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/style.css')) }}">
 
+```
 
 
 ## GIT ET SYMFONY
@@ -402,9 +447,11 @@
 
     ENSUITE UN DEV INSTALLE SYMFONY SUR SON ORDI
     ET LE PUSH SUR LE REPO GIT
-    => MAUVAISE SURPRISE...
+    => MAUVAISE SURPRISE... 
+        SYMFONY INCLUT DES FICHIERS .gitignore
     => IL VA MANQUER DES DOSSIERS NECESSAIRES
         /vendor/
+        ...
 
     => LES AUTRES QUI VONT FAIRE LE clone/pull
 
@@ -424,7 +471,8 @@
 
     FAIRE UN SITE VITRINE AVEC SYMFONY
 
-    FAIRE UN SITE POO SANS SYMFONY
+    FAIRE UN SITE POO SANS SYMFONY 
+    (EXAM VENDREDI... CRUD...)
 
     BONUS: EXERCICES EN ORIENTE-OBJET
 
