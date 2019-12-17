@@ -383,9 +383,10 @@
 
 ## CSS, JS, etc...
 
+    ON PASSE PAR DES FONCTIONS 
     https://symfony.com/doc/current/templates.html#linking-to-css-javascript-and-image-assets
 
-        <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/style.css')) }}">
+    <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/style.css')) }}">
 
 
 
@@ -417,6 +418,15 @@
 
     => RECREER LE DOSSIER /vendor/        
 
+
+## EXERCICES POUR CET APRES-MIDI
+
+
+    FAIRE UN SITE VITRINE AVEC SYMFONY
+
+    FAIRE UN SITE POO SANS SYMFONY
+
+    BONUS: EXERCICES EN ORIENTE-OBJET
 
 
 
