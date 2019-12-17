@@ -2,24 +2,12 @@
 
 class View
 {
+    // PROPRIETE 
+    private $filename = "";
+
     // METHODES
-    function afficherPage()
+    function extraireFilename()
     {
-        ?>
-        <!DOCTYPE html>
-        <html lang="fr">
-
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <title>SITE CMSPOO</title>
-        </head>
-
-        <body>
-            <pre>
-<?php
-
         // CONTROLEUR/ROUTEUR FRONTAL
         $uri = $_SERVER["REQUEST_URI"];
         // https://www.php.net/manual/fr/function.parse-url.php
@@ -31,28 +19,49 @@ class View
         }
         // NOM DU FICHIER SANS L'EXTENSION
         // https://www.php.net/manual/fr/function.pathinfo.php
-        $filename = pathinfo($path, PATHINFO_FILENAME);
+        $this->filename = pathinfo($path, PATHINFO_FILENAME);
+    }
+
+    function afficherPage()
+    {
+        $this->extraireFilename();
+
+        // IL FAUT FAIRE UNE REQUETE SQL POUR ALLER CHERCHER LA LIGNE QUI CORRESPOND
+        // EN FONCTIONNEL ON AVAIT LA FONCTION lireTableSQL
+        // EN POO IL FAUT RANGER CETTE FONCTION DANS UNE CLASSE Model
+        $objetModel = new Model;
+        $tabResultat = $objetModel->lireTableSQL(
+            "content",
+            "",
+            "WHERE filename = :filename",
+            ["filename" => $this->filename]
+        );
 
 
-        echo
-            <<<CODEHTML
+        $nbResultat = count($tabResultat);
+        if ($nbResultat > 0) {
+            // OK ON A TROUVE UNE PAGE
+            foreach ($tabResultat as $tabLigne) {
+                // CREER LES VARIABLES A PARTIR DES COLONNES
+                extract($tabLigne);
+                // ON VA ECRASER LES VALEURS PAR DEFAUT
+            }
+        } else {
+            // ERREUR
+            // IL FAUT RENVOYER UNE ERREUR 404
+            // https://www.php.net/manual/fr/function.header.php
+            header("HTTP/1.1 404 Not Found");
 
-JE SUIS index.php
-ET JE SAIS QUE JE DOIS PRODUIRE LA PAGE DEMANDEE...
+            // PAGE NON TROUVEE
+            // ON DONNE DES VALEURS PAR DEFAUT
+            $titre       = "PAGE NON TROUVEE";
+            $contenuPage = "DESOLE ON A RIEN TROUVE...";
+        }
 
-la page demandée est $uri
+        // TEMPLATE
+        require_once "php/view/header.php";
+        require_once "php/view/section-contenu.php";
+        require_once "php/view/footer.php";
 
-le path est $path
-
-le filename est $filename
-
-CODEHTML;
-
-        ?>    
-</pre>
-        </body>
-
-        </html>
-<?php
     }
 }

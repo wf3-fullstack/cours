@@ -123,6 +123,12 @@
 
 ## NAMESPACE
 
+    // ON PEUT RANGER NOS CLASSES DANS DES NAMESPACES
+    // https://www.php.net/manual/fr/language.namespaces.php
+    // => POUR PERMETTRE DE GERER DES GRANDS PROJETS 
+    //      AVEC DES CODES D'ENTREPRISES DIFFERENTES
+
+
     namespace MonNameSpace
     {
         class MaClasse
@@ -223,6 +229,195 @@
             require $file;
         }
     });
+
+
+## use POUR RACCOURCIR LE CODE AVEC new
+
+    SI ON NE VEUT PAS DONNER LE CHEMIN COMPLET A CHAQUE new
+    ON PEUT AJOUTER UNE LIGNE use AVANT
+
+    ET use PERMET AUSSI DE DONNER UN ALIAS POUR CHANGER LE NOM DE LA CLASSE
+    (A MANIPULER AVEC PRECAUTIONS...)
+
+
+## PROJET CMSPOO
+
+
+    CHAQUE CONTENU DE PAGE DU SITE SERA UNE LIGNE DANS UNE TABLE SQL
+
+        content
+            id                  INT             INDEX=PRIMARY       A_I (AUTO_INCREMENT)
+            filename            VARCHAR(160)
+            titre               VARCHAR(160)
+            contenuPage         TEXT
+            photo               VARCHAR(160)
+            datePublication     DATETIME
+            categorie           VARCHAR(160)
+
+
+    AVEC PHP, ON CONNAIT LE filename DEMANDE PAR LE NAVIGATEUR
+    ET A PARTIR DU filename JE VAIS CHERCHER DANS LA TABLE SQL content
+    LA LIGNE QUI CONTIENT LE filename CORRESPONDANT
+
+
+    SELECT * 
+    FROM content
+    WHERE
+    filename = :filename
+
+
+    $tabAssoColonneValeur = [ "filename" => $filename ];
+
+
+##  SYMFONY JOUR 02
+
+    ROUTE
+        ASSOCIER
+            UNE URL (DEMANDEE PAR LE NAVIGATEUR)
+            AVEC UNE METHODE D'UNE CLASSE src/Controller/...Controller.php
+
+    => C'EST VOTRE ORGANISATION DE DECIDER 
+        COMBIEN DE CLASSE CONTROLLERS VOUS AVEZ BESOIN
+    => ENSUITE RANGER LES METHODES ASSOCIEES AU ROUTES DANS CES CLASSES
+
+    POUR CREER LE CODE DE BASE D'UN CONTROLLER
+    ON UNE LIGNE DE COMMANDE
+        
+        OUVRIR UN TERMINAL DANS LE DOSSIER symfony01/
+
+    ET ENSUITE VOUS LANCEZ LA LIGNE DE COMMANDE
+
+        php bin/console make:controller
+
+    ENSUITE IL FAUT FOURNIR LE NOM DE LA CLASSE QU'ON VEUT CREER...
+
+        MainController
+
+    created: src/Controller/MainController.php
+    created: templates/main/index.html.twig
+
+
+    SI ON FAIT UN SITE BLOG
+    COMMENCER A LISTER LES PAGES DU SITE
+
+    MainController:
+                            URL             METHODE
+        route1: accueil     /               index       
+        route4: contact     /contact        contact
+
+    Controller2:
+        route2: blog
+        route3:     chaque article aura sa page
+
+    Controller3:
+        route5: admin
+
+
+## TEMPLATES AVEC TWIG
+
+    SITE OFFICIEL
+    https://twig.symfony.com/
+
+
+    COMMENT ON TRAVAILLE AVEC TWIG ???
+
+    NOUS ON TRAVAILLAIT AVEC DU DECOUPAGE
+        header
+        section
+        footer
+
+    TWIG TRAVAILLE EN REMPLISSAGE
+        ON CREE UNE STRUCTURE AVEC DES TROUS
+        ET ENSUITE ON REMPLIT LES TROUS
+
+    ON A UN TEMPLATE PARENT
+        templates/base.html.twig
+
+    ON DEFINIT DES "BLOCKS"
+    SONT DES ZONES VIDES QUI SERONT REMPLIS PAR LE TEMPLATE ENFANT
+
+            {% block stylesheets %}{% endblock %}
+            {% block body %}{% endblock %}
+            {% block javascripts %}{% endblock %}
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>{% block title %}Welcome!{% endblock %}</title>
+            {% block stylesheets %}{% endblock %}
+        </head>
+        <body>
+            {% block coucou %}{% endblock %}
+
+            {% block body %}{% endblock %}
+            {% block javascripts %}{% endblock %}
+        </body>
+    </html>
+
+
+## URL AVEC TWIG
+
+    https://symfony.com/doc/current/reference/twig_reference.html#url
+    https://symfony.com/doc/current/reference/twig_reference.html#path
+
+    ON UTILISE LE NOM DE LA ROUTE POUR OBTENIR L'URL
+    => IL FAUT QUE LES NOMS DES ROUTES SOIENT UNIQUES
+
+    DANS LE FICHIER src/Controller/...Controller.php
+
+        /**
+        * @Route("/", name="index")
+        */
+        public function index()
+
+
+    ET DANS LES FICHIERS TWIG, ON UTILISE LA FONCTION url
+
+        <nav>
+            <a href="{{ url('index') }}">accueil</a>
+            <a href="{{ url('contact') }}">contact</a>
+        </nav>
+
+
+
+## CSS, JS, etc...
+
+    https://symfony.com/doc/current/templates.html#linking-to-css-javascript-and-image-assets
+
+        <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/style.css')) }}">
+
+
+
+## GIT ET SYMFONY
+
+
+    QUAND VOUS ALLEZ TRAVAILLER SUR VOTRE PROJET
+    => VOUS ALLEZ CENTRALISER LE CODE DANS UN REPOSITORY github
+    => AVEC LA FORMULE GRATUITE DE git, VOUS POUVEZ CREER UN REPOSITORY PRIVE
+        ET INVITER 3 COLLABORATEURS EN PLUS
+    => UNE PERSONNE DANS L'EQUIPE VA CREER LE REPOSITORY
+        ET ELLE INVITE LES AUTRES COMME ADMIN DU REPOSITORY
+
+    ENSUITE UN DEV INSTALLE SYMFONY SUR SON ORDI
+    ET LE PUSH SUR LE REPO GIT
+    => MAUVAISE SURPRISE...
+    => IL VA MANQUER DES DOSSIERS NECESSAIRES
+        /vendor/
+
+    => LES AUTRES QUI VONT FAIRE LE clone/pull
+
+        git clone ...
+
+    IL VA MANQUER DES DOSSIERS /vendor/
+    => POUR COMPLETER IL FAUT LANCER LA COMMANDE
+    => OUVRIR UN TERMINAL DANS LE DOSSIER QUI CONTIENT LE FICHIER composer.json
+
+        composer install
+
+    => RECREER LE DOSSIER /vendor/        
+
+
 
 
 
