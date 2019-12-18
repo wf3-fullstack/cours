@@ -14,7 +14,7 @@
                     <a href="index.php">accueil</a>
                     <a href="blog.php">blog</a>
                     <a href="contact.php">contact</a>
+                    <!-- POUR LE DEV -->
+                    <a href="admin.php">admin</a>
                 </nav>
             </header>
-
-            

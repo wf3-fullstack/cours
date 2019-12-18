@@ -30,6 +30,8 @@ spl_autoload_register(function ($nomClasse) {
     }
 });
 
+$objetController = new Controller;
+
 // CREER UN OBJET DEPUIS LA CLASSE
 $objetView = new View;
 

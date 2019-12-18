@@ -109,4 +109,49 @@ CODESQL;
     }
 
 
+    // ON VA CREER UNE FONCTION QUI VA PRENDRE EN PARAMETRES
+    // $nomTable
+    // $tabAssoColonneValeur
+    function insererLigneSQL($nomTable, $tabAssoColonneValeur)
+    {
+        // ON VA CONSTRUIRE LA REQUETE A PARTIR DES CLES DU $tabAssoColonneValeur
+        // $listeColonne = "nom, email, message, dateMessage, ip";
+        // $listeToken = ":nom, :email, :message, :dateMessage, :ip";
+
+        // ON DOIT PARCOURIR LE TABLEAU $tabAssoColonneValeur
+        // POUR CONSTRUIRE LES 2 LISTE $listeColonne ET $listeToken
+        $listeColonne = "";
+        $listeToken = "";
+        $indice = 0;  // EN PLUS J'AI BESOIN DE L'INDICE
+        foreach ($tabAssoColonneValeur as $colonne => $valeur) {
+            if ($indice > 0) {
+                // JE NE SUIS PAS SUR LE PREMIER
+                $listeColonne   .= ", $colonne";
+                $listeToken     .= ", :$colonne";
+            } else {
+                // JE SUIS SUR LE PREMIER
+                $listeColonne   .= "$colonne";
+                $listeToken     .= ":$colonne";
+            }
+            // INCREMENTER L'INDICE
+            $indice++;
+        }
+
+        $requetePrepareeSQL =
+<<<CODESQL
+
+INSERT INTO $nomTable
+( $listeColonne )
+VALUES
+( $listeToken )
+CODESQL;
+
+
+        // JE PEUX APPELER LA FONCTION envoyerRequeteSQL
+        $pdoStatement = $this->envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur);
+
+        // DANS LE CAS OU J'AI BESOIN DE RECUPERER PLUS D'INFORMATIONS
+        return $pdoStatement;
+    }
+
 }
