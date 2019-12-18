@@ -30,6 +30,8 @@ spl_autoload_register(function ($nomClasse) {
     }
 });
 
+// COMME ON N'A PLUS traitement.php
+// JE CENTRALISE LE TRAITEMENT DES FORMULAIRES SUR index.php
 $objetController = new Controller;
 
 // CREER UN OBJET DEPUIS LA CLASSE

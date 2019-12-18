@@ -172,7 +172,7 @@ CODESQL;
         // REGULAR EXPRESSION (REGEXP)
         // ON ENLEVE LES CARACTERES QUI NE SONT PAS DES LETTRES OU DES CHIFFRES 
         // https://regex101.com/
-        $nomTable = preg_replace("/[^a-zA-Z0-9]/", "", $nomTable);
+        $nomTable = preg_replace("/[^a-zA-Z0-9_]/", "", $nomTable);
 
         $requetePrepareeSQL =
             <<<CODESQL
