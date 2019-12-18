@@ -29,6 +29,11 @@
             margin-top: 2rem;
             border-top: 1rem solid #aaaaaa;
         }
+
+        section#sectionDelete {
+            background-color: orange;
+            padding:2rem;
+        }
     </style>
 </head>
 
