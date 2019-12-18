@@ -24,6 +24,11 @@
         tr.admin td {
             background-color: orange;
         }
+
+        section.create {
+            margin-top: 2rem;
+            border-top: 1rem solid #aaaaaa;
+        }
     </style>
 </head>
 
@@ -39,8 +44,18 @@
         </nav>
     </header>
     <main>
+        <section id="sectionDelete">
+            <h2>FORMULAIRE DE DELETE GENERAL</h2>
+            <!-- ON RESTE SUR LA MEME PAGE SI ON A action="" -->
+            <form class="formDelete" action="#sectionDelete" method="POST">
+                <input type="text" name="nomTable" required placeholder="nomTable">
+                <input type="text" name="id" required placeholder="id">
+                <button type="submit">SUPPRIMER UNE LIGNE</button>
+                <input type="hidden" name="identifiantFormulaire" value="delete">
+            </form>
+        </section>
 
-        <section>
+        <section class="create">
             <h2>FORMULAIRE CREATE SUR LA TABLE SQL content_user</h2>
             <!-- ON RESTE SUR LA MEME PAGE SI ON A action="" -->
             <form action="" method="POST">
@@ -95,7 +110,7 @@ CODEHTML;
         </section>
 
 
-        <section>
+        <section class="create">
             <h2>FORMULAIRE CREATE SUR LA TABLE SQL user</h2>
             <!-- ON RESTE SUR LA MEME PAGE SI ON A action="" -->
             <form action="" method="POST">
@@ -147,7 +162,7 @@ CODEHTML;
                         extract($tabFiltre);
 
                         echo
-<<<CODEHTML
+                            <<<CODEHTML
         <tr class="tr-$id">
             <td>$id</td>
             <td>$email</td>
@@ -167,7 +182,7 @@ CODEHTML;
             </table>
         </section>
 
-        <section>
+        <section class="create">
             <h2>FORMULAIRE CREATE SUR LA TABLE SQL content</h2>
             <!-- ON RESTE SUR LA MEME PAGE SI ON A action="" -->
             <form action="" method="POST">
@@ -201,17 +216,6 @@ CODEHTML;
 
         </section>
 
-        <section id="sectionDelete">
-            <h2>FORMULAIRE DE DELETE GENERAL</h2>
-            <!-- ON RESTE SUR LA MEME PAGE SI ON A action="" -->
-            <form class="formDelete" action="#sectionDelete" method="POST">
-                <input type="text" name="nomTable" required placeholder="nomTable">
-                <input type="text" name="id" required placeholder="id">
-                <button type="submit">SUPPRIMER UNE LIGNE</button>
-                <input type="hidden" name="identifiantFormulaire" value="delete">
-            </form>
-        </section>
-
         <section>
             <h2>READ SUR LA TABLE SQL content</h2>
             <table class="contentList">
@@ -237,7 +241,7 @@ CODEHTML;
                         extract($tabFiltre);
 
                         echo
-<<<CODEHTML
+                            <<<CODEHTML
         <tr class="$filename tr-$id">
             <td>$id</td>
             <td>$filename</td>
