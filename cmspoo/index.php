@@ -32,7 +32,9 @@ spl_autoload_register(function ($nomClasse) {
 
 // COMME ON N'A PLUS traitement.php
 // JE CENTRALISE LE TRAITEMENT DES FORMULAIRES SUR index.php
-$objetController = new Controller;
+// $objetController = new Controller;
+// ON VA TESTER AVEC LE DECOUPAGE EN TRAITS
+$objetController = new Controller2;
 
 // CREER UN OBJET DEPUIS LA CLASSE
 $objetView = new View;
