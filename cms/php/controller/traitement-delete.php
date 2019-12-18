@@ -12,7 +12,8 @@ if ($level >= 10)
     // $tabErreur EST UNE VARIABLE CREEE DANS traitement.php
     if (count($tabErreur) == 0) {
         // EFFACER LA LIGNE
-        supprimerLigneSQL($nomTable, $id);
+        $objetModel = new Model;
+        $objetModel->supprimerLigneSQL($nomTable, $id);
 
         // SANS AJAX JE RAJOUTE UNE REDIRECTION
         header("Location: admin.php");

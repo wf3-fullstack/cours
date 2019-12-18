@@ -17,6 +17,7 @@ class Controller
         $identifiantFormulaire = $this->filtrerTexte("identifiantFormulaire");
         if ($identifiantFormulaire != "")
         {
+            // NOTRE CONVENTION DANS NOTRE FRAMEWORK
             // JE VAIS VERIFIER SI J'AI UNE METHODE QUI S'APPELLE contentForm
             $nomMethode = "{$identifiantFormulaire}Form";
             // INTROSPECTION
@@ -81,6 +82,16 @@ class Controller
         return $texte;
     }
 
+
+    // CONVERTIR LE TEXTE EN NOMBRE
+    function filtrerNombre($name)
+    {
+        $texte            = $this->filtrerInput($name);
+        $nombre           = intval($texte);
+        return $nombre;
+    }
+
+
     // METHODE ASSOCIEE AU FORMULAIRE
     // <input type="hidden" name="identifiantFormulaire" value="content">
     function contentForm()
@@ -104,5 +115,56 @@ class Controller
         } else {
             var_dump($this->tabErreur);
         }
+    }
+
+    // METHODE ASSOCIEE AU FORMULAIRE
+    // <input type="hidden" name="identifiantFormulaire" value="delete">
+    function deleteForm()
+    {
+        // RECUPERER LES INFOS DU FORMULAIRE
+        // nomTable
+        // id
+        $nomTable = $this->filtrerTexte("nomTable");
+        $id       = $this->filtrerNombre("id");
+
+        // $tabErreur EST UNE VARIABLE CREEE DANS traitement.php
+        if (count($this->tabErreur) == 0) {
+            // EFFACER LA LIGNE
+            $objetModel = new Model;
+            $objetModel->supprimerLigneSQL($nomTable, $id);
+        }
+        else
+        {
+            var_dump($this->tabErreur);
+        }    
+    }
+
+    // METHODE ASSOCIEE AU FORMULAIRE
+    // <input type="hidden" name="identifiantFormulaire" value="contentUpdate">
+    function contentUpdateForm()
+    {
+        // CREATE SUR LA TABLE content
+        $tabAssoColonneValeur = [
+            "filename"          => $this->filtrerTexte("filename"),
+            "titre"             => $this->filtrerTexte("titre"),
+            "contenuPage"       => $this->filtrerTexte("contenuPage", 1, 10000),
+            "photo"             => $this->filtrerTexte("photo"),
+            "datePublication"   => date("Y-m-d H:i:s"),    // COOL PHP PERMET DE LAISSER LA VIRGULE
+            "categorie"         => $this->filtrerTexte("categorie"),
+            "template"          => $this->filtrerTexte("template", 0),
+        ];
+
+        // ON GERE id A PART
+        $id = $this->filtrerNombre("id");
+
+        if (count($this->tabErreur) == 0) {
+            $nomTable = "content";
+
+            $objetModel = new Model;
+            $objetModel->updateLigneSQL($nomTable, $id, $tabAssoColonneValeur);
+        } else {
+            var_dump($this->tabErreur);
+        }
+
     }
 }

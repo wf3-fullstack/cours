@@ -154,4 +154,78 @@ CODESQL;
         return $pdoStatement;
     }
 
+
+
+    // ON PEUT DONNER DES VALEURS PAR DEFAUT AUX PARAMETRES
+    function supprimerLigneSQL($nomTable, $valeurColonne, $nomColonne = "id")
+    {
+        // POUR ME PROTEGER UN PEU PLUS CONTRE LES HACKERS
+        // ON PEUT CONVERTIR EN NOMBRE
+        // https://www.php.net/manual/fr/function.intval.php
+        // $id = intval($id);
+
+        // ATTENTION: ON NE MET PAS DE TOKEN POUR LE NOM DE LA TABLE
+        // => ATTAQUE PAR INJECTION SQL POSSIBLE
+        //      SI $nomTable VIENT DE L'EXTERIEUR
+        // https://www.php.net/manual/fr/function.preg-replace.php
+        // EXPRESSION REGULIERE [^a-zA-Z0-9]
+        // REGULAR EXPRESSION (REGEXP)
+        // ON ENLEVE LES CARACTERES QUI NE SONT PAS DES LETTRES OU DES CHIFFRES 
+        // https://regex101.com/
+        $nomTable = preg_replace("/[^a-zA-Z0-9]/", "", $nomTable);
+
+        $requetePrepareeSQL =
+            <<<CODESQL
+
+DELETE FROM $nomTable
+WHERE $nomColonne = :$nomColonne
+
+CODESQL;
+
+        $tabAssoColonneValeur = ["$nomColonne" => $valeurColonne];
+
+        $pdoStatement = $this->envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur);
+
+        // AU BESOIN JE RENVOIE $pdoStatement
+        return $pdoStatement;
+    }
+
+
+
+    function updateLigneSQL($nomTable, $id, $tabAssoColonneValeur)
+    {
+        // ON VA CONSTRUIRE LA LISTE COLONNE TOKEN EN PARCOURANT LES CLES DU TABLEAU ASSOCIATIF
+        $listeColonneToken = "";
+        // ON FAIT UNE BOUCLE
+        $compteur = 0;
+        foreach ($tabAssoColonneValeur as $nomColonne => $valeur) {
+            if ($compteur > 0) {
+                // ON N'EST PAS SUR LE PREMIER
+                $listeColonneToken .= ", $nomColonne = :$nomColonne";
+                // $compteur = 1
+            } else {
+                // ON EST SUR LE PREMIER
+                $listeColonneToken .= "$nomColonne = :$nomColonne";
+                $compteur++;    // $compteur = 1
+            }
+        }
+
+        $requetePrepareeSQL =
+<<<CODESQL
+
+UPDATE $nomTable
+SET
+$listeColonneToken
+WHERE
+id = :id
+
+CODESQL;
+
+        // JE RAJOUTE LE TOKEN DANS LE TABLEAU ASSOCIATIF POUR $id
+        $tabAssoColonneValeur["id"] = $id;
+
+        $pdoStatement = $this->envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur);
+        return $pdoStatement;
+    }
+
 }
