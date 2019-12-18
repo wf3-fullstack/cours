@@ -8,9 +8,10 @@ trait ControllerTraitUser
     function userForm()
     {
         // CREATE SUR LA TABLE content
+        // ET UNICITE SUR login ET email DANS LA TABLE user
         $tabAssoColonneValeur = [
-            "email"          => $this->filtrerEmail("email"),
-            "login"          => $this->filtrerTexte("login"),
+            "email"          => $this->filtrerEmail("email", "user"),
+            "login"          => $this->filtrerTexte("login", 1, 160, "user"),
             "password"       => $this->filtrerTexte("password"),
             "level"          => $this->filtrerNombre("level"),
             "dateCreation"   => date("Y-m-d H:i:s"),    // COOL PHP PERMET DE LAISSER LA VIRGULE
@@ -34,7 +35,9 @@ trait ControllerTraitUser
     // <input type="hidden" name="identifiantFormulaire" value="userUpdate">
     function userUpdateForm()
     {
-        // CREATE SUR LA TABLE content
+        // UPDATE SUR LA TABLE content
+        // TODO: VERIFIER L'UNICITE DE email ET login
+        // ...
         $tabAssoColonneValeur = [
             "login"          => $this->filtrerTexte("login"),
             "email"          => $this->filtrerEmail("email"),

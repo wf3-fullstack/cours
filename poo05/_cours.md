@@ -79,4 +79,21 @@ SI ON A 2 TABLES SQL
     WHERE content.categorie = 'blog'
 
 
+## GENERATEUR DE DOCUMENTATION PHP
+
+
+    https://www.phpdoc.org/
+
+
+    TELECHARGER LE FICHIER phpDocumentor.phar
+
+    http://phpdoc.org/phpDocumentor.phar
+
+    ET CREER LE DOSSIER doc-cmspoo
+    ET ENSUITE LANCER DANS LE TERMINAL LA LIGNE DE COMMANDE SUIVANTE
+    POUR ANALYSER LE CODE DANS cmspoo ET PRODUIRE LA DOC DANS doc-cmspoo
+
+    php phpDocumentor.phar -d cmspoo -t doc-cmspoo
+
+
 
