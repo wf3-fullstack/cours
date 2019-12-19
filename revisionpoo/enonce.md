@@ -10,7 +10,7 @@
 ## PROJET 1: SITE MARTINE POUR LES RECETTES
 
     recette
-        id          INT             INDEX=PRIMARY       A_I
+        id          INT                 INDEX=PRIMARY       A_I
         titre       VARCHAR(160)
         description TEXT
         ...
@@ -50,7 +50,10 @@
 ## CREER UNE PAGE ADMIN POUR LE CRUD
 
     CHOISIR UN PROJET
-    
+
+    CREER UNE DATABASE revisionpoo
+        AVEC CHARSET utf8mb4_general_ci
+
     CREER UNE PAGE ADMIN
     ET AJOUTER LES CRUD POUR LES 3 TABLES
 
