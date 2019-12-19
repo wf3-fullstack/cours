@@ -37,7 +37,7 @@ require_once "php/config.php";
 // JE CENTRALISE LE TRAITEMENT DES FORMULAIRES SUR index.php
 // $objetController = new Controller;
 // ON VA TESTER AVEC LE DECOUPAGE EN TRAITS
-$objetController = new Controller2;
+$objetController = new Controller2;     // ACTIVE LA METHODE __construct
 
 // CREER UN OBJET DEPUIS LA CLASSE
 $objetView = new View;

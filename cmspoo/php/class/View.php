@@ -2,6 +2,10 @@
 
 class View
 {
+    // ON PEUT SORTIR LA CONFIGURATION 
+    // DES ROUTES EN DEHORS DE LA CLASSE View
+    use ConfigRoute;
+
     // PROPRIETE 
     private $filename = "";
 
@@ -26,13 +30,17 @@ class View
     {
         $this->extraireFilename();
 
-
         // ON A DES ROUTES 
         // ET POUR UNE URL J'ASSOCIE UN TEMPLATE TWIG
+        // (FORCER SANS PASSER PAR SQL ET LA TABLE content...)
         $tabRoute =
         [
             //"admin"     => "template-admin",
+            "revision"      => "template-revision",
         ];
+        // ON POURRAIT AUSSI UTILISER AVEC UNE PROPRIETE
+        // $tabRoute = $this->tabRoute;
+
         // ON VA CHERCHER DANS LE TABLEAU DE ROUTE 
         // SI LE filename EST ASSOCIE A UN TEMPLATE
         $template = $tabRoute[$this->filename] ?? "";
@@ -44,7 +52,7 @@ class View
         }
         else
         {
-            // SOIT JE VAIS CHERCHER DANS LA TABLE SQL
+            // SOIT JE VAIS CHERCHER DANS LA TABLE SQL content
 
             // IL FAUT FAIRE UNE REQUETE SQL POUR ALLER CHERCHER LA LIGNE QUI CORRESPOND
             // EN FONCTIONNEL ON AVAIT LA FONCTION lireTableSQL

@@ -13,6 +13,15 @@ trait ConfigSQL
 
 }
 
+trait ConfigRoute
+{
+    private $tabRoute =
+    [
+        //"admin"     => "template-admin",
+        "revision"      => "template-revision",
+    ];
+}
+
 // https://www.php.net/manual/fr/function.date-default-timezone-set.php
 date_default_timezone_set('Europe/Paris');
 
