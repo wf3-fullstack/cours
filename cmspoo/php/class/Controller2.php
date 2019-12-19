@@ -35,6 +35,8 @@ class Controller2
                 // OK LA METHODE EXISTE
                 // COMMENT JE PEUX APPELER LA METHODE ?
                 // PROGRAMMATION DYNAMIQUE (TORDU MAIS CA MARCHE...)
+                // ON APPELLE UNE METHODE 
+                // DONT LE NOM EST LA VALEUR DE LA VARIABLE $nomMethode
                 $this->$nomMethode();
             }
         }

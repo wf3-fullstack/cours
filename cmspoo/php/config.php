@@ -2,6 +2,9 @@
 
 // LES INFOS SPECIFIQUES AU PROJET
 
+// ATTENTION: NE PAS OUBLIER DE CHANGER LE FICHIER .htaccess 
+// (QUI EST A LA RACINE DU SITE)
+
 // CONNEXION A LA DATABASE SQL
 trait ConfigSQL 
 {
@@ -15,6 +18,11 @@ trait ConfigSQL
 
 trait ConfigRoute
 {
+    // CHANGER LE DOSSIER RACINE DU SITE
+    private $dossierRacine = "/wf3-fullstack/cmspoo/";
+    
+    // SI ON NE VEUT PAS UTILISER LA TABLE SQL content
+    // ALORS ON PEUT CREER LES ROUTES ICI
     private $tabRoute =
     [
         //"admin"     => "template-admin",

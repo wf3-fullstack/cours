@@ -49,16 +49,31 @@
 
 ## CREER UNE PAGE ADMIN POUR LE CRUD
 
+
+
     CHOISIR UN PROJET
 
     CREER UNE DATABASE revisionpoo
         AVEC CHARSET utf8mb4_general_ci
 
+    ATTENTION: 
+    SI VOUS UTILISEZ LE POINT D'ENTREE UNIQUE VERS index.php
+    => NE PAS OUBLIER DE CHANGER LE FICHIER .htaccess
+    => ET DONNER LE BON DOSSIER POUR LES REWRITE RULES
+
+    ATTENTION2:
+    SI VOUS UTLISEZ LA CLASSE View
+    => IL FAUT AUSSI CHANGER LES TEXTES "/wf3-fullstack/cmspoo/"
+
+        if ($path == "/wf3-fullstack/cmspoo/") {
+            $path = "/wf3-fullstack/cmspoo/index.php";
+        }
+
     CREER UNE PAGE ADMIN
     ET AJOUTER LES CRUD POUR LES 3 TABLES
 
     AJOUTER DES LIGNES DANS LES 3 TABLES POUR OBTENIR DES JOINTURES
-    
+
     ET ENSUITE SUR UNE PAGE ACCUEIL
     AFFICHER DES JOINTURES
 

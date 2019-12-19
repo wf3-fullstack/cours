@@ -18,9 +18,11 @@ class View
         $path = parse_url($uri, PHP_URL_PATH);
         // AVANT APACHE FAISAIT CE TRAVAIL
         // ET MAINTENANT JE DOIS GERER CE CAS DANS PHP
-        if ($path == "/wf3-fullstack/cmspoo/") {
-            $path = "/wf3-fullstack/cmspoo/index.php";
+        // ATTENTION: NE PAS OUBLIER DE CHANGER CODE A CHAQUE PROJET
+        if ($path == $this->dossierRacine) {
+            $path = "{$this->dossierRacine}index.php";
         }
+
         // NOM DU FICHIER SANS L'EXTENSION
         // https://www.php.net/manual/fr/function.pathinfo.php
         $this->filename = pathinfo($path, PATHINFO_FILENAME);
@@ -39,8 +41,11 @@ class View
             "revision"      => "template-revision",
         ];
         // ON POURRAIT AUSSI UTILISER AVEC UNE PROPRIETE
-        // $tabRoute = $this->tabRoute;
-
+        if (isset($this->tabRoute))
+        {
+            $tabRoute = $this->tabRoute;
+        }
+        
         // ON VA CHERCHER DANS LE TABLEAU DE ROUTE 
         // SI LE filename EST ASSOCIE A UN TEMPLATE
         $template = $tabRoute[$this->filename] ?? "";
