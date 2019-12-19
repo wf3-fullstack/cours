@@ -30,6 +30,9 @@ spl_autoload_register(function ($nomClasse) {
     }
 });
 
+// ON CHARGE LA CONFIGURATION DU PROJET
+require_once "php/config.php";
+
 // COMME ON N'A PLUS traitement.php
 // JE CENTRALISE LE TRAITEMENT DES FORMULAIRES SUR index.php
 // $objetController = new Controller;

@@ -5,12 +5,9 @@
 
 class Model 
 {
-    // PROPRIETES
-    public $database = "cmspoo";        // A CHANGER A CHAQUE PROJET
-    public $user     = "root";
-    public $password = "";
-    public $hostname = "localhost"; // "127.0.0.1"
-
+    // ON VA UTILISER UN TRAIT 
+    // QUI CONTIENT LES INFOS DE CONNEXION A SQL
+    use ConfigSQL;
     
     // ENSUITE IL FAUT ENVOYER LA REQUETE SQL VERS MySQL
     // A FAIRE...

@@ -79,6 +79,58 @@ SI ON A 2 TABLES SQL
     WHERE content.categorie = 'blog'
 
 
+## TABLES SQL
+
+
+    CREATE TABLE `content` (
+    `id` int(11) NOT NULL,
+    `filename` varchar(160) NOT NULL,
+    `titre` varchar(160) NOT NULL,
+    `contenuPage` text NOT NULL,
+    `photo` varchar(160) NOT NULL,
+    `datePublication` datetime NOT NULL,
+    `categorie` varchar(160) NOT NULL,
+    `template` varchar(160) NOT NULL,
+    `id_user` int(11) NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+    CREATE TABLE `user` (
+    `id` int(11) NOT NULL,
+    `email` varchar(160) NOT NULL,
+    `login` varchar(160) NOT NULL,
+    `password` varchar(160) NOT NULL,
+    `level` int(11) NOT NULL,
+    `dateCreation` datetime NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+    CREATE TABLE `content_user` (
+    `id` int(11) NOT NULL,
+    `id_content` int(11) NOT NULL,
+    `id_user` int(11) NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+    --
+    -- Index pour la table `content`
+    --
+    ALTER TABLE `content`
+    ADD PRIMARY KEY (`id`);
+
+    --
+    -- Index pour la table `content_user`
+    --
+    ALTER TABLE `content_user`
+    ADD PRIMARY KEY (`id`);
+
+    --
+    -- Index pour la table `user`
+    --
+    ALTER TABLE `user`
+    ADD PRIMARY KEY (`id`);
+
+
 ## GENERATEUR DE DOCUMENTATION PHP
 
 
