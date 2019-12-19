@@ -46,7 +46,7 @@ CODESQL;
             extract($tabFiltre);
 
             echo
-                <<<CODEHTML
+<<<CODEHTML
         <article>
             <h3>$titre</h3>
             <p>créé par : $login</p>

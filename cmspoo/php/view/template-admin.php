@@ -32,7 +32,7 @@
 
         section#sectionDelete {
             background-color: orange;
-            padding:2rem;
+            padding: 2rem;
         }
     </style>
 </head>
@@ -72,7 +72,7 @@
         </section>
 
         <section class="sectionContentUserUpdate">
-            <h2>FORMULAIRE UPDATE SUR LA TABLE SQL user</h2>
+            <h2>FORMULAIRE UPDATE SUR LA TABLE SQL content_user</h2>
             <!-- ON RESTE SUR LA MEME PAGE SI ON A action="" -->
             <form class="formContentUserUpdate" action="" method="POST">
                 <input type="number" name="id_content" required placeholder="id_content">
