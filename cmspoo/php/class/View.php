@@ -38,7 +38,7 @@ class View
         $tabRoute =
         [
             //"admin"     => "template-admin",
-            "revision"      => "template-revision",
+            // "revision"      => "template-revision",
         ];
         // ON POURRAIT AUSSI UTILISER AVEC UNE PROPRIETE
         if (isset($this->tabRoute))
