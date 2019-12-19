@@ -24,9 +24,12 @@ require_once "php/autoload.php";
     <main>
         <section>
             <h3>AFFICHER LES RECETTES ET LEURS INGREDIENTS</h3>
+            <p>(NE PAS OUBLIER DE CREER DES LIGNES DANS LES 3 TABLES...)</p>
             <div>
                 <?php
-                // CREER UN OBJET ET APPELER LA METHODE envoyerRequeteteSQL
+// CREER UN OBJET ET APPELER LA METHODE envoyerRequeteteSQL
+/*
+                // IL FAUT QUE LA RECETTE AIT UN INGREDIENT
                 $requetePrepareeSQL =
                     <<<CODESQL
 
@@ -35,6 +38,21 @@ FROM ingredient_recette
 INNER JOIN ingredient
 ON ingredient_recette.id_ingredient = ingredient.id
 INNER JOIN recette
+ON ingredient_recette.id_recette = recette.id
+
+CODESQL;
+            */
+
+            // SI ON VEUT TOUTES LES RECETTES MEME CELLES SANS INGREDIENT
+            // https://sql.sh/cours/jointures/right-join
+$requetePrepareeSQL =
+    <<<CODESQL
+
+SELECT *
+FROM ingredient_recette
+INNER JOIN ingredient
+ON ingredient_recette.id_ingredient = ingredient.id
+RIGHT JOIN recette
 ON ingredient_recette.id_recette = recette.id
 
 CODESQL;
