@@ -46,9 +46,6 @@ require_once "php/autoload.php";
         <h1>MA PAGE ADMIN</h1>
         <nav>
             <a href="index.php">accueil</a>
-            <a href="blog.php">blog</a>
-            <a href="contact.php">contact</a>
-            <!-- POUR LE DEV -->
             <a href="admin.php">admin</a>
         </nav>
     </header>
@@ -123,29 +120,25 @@ CODEHTML;
 
 
         <section class="create">
-            <h2>FORMULAIRE CREATE SUR LA TABLE SQL user</h2>
+            <h2>FORMULAIRE CREATE SUR LA TABLE SQL ingredient</h2>
             <!-- ON RESTE SUR LA MEME PAGE SI ON A action="" -->
             <form action="" method="POST">
-                <input type="email" name="email" required placeholder="email">
-                <input type="text" name="login" required placeholder="login">
-                <input type="password" name="password" required placeholder="password">
-                <input type="number" name="level" required placeholder="level">
-                <button type="submit">PUBLIER UN USER</button>
-                <input type="hidden" name="identifiantFormulaire" value="user">
+                <input type="text" name="nom" required placeholder="nom">
+                <textarea name="conseil" cols="60" rows="5" required placeholder="conseil"></textarea>
+                <button type="submit">PUBLIER UN INGREDIENT</button>
+                <input type="hidden" name="identifiantFormulaire" value="ingredient">
             </form>
         </section>
 
         <section class="sectionUserUpdate">
-            <h2>FORMULAIRE UPDATE SUR LA TABLE SQL user</h2>
+            <h2>FORMULAIRE UPDATE SUR LA TABLE SQL ingredient</h2>
             <!-- ON RESTE SUR LA MEME PAGE SI ON A action="" -->
             <form class="formUserUpdate" action="" method="POST">
-                <input type="email" name="email" required placeholder="email">
-                <input type="text" name="login" required placeholder="login">
-                <input type="password" name="password" placeholder="password">
-                <input type="number" name="level" required placeholder="level">
+                <input type="text" name="nom" required placeholder="nom">
+                <textarea name="conseil" cols="60" rows="5" required placeholder="conseil"></textarea>
                 <input type="number" name="id" placeholder="id" required>
-                <button type="submit">MODIFIER UN USER</button>
-                <input type="hidden" name="identifiantFormulaire" value="userUpdate">
+                <button type="submit">MODIFIER UN INGREDIENT</button>
+                <input type="hidden" name="identifiantFormulaire" value="ingredientUpdate">
             </form>
         </section>
 
@@ -177,15 +170,11 @@ CODEHTML;
                             <<<CODEHTML
         <tr class="tr-$id">
             <td>$id</td>
-            <td>$email</td>
-            <td>$login</td>
-            <td>$password</td>
-            <td>$level</td>
-            <td>$dateCreation</td>
-            <td><button class="update" data-table="user" 
-                        data-id="$id" data-email="$email" data-login="$login"
-                        data-level="$level">modifier</button></td>
-            <td><button class="delete" data-table="user" data-id="$id">supprimer</button></td>
+            <td>$nom</td>
+            <td>$conseil</td>
+            <td><button class="update" data-table="ingredient" 
+                        data-id="$id" data-nom="$nom">modifier</button></td>
+            <td><button class="delete" data-table="ingredient" data-id="$id">supprimer</button></td>
         </tr>
 CODEHTML;
                     }
@@ -195,42 +184,31 @@ CODEHTML;
         </section>
 
         <section class="create">
-            <h2>FORMULAIRE CREATE SUR LA TABLE SQL content</h2>
+            <h2>FORMULAIRE CREATE SUR LA TABLE SQL recette</h2>
             <!-- ON RESTE SUR LA MEME PAGE SI ON A action="" -->
             <form action="" method="POST">
-                <input type="text" name="filename" required placeholder="filename">
                 <input type="text" name="titre" required placeholder="titre">
-                <textarea name="contenuPage" cols="60" rows="5" required placeholder="contenuPage"></textarea>
-                <input type="text" name="photo" required placeholder="photo">
-                <input type="text" name="categorie" required placeholder="categorie">
-                <input type="text" name="template" placeholder="template">
-                <input type="number" name="id_user" placeholder="id_user">
-                <button type="submit">PUBLIER UN CONTENU</button>
-                <input type="hidden" name="identifiantFormulaire" value="content">
+                <textarea name="description" cols="60" rows="5" required placeholder="description"></textarea>
+                <button type="submit">PUBLIER UNE RECETTE</button>
+                <input type="hidden" name="identifiantFormulaire" value="recette">
             </form>
         </section>
 
-        <section class="sectionContentUpdate">
-            <h2>FORMULAIRE DE UPDATE SUR LA TABLE SQL content</h2>
+        <section class="sectionRecetteUpdate">
+            <h2>FORMULAIRE DE UPDATE SUR LA TABLE SQL recette</h2>
             <!-- ON RESTE SUR LA MEME PAGE SI ON A action="" -->
-            <form class="formContentUpdate" action="" method="POST">
-                <input type="text" name="filename" required placeholder="filename">
+            <form class="formRecetteUpdate" action="" method="POST">
                 <input type="text" name="titre" required placeholder="titre">
-                <textarea name="contenuPage" cols="60" rows="5" required placeholder="contenuPage"></textarea>
-                <input type="text" name="photo" required placeholder="photo">
-                <input type="text" name="categorie" required placeholder="categorie">
-                <input type="text" name="template" placeholder="template">
+                <textarea name="description" cols="60" rows="5" required placeholder="description"></textarea>
                 <input type="number" name="id" placeholder="id" required>
-                <input type="number" name="id_user" placeholder="id_user">
-                <button type="submit">MODIFIER UN CONTENU</button>
-                <input type="hidden" name="identifiantFormulaire" value="contentUpdate">
+                <button type="submit">MODIFIER UNE RECETTE</button>
+                <input type="hidden" name="identifiantFormulaire" value="recetteUpdate">
             </form>
-
         </section>
 
         <section>
             <h2>READ SUR LA TABLE SQL recette</h2>
-            <table class="contentList">
+            <table class="recetteList">
                 <tbody>
                     <?php
                     // CODE PHP POUR RECUPERER LES LIGNES DE LA TABLE SQL content
@@ -254,20 +232,13 @@ CODEHTML;
 
                         echo
                             <<<CODEHTML
-        <tr class="$filename tr-$id">
+        <tr class="tr-$id">
             <td>$id</td>
-            <td>$filename</td>
             <td>$titre</td>
-            <td class="contenuPage">$contenuPage</td>
-            <td>$photo</td>
-            <td>$datePublication</td>
-            <td>$categorie</td>
-            <td>$template</td>
-            <td>$id_user</td>
-            <td><button class="update" data-table="content" 
-                        data-id="$id" data-filename="$filename" data-titre="$titre"
-                        data-photo="$photo" data-categorie="$categorie" data-template="$template" data-id_user="$id_user">modifier</button></td>
-            <td><button class="delete" data-table="content" data-id="$id">supprimer</button></td>
+            <td>$description</td>
+            <td><button class="update" data-table="recette" 
+                        data-id="$id" data-titre="$titre">modifier</button></td>
+            <td><button class="delete" data-table="recette" data-id="$id">supprimer</button></td>
         </tr>
 CODEHTML;
                     }

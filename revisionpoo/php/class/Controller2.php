@@ -8,10 +8,9 @@ class Controller2
 
     // ON VA COMPOSER NOTRE CLASSE AVEC LES TRAITS
     // (LES TRAITS SONT CHARGEES AVEC LA CLASSE... PAS DE GAIN DE PERFORMANCE...)
-    use 
-        //ControllerTraitContent, 
-        //ControllerTraitUser, 
-        //ControllerTraitContentUser,
+    use
+        ControllerTraitIngredient,
+        ControllerTraitRecette,
         ControllerTraitIngredientRecette,
         ControllerTraitFiltrer;
 
