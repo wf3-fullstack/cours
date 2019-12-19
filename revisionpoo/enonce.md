@@ -7,7 +7,7 @@
 ### MANY TO MANY TABLE 3 (JOINTURE)
 
 
-## SITE MARTINE POUR LES RECETTES
+## PROJET 1: SITE MARTINE POUR LES RECETTES
 
     recette
         id          INT             INDEX=PRIMARY       A_I
@@ -28,7 +28,7 @@
         quantite        VARCHAR(160)
 
 
-### SITE ECOMMERCE (LE BON COIN)
+### PROJET 2: SITE ECOMMERCE (LE BON COIN)
 
     produit
         id              INT             INDEX=PRIMARY       A_I
@@ -49,6 +49,8 @@
 
 ## CREER UNE PAGE ADMIN POUR LE CRUD
 
+    CHOISIR UN PROJET
+    
     CREER UNE PAGE ADMIN
     ET AJOUTER LES CRUD POUR LES 3 TABLES
 
