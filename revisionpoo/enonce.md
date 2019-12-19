@@ -17,8 +17,8 @@
 
     ingredient
         id          INT                 INDEX=PRIMARY       A_I
-        nom
-        description
+        nom         VARCHAR(160)
+        conseil     TEXT
         ...
 
     ingredient_recette
@@ -39,7 +39,7 @@
     photo
         id          INT                 INDEX=PRIMARY       A_I
         nom         VARCHAR(160)
-        description TEXT
+        legende     TEXT
 
     photo_produit
         id              INT             INDEX=PRIMARY       A_I
