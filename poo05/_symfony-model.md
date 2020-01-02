@@ -60,6 +60,7 @@
         proprietes                      Colonnes
 
     objets                              lignes
+
                                     User
                                         id      email           password
                                         1       toto@mail.me    1234    
@@ -140,7 +141,7 @@
                     prix                DECIMAL(10,2)
                     description         TEXT
                     image               VARCHAR(160)
-                    date_publication     DATETIME
+                    date_publication    DATETIME
 
     Entite      
         Produit     
@@ -241,5 +242,37 @@
 
     php bin/console make:crud
     ... CREE LES FICHIERS POUR LES PAGES CRUD...
+
+
+
+## THEME BOOTSTRAP POUR LES FORMULAIRES
+
+
+https://symfony.com/doc/current/forms.html#rendering-forms
+
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    form_themes: ['bootstrap_4_layout.html.twig']
+
+
+https://getbootstrap.com/docs/4.4/getting-started/introduction/
+
+    ET AJOUTER LE CODE DANS base.html.twig
+
+    POUR RENDRE LA PAGE RESPONSIVE
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    POUR CHARGER LE CSS
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    POUR CHARGER LE JS
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 
 
