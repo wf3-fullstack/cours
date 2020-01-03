@@ -10,7 +10,7 @@ https://github.com/wf3-fullstack/cours
 
 ## lien live share vendredi 03/01
 
-LIEN POUR CE VENDREDI APRES-MIDI
+LIEN POUR CE VENDREDI
 
 https://prod.liveshare.vsengsaas.visualstudio.com/join?709F7748EA571DAD2308C936EB509209F007
 
