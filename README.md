@@ -8,11 +8,11 @@ URL DU GIT
 https://github.com/wf3-fullstack/cours
 
 
-## lien live share lundi 06/01
+## lien live share mardi 07/01
 
-LIEN POUR CE LUNDI
+LIEN POUR CE MARDI
 
-https://prod.liveshare.vsengsaas.visualstudio.com/join?A301B04E5D4DB59DD40192028EB39BBBB0A3
+https://prod.liveshare.vsengsaas.visualstudio.com/join?92E1AC5E7EA8D86827591305425744408074
 
 
 ## LES CODES SONT DISPONIBLES DANS CHAQUE DOSSIER 
