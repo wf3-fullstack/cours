@@ -275,4 +275,66 @@ https://getbootstrap.com/docs/4.4/getting-started/introduction/
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 
+## LOGIN ET USER AVEC SYMFONY
 
+
+https://symfony.com/blog/new-in-makerbundle-1-8-instant-user-login-form-commands
+
+
+ON VA RECREER UNE ENTITE User AVEC LA COMMANDE 
+
+    php bin/console make:user
+
+    => REPONDRE AUX QUESTIONS (LAISSER LES VALEURS PAR DEFAUT...)
+
+    created: src/Entity/User.php
+    created: src/Repository/UserRepository.php
+    updated: src/Entity/User.php
+    updated: config/packages/security.yaml
+
+
+LES FICHIERS .yaml SONT INDENTES AVEC 4 ESPACES EXACTEMENT PAR INDENTATION
+
+
+UNE FOIS QU'ON A LA BASE POUR L'ENTITE User
+ON VA COMPLETER AVEC LE FORMULAIRE DE LOGIN
+
+    php bin/console make:auth
+
+
+Next:
+ - Customize your new authenticator.
+ - Finish the redirect "TODO" in the App\Security\LoginFormAuthenticator::onAuthenticationSuccess() method.
+ - Review & adapt the login template: templates/security/login.html.twig.
+
+
+
+ENSUITE, ON VA COMPLETER AVEC UN make:crud SUR User
+POUR POUVOIR CREER DES User
+
+    php bin/console make:crud User
+
+
+ created: src/Controller/UserController.php
+ created: src/Form/UserType.php
+ created: templates/user/_delete_form.html.twig
+ created: templates/user/_form.html.twig
+ created: templates/user/edit.html.twig
+ created: templates/user/index.html.twig
+ created: templates/user/new.html.twig
+ created: templates/user/show.html.twig
+
+
+
+IL FAUT SYNCHRONISER LA BASE DE DONNEES SQL
+
+    php bin/console make:migration     
+
+    php bin/console doctrine:migrations:migrate
+
+
+
+    SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax  
+  ; check the manual that corresponds to your MariaDB server version for the right syntax to u  
+  se near 'JSON NOT NULL, ADD password VARCHAR(255) NOT NULL, DROP username, DROP level, DR' a  
+  t line 1  
