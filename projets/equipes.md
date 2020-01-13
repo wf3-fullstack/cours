@@ -1,24 +1,24 @@
 ## PLANNING JANVIER 2020
 
-JEUDI       02/01       SYMFONY
-VENDREDI    03/01       SYMFONY
+    JEUDI       02/01       SYMFONY
+    VENDREDI    03/01       SYMFONY
 
-LUNDI       06/01       SYMFONY
-MARDI       07/01       SYMFONY
-MERCREDI    08/01       WORDPRESS
-JEUDI       09/01       WORDPRESS
-VENDREDI    10/01       WORDPRESS
+    LUNDI       06/01       SYMFONY
+    MARDI       07/01       SYMFONY
+    MERCREDI    08/01       WORDPRESS
+    JEUDI       09/01       WORDPRESS
+    VENDREDI    10/01       WORDPRESS
 
-LUNDI       13/01       SYMFONY / LONG HAI
-MERCREDI    15/01       Fred
-VENDREDI    17/01       PROJET SYMFONY  / LONG HAI
+    LUNDI       13/01       SYMFONY / LONG HAI
+    MERCREDI    15/01       Fred
+    VENDREDI    17/01       PROJET SYMFONY  / LONG HAI
 
-LUNDI       20/01       ...
-MARDI       21/01       ...
-JEUDI       23/01       PROJET SYMFONY / LONG HAI
-VENDREDI    24/01       PROJET SYMFONY / LONG HAI
+    LUNDI       20/01       ...
+    MARDI       21/01       ...
+    JEUDI       23/01       PROJET SYMFONY / LONG HAI
+    VENDREDI    24/01       PROJET SYMFONY / LONG HAI
 
-LUNDI       27/01       SOUTENANCE
+    LUNDI       27/01       SOUTENANCE
 
 
 
@@ -60,7 +60,7 @@ LUNDI       27/01       SOUTENANCE
     EQUIPE B    09H30
     EQUIPE C    10H30
     EQUIPE D    10H00
-    EQUIPE E    ???
+    EQUIPE E    14H00
 
 
 
