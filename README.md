@@ -12,7 +12,7 @@ https://github.com/wf3-fullstack/cours
 
 LIEN POUR CE LUNDI
 
-https://prod.liveshare.vsengsaas.visualstudio.com/join?031E130E27B55E14BDEF1BBF2A50A149F18A
+https://prod.liveshare.vsengsaas.visualstudio.com/join?88ACC50DB25F9358E47D1DE15AAC9CC4A295
 
 
 ## LES CODES SONT DISPONIBLES DANS CHAQUE DOSSIER 
