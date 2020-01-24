@@ -212,3 +212,9 @@ OUVRIR TERMINAL DANS VSCODE
             App\Entity\User:
                 algorithm: bcrypt
 
+
+## CONNEXION A L'HEBERGEMENT AVEC WEBDAV ET WINDOWS10
+
+https://contact.ionos.fr/concerns/webhosting#open-flyin:https://www.ionos.fr/assistance/hebergement/configurer-et-gerer-lacces-webdav/configurer-webdav-sous-windows-8-et-windows-10/;
+
+
