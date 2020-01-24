@@ -83,14 +83,19 @@
     EQUIPE D    11H00   / VOLLEY WOOD   PASCAL, FRANCK, JEROME, ARNAUD
     EQUIPE E    ?       / CFA COROT     NIDAL, RAED, KAMEL, FOUAD
 
+
+
 ## LUNDI 27: SOUTENANCE
 
-    10H00       EQUIPE B / ADRIEN, ERIC, JULIEN
-    10H30       EQUIPE C / CEREMA
-    11H00       EQUIPE A / VOLLEY WOOD
+    10H00       EQUIPE B / BASKET        ADRIEN, ERIC, JULIEN
+    10H30       EQUIPE C / CEREMA        AMINA, DELHIA, FLORENT
+    11H00       EQUIPE A / VOLLEY WOOD   PASCAL, FRANCK, JEROME, ARNAUD
     11H30       (PAUSE)
-    12H30       EQUIPE E / CFA COROT
-    13H00       EQUIPE D / SCF
+    12H30       EQUIPE E / CFA COROT     NIDAL, RAED, KAMEL, FOUAD
+    13H00       EQUIPE D / SCF           STEEVE, LUCAS, LAURENCE, MARIAMA
+
+
+
 
 
 ## EQUIPES DE PROJETS
@@ -151,3 +156,59 @@
     STATE OF JS 2019
 
     https://2019.stateofjs.com/
+
+
+## HEBERGEMENT IONOS
+
+CONSEIL: VIDER LE DOSSIER var/cache
+
+Serveur / Host:
+access814512779.webspace-data.io
+
+Port:
+22
+
+Protocole:
+SFTP
+
+Nom d'utilisateur:
+u99829497
+
+Mot de passe:
+xxx
+
+Notes personnelles:
+Utilisateur principal du SFTP et du SSH
+Dossier:
+/.
+
+POUR ACCES SSH
+OUVRIR TERMINAL DANS VSCODE
+
+    ssh u99829497@access814512779.webspace-data.io
+
+    ENSUITE ACCEPTER 
+    ET DONNER MOT DE PASSE...
+
+
+    A LA PLACE DE PHPMYADMIN, ON PEUT UTILISER ADMINER
+    https://coderpro.fr/adminer.php
+
+    ET ENTRER LES IDENTIFIANTS DE BASE DE DONNEES...
+    => ENSUITE IMPORTER LE CODE SQL...
+
+
+
+### PROBLEME DE LOGIN
+
+    SI LE LOGIN NE FONCTIONNE PLUS 
+    (invalid credentials...)
+    CHANGER LA CONFIG DE auto A bcrypt
+    DANS LE FICHIER 
+    config/packages/security.yaml
+
+    security:
+        encoders:
+            App\Entity\User:
+                algorithm: bcrypt
+
